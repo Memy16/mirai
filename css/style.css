@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: economica;
+    src: url(../assets/fonts/Economica-Regular.ttf);
+}
+
+@font-face {
+    font-family: economica-bold;
+    src: url(../assets/fonts/Economica-Bold.ttf);
+}
+
+@font-face {
+    font-family: economica-bold-italic;
+    src: url(../assets/fonts/Economica-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: economica-italic;
+    src: url(../assets/fonts/Economica-Italic.ttf);
+}
+
+main {
+    margin: 25px;
+}
+
+.nav-inicio {
+    background-color: #E5E8F5;
+    border-radius: 10px;
+}
+
+.form-check {
+    padding: 10px 0 10px 0;
+    margin-left: 5px;
+}
+
+.btn-primary {
+    margin-bottom: 10px;
+}
