@@ -1,4 +1,4 @@
-// JavaScript para manejar el menú hamburguesa
+// JavaScript para manejar el menú hamburguesa 
 
 document.addEventListener('DOMContentLoaded', () => {
     const navbarToggle = document.getElementById('navbarToggle');
