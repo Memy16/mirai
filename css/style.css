@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,13 +24,198 @@
     src: url(../assets/fonts/Economica-Italic.ttf);
 }
 
-main {
+.main-login {
     margin: 25px;
 }
 
 .nav-inicio {
     background-color: #E5E8F5;
     border-radius: 10px;
+}
+
+/*Carrusel del inicio*/
+#carrusel1-contenido {
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: left;
+    width: 100%;
+}
+
+#carrusel1-caja {
+    animation: automatizacion 20s infinite linear;
+    -webkit-animation: automatizacion 20s infinite linear;
+    -moz-animation: automatizacion 20s infinite linear;
+
+    transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -ms-transition: all 0.75s ease;
+    -o-transition: all 0.75s ease;
+
+    width: 600%;
+    height: 500px;
+}
+
+.carrusel1-elemento {
+    float: left;
+    width: 16.6667%;
+}
+
+.img-carrusel1 {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Animaciones para 6 imágenes */
+@keyframes automatizacion {
+    0% {
+        margin-left: 0%;
+    }
+
+    16% {
+        margin-left: 0%;
+    }
+
+    17% {
+        margin-left: -100%;
+    }
+
+    33% {
+        margin-left: -100%;
+    }
+
+    34% {
+        margin-left: -200%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    51% {
+        margin-left: -300%;
+    }
+
+    67% {
+        margin-left: -300%;
+    }
+
+    68% {
+        margin-left: -400%;
+    }
+
+    84% {
+        margin-left: -400%;
+    }
+
+    85% {
+        margin-left: -500%;
+    }
+
+    100% {
+        margin-left: -500%;
+    }
+}
+
+@-webkit-keyframes automatizacion {
+    0% {
+        margin-left: 0%;
+    }
+
+    16% {
+        margin-left: 0%;
+    }
+
+    17% {
+        margin-left: -100%;
+    }
+
+    33% {
+        margin-left: -100%;
+    }
+
+    34% {
+        margin-left: -200%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    51% {
+        margin-left: -300%;
+    }
+
+    67% {
+        margin-left: -300%;
+    }
+
+    68% {
+        margin-left: -400%;
+    }
+
+    84% {
+        margin-left: -400%;
+    }
+
+    85% {
+        margin-left: -500%;
+    }
+
+    100% {
+        margin-left: -500%;
+    }
+}
+
+@-moz-keyframes automatizacion {
+    0% {
+        margin-left: 0%;
+    }
+
+    16% {
+        margin-left: 0%;
+    }
+
+    17% {
+        margin-left: -100%;
+    }
+
+    33% {
+        margin-left: -100%;
+    }
+
+    34% {
+        margin-left: -200%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    51% {
+        margin-left: -300%;
+    }
+
+    67% {
+        margin-left: -300%;
+    }
+
+    68% {
+        margin-left: -400%;
+    }
+
+    84% {
+        margin-left: -400%;
+    }
+
+    85% {
+        margin-left: -500%;
+    }
+
+    100% {
+        margin-left: -500%;
+    }
 }
 
 .form-check {
@@ -40,4 +225,25 @@ main {
 
 .btn-primary {
     margin-bottom: 10px;
+}
+
+/*Responsive*/
+@media (max-width: 768px) {
+    #carrusel1-caja {
+        height: 350px;
+    }
+
+    .img-carrusel1 {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    #carrusel1-caja {
+        height: 250px;
+    }
+
+    .img-carrusel1 {
+        height: 250px;
+    }
 }
