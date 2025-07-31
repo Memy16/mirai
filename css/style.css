@@ -24,6 +24,11 @@
     src: url(../assets/fonts/Economica-Italic.ttf);
 }
 
+.logo {
+    width: 50px;
+    height: auto;
+}
+
 .main-login {
     margin: 25px;
 }
@@ -67,7 +72,7 @@
     object-fit: cover;
 }
 
-/* Animaciones para 6 imágenes */
+/* Animaciones para las imágenes del index*/
 @keyframes automatizacion {
     0% {
         margin-left: 0%;
