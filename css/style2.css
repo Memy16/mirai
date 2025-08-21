@@ -14,27 +14,27 @@
     border-bottom: 10px solid #EEB810;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; 
     padding: 0 20px;
+    gap: 7rem;
 }
 
 .header .logo {
     width: 50px;
     height: auto;
-    justify-content: space-between;
 }
 
 /* menú a la izquierda */
 .horarios,
 .eventos_cl,
 .manual {
-    position: relative;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 20px;
     color: #FFFFFF;
-    margin-left: 20px; 
+    margin-right: -3rem; 
 }
+
 /* ===== HERO ===== */
 .hero {
   position: relative;
@@ -123,4 +123,123 @@
   font-size: 20px;
   font-weight: 600;
   color: #000;
+}
+
+.light_mode {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 690px; 
+  background: #1E1E1E;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.light_mode img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.button-header {
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  top: 10px;
+  background: #9AB4FF;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-header h1 {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.register {
+  left: 830px;
+}
+
+.login {
+  left: 985px;
+}
+
+.profile {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 1180px;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.profile img {
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+/* DARK MODE */
+.dark-mode {
+  background-color: #121212;
+  color: #FFFFFF;
+}
+
+/* Header dark */
+.dark-mode .header {
+  background: #1E1E1E;
+  border-bottom: 10px solid #EEB810;
+}
+
+/* Hero dark */
+.dark-mode .hero {
+  background: url("../img/imagen-its-prueba1.png") no-repeat center/cover;
+  filter: brightness(0.7);
+}
+
+/* Eventos dark */
+.dark-mode .evento {
+  background: #333333;
+}
+
+.dark-mode .evento-titulo,
+.dark-mode .evento-desc {
+  color: #FFFFFF;
+}
+
+/* Grid dark */
+.dark-mode .grid-item {
+  background-color: rgba(30, 30, 30, 0.7);
+  color: #FFFFFF;
+}
+
+.dark-mode .light_mode {
+  background: #F8DB5B;
 }

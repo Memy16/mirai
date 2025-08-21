@@ -13,8 +13,36 @@
     <a class="navbar-brand" href="./index.html"><img src="./assets/img/klasso-logo.png" alt="logo de Klasso" class="logo"></a>
     <h1 class="horarios">HORARIOS</h1>
     <h1 class="eventos_cl">EVENTOS</h1>
-    <h1 class="manual">MANUAL DE USUARIO</h1>
+    <h1 class="manual">MANUAL DE<br>USUARIO</h1>
+    <h1 class="light_mode"><img src="./assets/modes/moon_stars.png" alt="light_mode"></h1>
+    <button class="button-header register"><h1>Registrarse</h1></button>
+    <button class="button-header login"><h1>INICIAR SESIÓN</h1></button>
+    <h1 class="profile"><img src="./assets/img/profile.png"></h1>
   </header>
+
+  <!-- HERO IMAGE -->
+  <div id="carrusel1-contenido">
+        <div id="carrusel1-caja">
+            <div class="carrusel1-elemento">
+                <img class="img-carrusel1" src="https://i.ibb.co/xqVQ1t55/imagen-its-prueba1.png">
+            </div>
+            <div class="carrusel1-elemento">
+                <img class="img-carrusel1" src="https://i.ibb.co/JjS5YVrL/imagen-its-prueba2.png">
+            </div>
+            <div class="carrusel1-elemento">
+                <img class="img-carrusel1" src="https://i.ibb.co/FqVLgc05/imagen-its-prueba3.png">
+            </div>
+            <div class="carrusel1-elemento">
+                <img class="img-carrusel1" src="https://i.ibb.co/R4P4Prh5/imagen-its-prueba4.png">
+            </div>
+            <div class="carrusel1-elemento">
+                <img class="img-carrusel1" src="https://i.ibb.co/1Gd6tcyn/imagen-its-prueba5.png">
+            </div>
+            <div class="carrusel1-elemento">
+                <img class="img-carrusel1" src="https://i.ibb.co/8DQ65WbJ/imagen-its-prueba6.png">
+            </div>
+        </div>
+  </div>
 
   <div class="grids-container">
     <div class="grid-item">1</div>
@@ -27,12 +55,6 @@
     <div class="grid-item">8</div>
   </div>
 
-  <!-- HERO IMAGE -->
-  <section class="hero">
-    <div class="ellipse"></div>
-    <img src="img/image.png" alt="Logo ITS" class="logo-its">
-  </section>
-
   <!-- EVENTO 1 -->
   <section class="evento">
     <div class="evento-titulo">Jornada Sanducera de Tecnología y Programación</div>
@@ -42,6 +64,21 @@
       charlas de egresados y empresas locales de IT.
     </p>
   </section>
+
+  <script>
+    const lightBtn = document.querySelector('.light_mode');
+
+    lightBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      const img = lightBtn.querySelector('img');
+      if(document.body.classList.contains('dark-mode')) {
+        img.src = './assets/modes/clear_day.png';
+      } else {
+        img.src = './assets/modes/moon_stars.png';
+      }
+    });
+  </script>
 
 </body>
 </html>
