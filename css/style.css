@@ -1,35 +1,28 @@
+:root {
+    --negro: #1E1E1E;
+    --amarillooscuro: #A87B04;
+    --amarillo: #EEB810;
+    --amarilloclaro: #F8DB5B;
+    --beige: #FFFF93;
+    --blanco: #FFFFFF;
+    --indigoclaro: #9AB4FF;
+    --indigo: #607EC9;
+    --azul: #1C4C96;
+    --azuloscuro: #062863;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: economica;
-    src: url(../assets/fonts/Economica-Regular.ttf);
-}
-
-@font-face {
-    font-family: economica-bold;
-    src: url(../assets/fonts/Economica-Bold.ttf);
-}
-
-@font-face {
-    font-family: economica-bold-italic;
-    src: url(../assets/fonts/Economica-BoldItalic.ttf);
-}
-
-@font-face {
-    font-family: economica-italic;
-    src: url(../assets/fonts/Economica-Italic.ttf);
-}
-
 .navbar {
     position: relative !important;
     width: 100% !important;
     height: 90px !important;
-    background: #1C4C96 !important;
-    border-bottom: 10px solid #EEB810 !important;
+    background: var(--azul) !important;
+    border-bottom: 10px solid var(--amarillo) !important;
     display: flex !important;
     align-items: center !important;
 }
@@ -65,7 +58,7 @@
 }
 
 .navbar-nav .nav-link {
-    color: white !important;
+    color: var(--blanco) !important;
     font-weight: 500 !important;
     font-size: 16px !important;
     padding: 0.5rem 1rem !important;
@@ -74,18 +67,18 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #EEB810 !important;
+    color: var(--amarillo) !important;
     transform: translateY(-1px);
 }
 
 .navbar-nav .nav-link.active {
-    color: #EEB810 !important;
+    color: var(--amarillo) !important;
     font-weight: 600 !important;
 }
 
 .nav-inicio .nav-link {
-    background-color: #9AB4FF !important;
-    color: white !important;
+    background-color: var(--indigoclaro) !important;
+    color: var(--blanco) !important;
     border-radius: 10px !important;
     padding: 0.8rem 1.5rem !important;
     font-weight: 600 !important;
@@ -93,8 +86,8 @@
 }
 
 .nav-inicio .nav-link:hover {
-    background-color: #7A9AFF !important;
-    color: white !important;
+    background-color: var(--indigo) !important;
+    color: var(--blanco) !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -114,7 +107,7 @@
     position: relative !important;
     width: 60px !important;
     height: 60px !important;
-    background: #1E1E1E !important;
+    background: var(--negro) !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
@@ -164,33 +157,33 @@
 }
 
 .dark-mode {
-    background-color: #1E1E1E !important;
-    color: #FFFFFF !important;
+    background-color: var(--negro) !important;
+    color: var(--blanco) !important;
 }
 
 .dark-mode .navbar {
-    background: #1E1E1E !important;
+    background: var(--negro) !important;
     border-bottom: 10px solid #F8DB5B !important;
 }
 
 .dark-mode .grid-item {
-    background-color: #1E1E1E !important;
-    color: #FFFFFF !important;
+    background-color: var(--negro) !important;
+    color: var(--blanco) !important;
     filter: brightness(0.7);
 }
 
 .dark-mode .light_mode {
-    background: #F8DB5B !important;
+    background: var(--amarilloclaro) !important;
 }
 
 .dark-mode .grid-item {
-    background-color: #1E1E1E !important;
-    color: #FFFFFF !important;
+    background-color: var(--negro) !important;
+    color: var(--blanco) !important;
     filter: brightness(0.7);
 }
 
 .dark-mode .nav-inicio .nav-link {
-    background-color: #6A7FDB !important;
+    background-color: var(--indigo) !important;
 }
 
 .navbar-toggler {
@@ -207,7 +200,7 @@
 }
 
 .nav-inicio {
-    background-color: #9AB4FF;
+    background-color: var(--indigoclaro);
     border-radius: 10px;
 }
 
@@ -403,7 +396,7 @@
 
 .btn-primary {
     margin-bottom: 10px;
-    background-color: #EEB810 !important;
+    background-color: var(--amarillo) !important;
 }
 
 .input-login {
@@ -456,10 +449,10 @@
         height: 60px !important;
         margin: 0 !important;
     }
-  
+
     .profile img {
         border-radius: 50% !important;
-        border: 2px solid white !important;
+        border: 2px solid var(--blanco) !important;
     }
     
     .navbar-nav {
@@ -468,7 +461,7 @@
         width: 100% !important;
         align-items: stretch !important;
     }
-  
+
     .navbar-nav .nav-item {
         width: 100% !important;
         text-align: left !important;
@@ -482,7 +475,7 @@
         padding: 0 !important;
         border-radius: 0 !important;
         transition: all 0.3s ease !important;
-        color: white !important;
+        color: var(--blanco) !important;
         font-size: 18px !important;
         font-weight: 500 !important;
         text-transform: uppercase !important;
@@ -491,50 +484,50 @@
 
     .navbar-nav .nav-link:hover {
         background-color: transparent !important;
-        color: #EEB810 !important;
+        color: var(--amarillo) !important;
         transform: none !important;
     }
 
     .navbar-nav .nav-link.active {
-        color: #EEB810 !important;
+        color: var(--amarillo) !important;
         font-weight: 600 !important;
     }
     
     /* Estilos específicos para los botones de "Iniciar Sesión" y "Regístrate" */
     .nav-inicio:first-of-type .nav-link {
-        background-color: #9AB4FF !important;
-        color: white !important;
-        padding: 0.8rem 2rem !important; /* Más padding para verse mejor */
-        border-radius: 25px !important; /* Más redondeado */
+        background-color: var(--indigoclaro) !important;
+        color: var(--blanco) !important;
+        padding: 0.8rem 2rem !important; 
+        border-radius: 25px !important; 
         text-align: center !important;
-        width: 100% !important; /* Ocupar todo el ancho disponible */
+        width: 100% !important; 
         margin: 0.5rem 0 !important;
         text-transform: none !important;
         font-weight: 600 !important;
-        font-size: 16px !important; /* Tamaño de fuente consistente */
+        font-size: 16px !important; 
     }
     
     .nav-inicio:first-of-type .nav-link:hover {
-        background-color: #7A9AFF !important;
-        color: white !important;
+        background-color: var(--indigo) !important;
+        color: var(--blanco) !important;
     }
 
     .nav-inicio:last-of-type .nav-link {
-        background-color: #9AB4FF !important;
-        color: white !important;
-        padding: 0.8rem 2rem !important; /* Mismo padding */
-        border-radius: 25px !important; /* Mismo border radius */
+        background-color: var(--indigoclaro) !important;
+        color: var(--blanco) !important;
+        padding: 0.8rem 2rem !important; 
+        border-radius: 25px !important; 
         text-align: center !important;
-        width: 100% !important; /* Mismo ancho */
+        width: 100% !important; 
         margin: 0.5rem 0 !important;
         text-transform: none !important;
         font-weight: 600 !important;
-        font-size: 16px !important; /* Mismo tamaño de fuente */
+        font-size: 16px !important; 
     }
 
     .nav-inicio:last-of-type .nav-link:hover {
-        background-color: #7A9AFF !important;
-        color: white !important;
+        background-color: var(--indigo) !important;
+        color: var(--blanco) !important;
     }
 
     .navbar-nav {
@@ -550,8 +543,8 @@
         display: flex !important;
         justify-content: flex-start !important;
         align-items: center !important;
-        margin-bottom: 0.5rem !important; /* Reducir margen para estar más cerca */
-        width: auto !important; /* Ancho automático */
+        margin-bottom: 0.5rem !important; 
+        width: auto !important; 
     }
     
     .navbar-nav li:has(.gtranslate_wrapper) {
@@ -559,10 +552,10 @@
         display: flex !important;
         justify-content: flex-start !important;
         align-items: center !important;
-        margin-left: 2rem !important; /* Espacio horizontal entre iconos */
-        margin-top: -2.7rem !important; /* Mover hacia arriba para estar en la misma línea */
+        margin-left: 2rem !important; 
+        margin-top: -2.7rem !important; 
         margin-bottom: 0.5rem !important;
-        width: auto !important; /* Ancho automático */
+        width: auto !important; 
     }
     
     .light_mode {
