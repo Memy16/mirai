@@ -397,195 +397,190 @@
 }
 
 .form-check {
-    padding: 10px 0 10px 0;
+    padding: 10px 0 20px 0;
     margin-left: 5px;
 }
 
 .btn-primary {
     margin-bottom: 10px;
+    background-color: #EEB810 !important;
+}
+
+.input-login {
+    padding-right: 45px;
 }
 
 /*Responsive*/
-
-
-
 @media (max-width: 768px) {
-  .navbar {
-    height: auto !important;
-    padding: 1rem 15px !important;
-    flex-wrap: wrap !important;
-  }
-  
-  .navbar .container-fluid {
-    justify-content: space-between !important;
-  }
-  
-  /* Menú hamburguesa visible */
-  .navbar-toggler {
-    display: block !important;
-    order: 2 !important;
-  }
-  
-  .navbar-brand {
-    order: 1 !important;
-  }
-  
-  /* Contenido del menú colapsable - mantener estilo original */
-  .navbar-collapse {
-    order: 3 !important;
-    width: 100% !important;
-    margin-top: 1rem !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-    padding: 1rem 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-  
-  /* Perfil en la parte superior del menú */
-  .navbar-nav li:has(.profile) {
-    order: -1 !important;
-    margin-bottom: 1.5rem !important;
-    padding-bottom: 1rem !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-    display: flex !important;
-    justify-content: flex-start !important;
-  }
-  
-  .profile {
-    width: 60px !important;
-    height: 60px !important;
-    margin: 0 !important;
-  }
-  
-  .profile img {
-    border-radius: 50% !important;
-    border: 2px solid white !important;
-  }
-  
-  /* Navegación vertical */
-  .navbar-nav {
-    flex-direction: column !important;
-    gap: 0 !important;
-    width: 100% !important;
-    align-items: stretch !important;
-  }
-  
-  .navbar-nav .nav-item {
-    width: 100% !important;
-    text-align: left !important;
-    white-space: normal !important;
-    border-bottom: none !important;
-    padding: 0 !important;
-    margin-bottom: 1.2rem !important;
-  }
-  
-  /* Enlaces principales */
-  .navbar-nav .nav-link {
-    padding: 0 !important;
-    border-radius: 0 !important;
-    transition: all 0.3s ease !important;
-    color: white !important;
-    font-size: 18px !important;
-    font-weight: 500 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    background-color: transparent !important;
-    color: #EEB810 !important;
-    transform: none !important;
-  }
-  
-  .navbar-nav .nav-link.active {
-    color: #EEB810 !important;
-    font-weight: 600 !important;
-  }
-  
-  /* Botones de registro e iniciar sesión - como en desktop */
-  .nav-inicio:first-of-type .nav-link {
-    background-color: #9AB4FF !important;
-    color: white !important;
-    padding: 0.8rem 2rem !important; /* Más padding para verse mejor */
-    border-radius: 25px !important; /* Más redondeado */
-    text-align: center !important;
-    width: 100% !important; /* Ocupar todo el ancho disponible */
-    margin: 0.5rem 0 !important;
-    text-transform: none !important;
-    font-weight: 600 !important;
-    font-size: 16px !important; /* Tamaño de fuente consistente */
-  }
-  
-  
-  .nav-inicio:first-of-type .nav-link:hover {
-    background-color: #7A9AFF !important;
-    color: white !important;
-  }
-  
-  .nav-inicio:last-of-type .nav-link {
-    background-color: #9AB4FF !important;
-    color: white !important;
-    padding: 0.8rem 2rem !important; /* Mismo padding */
-    border-radius: 25px !important; /* Mismo border radius */
-    text-align: center !important;
-    width: 100% !important; /* Mismo ancho */
-    margin: 0.5rem 0 !important;
-    text-transform: none !important;
-    font-weight: 600 !important;
-    font-size: 16px !important; /* Mismo tamaño de fuente */
-  }
-  
-  .nav-inicio:last-of-type .nav-link:hover {
-    background-color: #7A9AFF !important;
-    color: white !important;
-  }
-  
-  .navbar-nav {
-    flex-direction: column !important;
-    gap: 0 !important;
-    width: 100% !important;
-    align-items: stretch !important;
-  }
-  
-  /* Separar modo oscuro y traductor correctamente */
-  .navbar-nav li:has(.light_mode) {
-    order: 10 !important;
-    display: flex !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    margin-bottom: 0.5rem !important; /* Reducir margen para estar más cerca */
-    width: auto !important; /* Ancho automático */
-  }
-  
-    .navbar-nav li:has(.gtranslate_wrapper) {
-    order: 11 !important;
-    display: flex !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    margin-left: 2rem !important; /* Espacio horizontal entre iconos */
-    margin-top: -2.7rem !important; /* Mover hacia arriba para estar en la misma línea */
-    margin-bottom: 0.5rem !important;
-    width: auto !important; /* Ancho automático */
-  }
-  
-  
-  .light_mode {
-    width: 40px !important;
-    height: 40px !important;
-    margin: 0 !important;
-  }
-  
-  .gtranslate_wrapper {
-    margin: 0 !important;
-    justify-content: flex-start !important;
-  }
-  
-  .logo {
-    width: 40px !important;
-  }
+    .navbar {
+        height: auto !important;
+        padding: 1rem 15px !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .navbar .container-fluid {
+        justify-content: space-between !important;
+    }
 
-  #carrusel1-caja {
+  /* Menú hamburguesa */
+    .navbar-toggler {
+        display: block !important;
+        order: 2 !important;
+    }
+
+    .navbar-brand {
+        order: 1 !important;
+    }
+    
+    .navbar-collapse {
+        order: 3 !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
+        border-radius: 0 !important;
+        padding: 1rem 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+    
+    .navbar-nav li:has(.profile) {
+        order: -1 !important;
+        margin-bottom: 1.5rem !important;
+        padding-bottom: 1rem !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+
+    .profile {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 !important;
+    }
+  
+    .profile img {
+        border-radius: 50% !important;
+        border: 2px solid white !important;
+    }
+    
+    .navbar-nav {
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+  
+    .navbar-nav .nav-item {
+        width: 100% !important;
+        text-align: left !important;
+        white-space: normal !important;
+        border-bottom: none !important;
+        padding: 0 !important;
+        margin-bottom: 1.2rem !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0 !important;
+        border-radius: 0 !important;
+        transition: all 0.3s ease !important;
+        color: white !important;
+        font-size: 18px !important;
+        font-weight: 500 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: transparent !important;
+        color: #EEB810 !important;
+        transform: none !important;
+    }
+
+    .navbar-nav .nav-link.active {
+        color: #EEB810 !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Estilos específicos para los botones de "Iniciar Sesión" y "Regístrate" */
+    .nav-inicio:first-of-type .nav-link {
+        background-color: #9AB4FF !important;
+        color: white !important;
+        padding: 0.8rem 2rem !important; /* Más padding para verse mejor */
+        border-radius: 25px !important; /* Más redondeado */
+        text-align: center !important;
+        width: 100% !important; /* Ocupar todo el ancho disponible */
+        margin: 0.5rem 0 !important;
+        text-transform: none !important;
+        font-weight: 600 !important;
+        font-size: 16px !important; /* Tamaño de fuente consistente */
+    }
+    
+    .nav-inicio:first-of-type .nav-link:hover {
+        background-color: #7A9AFF !important;
+        color: white !important;
+    }
+
+    .nav-inicio:last-of-type .nav-link {
+        background-color: #9AB4FF !important;
+        color: white !important;
+        padding: 0.8rem 2rem !important; /* Mismo padding */
+        border-radius: 25px !important; /* Mismo border radius */
+        text-align: center !important;
+        width: 100% !important; /* Mismo ancho */
+        margin: 0.5rem 0 !important;
+        text-transform: none !important;
+        font-weight: 600 !important;
+        font-size: 16px !important; /* Mismo tamaño de fuente */
+    }
+
+    .nav-inicio:last-of-type .nav-link:hover {
+        background-color: #7A9AFF !important;
+        color: white !important;
+    }
+
+    .navbar-nav {
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+
+  /* Separar modo oscuro y traductor */
+    .navbar-nav li:has(.light_mode) {
+        order: 10 !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        margin-bottom: 0.5rem !important; /* Reducir margen para estar más cerca */
+        width: auto !important; /* Ancho automático */
+    }
+    
+    .navbar-nav li:has(.gtranslate_wrapper) {
+        order: 11 !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        margin-left: 2rem !important; /* Espacio horizontal entre iconos */
+        margin-top: -2.7rem !important; /* Mover hacia arriba para estar en la misma línea */
+        margin-bottom: 0.5rem !important;
+        width: auto !important; /* Ancho automático */
+    }
+    
+    .light_mode {
+        width: 40px !important;
+        height: 40px !important;
+        margin: 0 !important;
+    }
+
+    .gtranslate_wrapper {
+        margin: 0 !important;
+        justify-content: flex-start !important;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    #carrusel1-caja {
         height: 350px;
     }
     
