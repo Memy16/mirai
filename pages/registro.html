@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+    <title>Registro</title>
+    <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+
 </head>
 
 <body>
@@ -70,10 +74,53 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="main-login">
+  <form>
+    <fieldset>
+        <!-- NOMBRE -->
+        <div>
+            <label for="nombre" class="form-label mt-4">Nombre</label>
+            <input type="text" class="form-control input-login" id="nombre" placeholder="Ingrese su nombre" required>
+        </div>
 
-    </main>
-    <footer>
+        <!-- APELLIDO -->
+        <div>
+            <label for="apellido" class="form-label mt-4">Apellido</label>
+            <input type="text" class="form-control input-login" id="apellido" placeholder="Ingrese su apellido" required>
+        </div>
+
+        <!-- EMAIL -->
+         <br>
+        <div class="row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Ingrese su email" required>
+            </div>
+        </div>
+
+        <!-- CÉDULA -->
+        <div>
+            <label for="ci" class="form-label mt-4">Cédula</label>
+            <input type="number" class="form-control input-login" id="ci" placeholder="Ingrese su cédula" required>
+            <small id="ciHelp" class="form-text text-muted">Nunca compartiremos sus datos con nadie más.</small>
+        </div>
+
+        <!-- ROL -->
+        <div>
+            <label for="rol" class="form-label mt-4">Rol</label>
+            <select class="form-select" id="rol" required>
+                <option value="">Seleccione su rol</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="profesor">Profesor</option>
+                <option value="administrador">Administrador</option>
+            </select>
+        </div>
+
+        <!-- BOTÓN -->
+        <button type="submit" class="btn btn-primary btn-login mt-3 btn-registo1 ">Iniciar Sesión</button>
+    </fieldset>
+</form>
+      
 
     </footer>
     <script src="../JS/app.js"></script>
