@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+h2 {
+    margin: 1.5625rem;
+    padding-top: .625rem;
+}
 .navbar {
     position: relative !important;
     width: 100% !important;
@@ -291,40 +295,40 @@
     right: 300px;
 }
 
-.agenda{
-      display: grid;
-      grid-template-columns: 120px repeat(5, 1fr); /* Columna horas + 5 días */
-      grid-template-rows: 55px repeat(8, 70px);   /* Cabecera + 8 filas */
-      gap: 8px;
-    }
+.agenda {
+    display: grid;
+    grid-template-columns: 120px repeat(5, 1fr); /* Columna horas + 5 días */
+    grid-template-rows: 55px repeat(8, 70px);   /* Cabecera + 8 filas */
+    gap: 8px;
+}
 
     
-    .agenda-topagenda {
-      background: #1e3a8a;
-      color: white;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 6px;
-    }
+.agenda-topagenda {
+    background: #1e3a8a;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
 
     /* Columna horas */
-    .agenda-hora {
-      background: #fbbf24;
-      display: grid;
-      grid-template-rows: 1fr 1fr; /* agenda-entrada y agenda-salida */
-      border-radius: 6px;
-      overflow: hidden;
-    }
+.agenda-hora {
+    background: #fbbf24;
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* agenda-entrada y agenda-salida */
+    border-radius: 6px;
+    overflow: hidden;
+}
 
-    .agenda-entrada, .agenda-salida {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 15px;
-      border-top: 1px solid rgba(0,0,0,0.2);
-    }
+.agenda-entrada, .agenda-salida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
 
     .agenda-entrada {
       background: #F8DB5B;
@@ -508,6 +512,140 @@
     padding-right: 45px;
 }
 
+/*Eventos inicio*/
+.card {
+    background-color: var(--blanco);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.carrusel .card {
+    width: auto !important;   
+    max-width: none !important;
+    flex: 0 0 calc((100% - 2 * 16px) / 3);
+    display: flex;
+    flex-direction: column;
+}
+
+.carrusel .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 75rem;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carrusel-track {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;  
+    transition: transform 0.4s ease-in-out;
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+}
+
+.carrusel-btn img {
+    width: 44px;  /* ajusta tamaño de la flecha */
+    height: 44px;
+    display: block;
+    filter: none;
+}
+
+.carrusel-btn.prev {
+    left: 10px;
+}
+.carrusel-btn.next {
+    right: 10px;
+}
+
+/*footer*/
+footer {
+    background: var(--amarilloclaro);
+    color: var(--blanco);
+    padding: 30px 0 15px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+    
+.footer-links {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--azuloscuro);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+    
+.footer-links a:hover {
+    color: var(--blanco);
+    text-decoration: underline;
+}
+    
+.footer-social {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 10px;
+}
+    
+.footer-social img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1) grayscale(0.2);
+    transition: filter 0.2s, transform 0.2s;
+}
+    
+.footer-social a:hover img {
+    filter: brightness(1) invert(0) drop-shadow(0 0 6px #66aaff);
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.copyright {
+    font-size: 0.95em;
+    color: var(--azul);
+    margin: 0;
+}
+
 /*Responsive*/
 @media (max-width: 768px) {
     .navbar {
@@ -684,6 +822,19 @@
     
     .img-carrusel1 {
         height: 350px;
+    }
+
+    .footer-container {
+        gap: 10px;
+    }
+
+    .footer-links {
+    gap: 16px;
+    flex-direction: column;
+    }
+
+    .footer-social {
+        gap: 12px;
     }
 }
 
