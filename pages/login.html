@@ -79,15 +79,16 @@
             <fieldset>
                 <div>
                     <label for="exampleInputEmail1" class="form-label mt-4">Cédula</label>
-                    <input type="number" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Ingrese su email" fdprocessedid="wh7em" required>
+                    <input type="text" class="form-control input-login" id="cedula" name="cedula"
+                        aria-describedby="emailHelp" placeholder="Ingrese la cédula de identidad"
+                        pattern="[0-9]{1}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{1}" fdprocessedid="wh7em" required>
                     <small id="emailHelp" class="form-text text-muted">Nunca compartiremos sus datos con
                         nadie más.</small>
                 </div>
                 <div>
                     <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
-                    <input type="password" class="form-control input-login" id="exampleInputPassword1" placeholder="Contraseña"
-                        autocomplete="off" fdprocessedid="leq0no" required>
+                    <input type="password" class="form-control input-login" id="exampleInputPassword1"
+                        placeholder="Contraseña" autocomplete="off" fdprocessedid="leq0no" required>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
@@ -101,7 +102,17 @@
         <small class="form-text text-muted">¿Olvidaste tu contraseña? <a href="#">Haz clic aquí</a></small>
     </main>
     <footer>
-
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="preguntasfrecuentes.html">Preguntas Frecuentes</a>
+                <a href="sobrenosotros.html">Sobre Nosotros</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><img src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="https://i.ibb.co/vCkxPPRP/prime-twitter.png" alt="Twitter"></a>
+            </div>
+            <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
+        </div>
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
