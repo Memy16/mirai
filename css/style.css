@@ -254,6 +254,13 @@ h2 {
     letter-spacing: 5px;
     color: var(--azuloscuro);
 }
+
+.texto-superpuesto img {
+    width: 250px; 
+    height: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
         
 .carrusel1-caja {
     animation: automatizacion 20s infinite linear;
@@ -855,14 +862,18 @@ footer {
         width: 40px;
     }
 
-    #carrusel1-caja {
+    .carrusel1-caja {
         height: 350px;
     }
     
     .img-carrusel1 {
         height: 350px;
     }
-
+    
+    .texto-superpuesto img {
+        width: 140px;
+    }
+    
     .footer-container {
         gap: 10px;
     }
@@ -913,9 +924,13 @@ footer {
         margin-bottom: 1.5rem !important;
         padding-bottom: 1.2rem !important;
     }
-
-    #carrusel1-caja {
+    
+    .carrusel1-caja {
         height: 250px;
+    }
+    
+    .texto-superpuesto img {
+        width: 100px;
     }
     
     .img-carrusel1 {
