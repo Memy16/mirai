@@ -16,7 +16,7 @@ function crearCarrusel(selector) {
     const gap = parseFloat(style.columnGap || style.gap || 0);
     const cardWidth = cards[0].getBoundingClientRect().width;
     const step = cardWidth + gap;
-
+    
     // cuántas entran visibles ahora mismo
     const visible = Math.max(1, Math.round(carrusel.clientWidth / step));
     return { total, visible, step };

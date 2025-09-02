@@ -376,21 +376,21 @@ h2 {
     border-top: 1px solid rgba(0,0,0,0.2);
 }
 
-    .agenda-entrada {
-      background: #F8DB5B;
-      font-weight: bold;
-      border-top: none;
-    }
+.agenda-entrada {
+    background: #F8DB5B;
+    font-weight: bold;
+    border-top: none;
+}
 
-    .agenda-salida {
-      background: #F8DB5B;
-    }
+.agenda-salida {
+    background: #F8DB5B;
+}
 
     /* Celdas vacías para días */
-    .agenda-celda {
-      background: #93c5fd;
-      border-radius: 6px;
-    }
+.agenda-celda {
+    background: #93c5fd;
+    border-radius: 6px;
+}
 
 
 /* Animaciones para las imágenes del index*/
@@ -556,6 +556,43 @@ h2 {
 
 .input-login {
     padding-right: 45px;
+}
+
+.container-gestiones {
+    padding-bottom: 25px;
+}
+
+.container-gestiones h3 {
+    color: var(--azuloscuro) !important;
+}
+
+.container-gestiones p {
+    color: var(--azuloscuro) !important;
+}
+
+.card-gestion {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    background-color: #FFFF93 !important;
+}
+
+.card-gestion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-icon {
+    margin-bottom: 1rem;
+    width: 60px;
+    height: 60px; 
+}
+        
+.btn-warning {
+    border-radius: 10px;
+    background-color: var(--amarillo) !important;
 }
 
 /*Eventos inicio*/
@@ -932,7 +969,7 @@ footer {
     .texto-superpuesto img {
         width: 100px;
     }
-    
+
     .img-carrusel1 {
         height: 250px;
     }
