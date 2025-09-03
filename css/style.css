@@ -595,7 +595,6 @@ h2 {
     background-color: var(--amarillo) !important;
 }
 
-/*Eventos inicio*/
 .card {
     background-color: var(--blanco);
     border: 1px solid #ddd;
@@ -630,11 +629,15 @@ h2 {
     justify-content: flex-start;
 }
 
-.carrusel {
+/* ===== CARRUSEL ===== */
+.carrusel-wrapper {
     position: relative;
     width: 100%;
     max-width: 75rem;
     margin: 20px auto;
+}
+
+.carrusel {
     overflow: hidden;
 }
 
@@ -657,18 +660,20 @@ h2 {
 }
 
 .carrusel-btn img {
-    width: 44px;  /* ajusta tamaño de la flecha */
+    width: 44px;
     height: 44px;
     display: block;
     filter: none;
 }
 
 .carrusel-btn.prev {
-    left: 10px;
+    left: -60px;
 }
+
 .carrusel-btn.next {
-    right: 10px;
+    right: -60px;
 }
+
 
 /*footer*/
 footer {
