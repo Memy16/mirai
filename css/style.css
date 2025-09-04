@@ -397,6 +397,45 @@ h2 {
     border-radius: 6px;
 }
 
+table {
+      border-collapse: collapse;
+      width: 100% ;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .horacolorfila1 , .horacolorfila2{
+        font-weight: bold;
+    }
+    th {
+      background: #1d4e89;
+      color: white;
+      padding: 12px;
+    }
+
+    td{
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    /* Colores por materia */
+    .horacolorfila1 { background: #F8DB5B; }
+    .horacolorfila2 { background: #FFFF93; }
+
+    .main-login {
+    overflow-x: auto;   /* activa scroll horizontal */
+    }
+
+    table {
+    width: 100%;
+    min-width: 600px;   /* evita que las columnas se achiquen demasiado */
+    }
 
 /* Animaciones para las imágenes del index*/
 @keyframes automatizacion {
