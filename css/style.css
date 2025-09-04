@@ -330,15 +330,20 @@ h2 {
     user-select: none;
 }
 
-.main-eventos .text_box h3 {
-    background-color: #F8DB5B;
-    border-radius: 10px;
-    display: inline-block;
-    font-size: 30px;
-    color: #ffffff;
-    padding: 5px 20px;
-    position: relative;
-    right: 300px;
+.main-eventos .text_box_inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-direction: row-reverse;
+}
+
+.main-eventos .text_box_img img {
+    height: auto;
+}
+
+.main-eventos .text_box_content {
+    text-align: left;
+    flex: 1;
 }
 
 .agenda {
