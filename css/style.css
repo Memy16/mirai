@@ -167,7 +167,7 @@ h2 {
 
 .dark-mode .navbar {
     background: var(--negro) !important;
-    border-bottom: 10px solid #F8DB5B !important;
+    border-bottom: 10px solid --amarilloclaro !important;
 }
 
 .dark-mode .grid-item {
@@ -294,16 +294,16 @@ h2 {
 }
 
 .main-eventos h1 {
-    background-color: #EEB810;
+    background-color: var(--amarillo);
     border-radius: 10px;
     display: inline-block;
     font-size: 30px;
-    color: #ffffff;
+    color: var(--blanco);
     padding: 5px 40px;
 }
 
 .main-eventos .text_box {
-    background-color: #9AB4FF;
+    background-color: var(--indigoclaro);
     border-radius: 20px;
     padding: 20px 40px;
 }
@@ -323,8 +323,8 @@ h2 {
 .main-eventos .filters h3 {
     cursor: pointer;
     padding: 5px 15px;
-    background-color: #F8DB5B;
-    color: #000000;
+    background-color: var(--amarilloclaro);
+    color: var(--negro);
     border-radius: 10px;
     transition: background 0.3s, transform 0.2s;
     user-select: none;
@@ -355,7 +355,7 @@ h2 {
 
     
 .agenda-topagenda {
-    background: #1e3a8a;
+    background: var(--azuloscuro);
     color: white;
     font-weight: bold;
     display: flex;
@@ -366,7 +366,7 @@ h2 {
 
     /* Columna horas */
 .agenda-hora {
-    background: #fbbf24;
+    background: var(--amarillo);
     display: grid;
     grid-template-rows: 1fr 1fr; /* agenda-entrada y agenda-salida */
     border-radius: 6px;
@@ -382,18 +382,18 @@ h2 {
 }
 
 .agenda-entrada {
-    background: #F8DB5B;
+    background: var(--amarilloclaro);
     font-weight: bold;
     border-top: none;
 }
 
 .agenda-salida {
-    background: #F8DB5B;
+    background: var(--amarilloclaro);
 }
 
     /* Celdas vacías para días */
 .agenda-celda {
-    background: #93c5fd;
+    background: var(--indigoclaro);
     border-radius: 6px;
 }
 
@@ -425,8 +425,8 @@ table {
       background: #f9f9f9;
     }
     /* Colores por materia */
-    .horacolorfila1 { background: #F8DB5B; }
-    .horacolorfila2 { background: #FFFF93; }
+    .horacolorfila1 { background: var(--amarilloclaro); }
+    .horacolorfila2 { background: var(--beige); }
 
     .main-login {
     overflow-x: auto;   /* activa scroll horizontal */
@@ -620,7 +620,7 @@ table {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     height: 100%;
-    background-color: #FFFF93 !important;
+    background-color: var(--beige) !important;
 }
 
 .card-gestion:hover {
@@ -641,7 +641,7 @@ table {
 
 .card {
     background-color: var(--blanco);
-    border: 1px solid #ddd;
+    border: 1px solid var(--beige);
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -768,7 +768,7 @@ footer {
 }
     
 .footer-social a:hover img {
-    filter: brightness(1) invert(0) drop-shadow(0 0 6px #66aaff);
+    filter: brightness(1) invert(0) drop-shadow(0 0 6px --indigoclaro);
     transform: scale(1.1) rotate(-5deg);
 }
 
