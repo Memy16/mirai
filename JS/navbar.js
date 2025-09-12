@@ -13,19 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const lightBtn = document.querySelector('.light_mode');
 
-    lightBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
+if(localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  const img = lightBtn.querySelector('img');
+  img.src = './assets/img/modo-claro.png';
+  img.onerror = () => img.src = '../assets/img/modo-claro.png';
+}
 
-      const img = lightBtn.querySelector('img');
-      if(document.body.classList.contains('dark-mode')) {
-        img.src = './assets/img/modo-claro.png';
-        img.onerror = () => {
-          img.src = '../assets/img/modo-claro.png';
-        };
-      } else {
-        img.src = './assets/img/modo-oscuro.png';
-        img.onerror = () => {
-          img.src = '../assets/img/modo-oscuro.png';
-        };
-      }
-    });
+lightBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const img = lightBtn.querySelector('img');
+  if(document.body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+    img.src = './assets/img/modo-claro.png';
+    img.onerror = () => img.src = '../assets/img/modo-claro.png';
+  } else {
+    localStorage.setItem('theme', 'light');
+    img.src = './assets/img/modo-oscuro.png';
+    img.onerror = () => img.src = '../assets/img/modo-oscuro.png';
+  }
+});
