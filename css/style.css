@@ -306,6 +306,7 @@ h2 {
     background-color: var(--indigoclaro);
     border-radius: 20px;
     padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 .main-eventos .text_box h2 {
     font-size: 20px;
