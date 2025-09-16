@@ -303,10 +303,17 @@ h2 {
 }
 
 .main-eventos .text_box {
-    background-color: var(--indigoclaro);
-    border-radius: 20px;
-    padding: 20px 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.main-eventos .text_box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 .main-eventos .text_box h2 {
     font-size: 20px;
@@ -339,7 +346,7 @@ h2 {
 }
 
 .main-eventos .text_box_img img {
-    height: auto;
+    height: 210px;
 }
 
 .main-eventos .text_box_content {
