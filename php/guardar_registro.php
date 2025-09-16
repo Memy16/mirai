@@ -23,7 +23,7 @@ include("conexion.php");
         $sql = "INSERT INTO adscripta (nombre, apellido, mail_adscripta, ci_adscripta, contrasena_adscripta) 
                 VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
         break;
-
+    
     default:
         die("Rol no válido.");
     }

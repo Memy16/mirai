@@ -595,8 +595,13 @@ table {
 }
 
 .btn-primary {
+    margin-top: .625rem;
     margin-bottom: 10px;
     background-color: var(--amarillo) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--amarillooscuro) !important;
 }
 
 .input-login {

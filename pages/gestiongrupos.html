@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Gestión de Grupos</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" data-bs-theme="light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/img/klasso-logo.png" alt="logo de Klasso" class="logo">
+                </a>
+
+                <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="horarios.html">Horarios
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eventos.html">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="manual.html">Manual de Usuario</a>
+                        </li>
+
+                        <li class="nav-item nav-inicio">
+                            <a class="nav-link" href="registro.html">Registrarse</a>
+                        </li>
+                        <li class="nav-item nav-inicio">
+                            <a class="nav-link" href="login.html">Iniciar sesión</a>
+                        </li>
+
+                        <li>
+                            <div class="light_mode">
+                                <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="gtranslate_wrapper"></div>
+                            <script>
+                                window.gtranslateSettings = {
+                                    "default_language": "es",
+                                    "languages": ["es", "en"],
+                                    "globe_color": "#66aaff",
+                                    "wrapper_selector": ".gtranslate_wrapper",
+                                    "globe_size": 40
+                                }
+                            </script>
+                            <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="../assets/img/profile.png">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-login">
+        <h1>Gestión de Grupos</h1>
+        <section>
+            <form action="../php/grupos.php" method="POST">
+                <fieldset>
+                    <div>
+                        <label for="nombreGrupo" class="form-label mt-4">
+                            <font dir="auto" style="vertical-align: inherit;">
+                                <font dir="auto" style="vertical-align: inherit;">Nombre</font>
+                            </font>
+                        </label>
+                        <input type="text" name="nombreGrupo" class="form-control" id="nombreGrupo"
+                            placeholder="Introducir el nombre del grupo. Ej: MA" fdprocessedid="vosyw" required>
+                    </div>
+                    <div>
+                        <label for="gradoGrupo" class="form-label mt-4">
+                            <font dir="auto" style="vertical-align: inherit;">
+                                <font dir="auto" style="vertical-align: inherit;">Grado</font>
+                            </font>
+                        </label>
+                        <input type="text" name="gradoGrupo" class="form-control" id="gradoGrupo"
+                            placeholder="Introducir el grado del grupo. Ej: 3º" fdprocessedid="vosyw" required>
+                    </div>
+                    <div>
+                        <label for="turno" class="form-label mt-4">
+                            <font dir="auto" style="vertical-align: inherit;">
+                                <font dir="auto" style="vertical-align: inherit;">Turno</font>
+                            </font>
+                        </label>
+                        <select class="form-select" name="turno" id="turno" fdprocessedid="vosyw" required>
+                            <option>
+                                <font dir="auto" style="vertical-align: inherit;">
+                                    <font dir="auto" style="vertical-align: inherit;">Seleccione el turno</font>
+                                </font>
+                            </option>
+                            <option value="MATUTINO">
+                                <font dir="auto" style="vertical-align: inherit;">
+                                    <font dir="auto" style="vertical-align: inherit;">Matutino</font>
+                                </font>
+                            </option>
+                            <option value="VESPERTINO">
+                                <font dir="auto" style="vertical-align: inherit;">
+                                    <font dir="auto" style="vertical-align: inherit;">Vespertino</font>
+                                </font>
+                            </option>
+                            <option value="NOCTURNO">
+                                <font dir="auto" style="vertical-align: inherit;">
+                                    <font dir="auto" style="vertical-align: inherit;">Nocturno</font>
+                                </font>
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="especificacionGrupo" class="form-label mt-4">
+                            <font dir="auto" style="vertical-align: inherit;">
+                                <font dir="auto" style="vertical-align: inherit;">Especificación</font>
+                            </font>
+                        </label>
+                        <input type="text" name="especificacionGrupo" class="form-control" id="especificacionGrupo"
+                            placeholder="Introducir la especificación del grupo. Ej: Robótica" fdprocessedid="vosyw" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-login" fdprocessedid="hai99">
+                        <font dir="auto" style="vertical-align: inherit;">
+                            <font dir="auto" style="vertical-align: inherit;">Crear Grupo</font>
+                        </font>
+                    </button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="preguntasfrecuentes.html">Preguntas Frecuentes</a>
+                <a href="sobrenosotros.html">Sobre Nosotros</a>
+                <a href="./pages/contacto.html">Contactanos</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="https://i.ibb.co/vCkxPPRP/prime-twitter.png" alt="Twitter"></a>
+            </div>
+            <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="../JS/app.js"></script>
+    <script src="../JS/navbar.js"></script>
+</body>
+
+</html>
