@@ -7,7 +7,19 @@ include("conexion.php");
     $ci = $_POST['ci'];
     $rol = $_POST['rol'];
     $contrasenia = $_POST['contrasenia'];
+    $codigo = $_POST['codigo'];
     
+    $cod_docente = "prof123KLASSO";
+    $cod_ads = "ads321KLASSO";
+
+    if ($rol === "profesor" && $codigo !== $cod_docente) {
+        die("❌ Código incorrecto para profesor/a.");
+    }
+
+    if ($rol === "administrador" && $codigo !== $cod_ads){
+        die("❌ Código incorrecto para adscripto/a.");
+    }
+
     switch($rol) {
     case "estudiante":
         $sql = "INSERT INTO alumnos (nombre, apellido, mail, ci_alumno, contrasena) 
