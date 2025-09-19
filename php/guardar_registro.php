@@ -1,21 +1,22 @@
 <?php
-include("conexion.php");
+require("conexion.php");
+$con = conectar_bd();
     
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
     $ci = $_POST['ci'];
     $rol = $_POST['rol'];
-    $contrasenia = $_POST['contrasenia'];
+    $contrasenia = md5($_POST['contrasenia']);
     $codigo = $_POST['codigo'];
     
     $cod_docente = "prof123KLASSO";
     $cod_ads = "ads321KLASSO";
-
+    
     if ($rol === "profesor" && $codigo !== $cod_docente) {
         die("❌ Código incorrecto para profesor/a.");
     }
-
+    
     if ($rol === "administrador" && $codigo !== $cod_ads){
         die("❌ Código incorrecto para adscripto/a.");
     }

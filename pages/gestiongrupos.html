@@ -76,6 +76,10 @@
     </header>
     <main class="main-login">
         <h1>Gestión de Grupos</h1>
+        <aside class="me-4" style="width: 25%; border-right: 1px solid #ccc; padding: 1rem;">
+            <h2>Grupos existentes</h2>
+            <ul id="listaGrupos" class="list-group"></ul>
+        </aside>
         <section>
             <form action="../php/grupos.php" method="POST">
                 <fieldset>
@@ -133,7 +137,8 @@
                             </font>
                         </label>
                         <input type="text" name="especificacionGrupo" class="form-control" id="especificacionGrupo"
-                            placeholder="Introducir la especificación del grupo. Ej: Robótica" fdprocessedid="vosyw" required>
+                            placeholder="Introducir la especificación del grupo. Ej: Robótica" fdprocessedid="vosyw"
+                            required>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary btn-login" fdprocessedid="hai99">
@@ -162,6 +167,7 @@
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
+    <script src="../JS/grupos.js"></script>
 </body>
 
 </html>
