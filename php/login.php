@@ -1,82 +1,79 @@
-<?php 
-require("conexion.php"); 
-$con = conectar_bd();
+<?php
+session_start();
+require("conexion.php");
 
-if (isset($_POST["inicio_sesion"])) {
-    $ci = $_POST["cedula"];      // 👈 input del formulario
-    $contrasenia = $_POST["pass"]; // 👈 input del formulario
-    
-    logear($con, $ci, $contrasenia);
+function limpiar($data) {
+    return htmlspecialchars(stripslashes(trim($data)));
 }
 
-function logear($con, $ci, $contrasenia) {
-    session_start();
+function validarCredenciales($cedula, $pass, $rol) {
+    $con = conectar_bd();
+    $contrasenia_hash = md5($pass);
 
-    // ======================
-    // 1. Buscar en ALUMNOS
-    // ======================
-    $consulta = "SELECT * FROM alumnos WHERE ci_alumno = '$ci'";
-    $resultado = mysqli_query($con, $consulta);
-    
-    if (mysqli_num_rows($resultado) > 0) {
-        $fila = mysqli_fetch_assoc($resultado);
-        $password_bd = $fila["contrasena"]; 
-        if (password_verify($contrasenia, $password_bd)) {
-            $_SESSION["ci"] = $ci;
-            $_SESSION["usuario"] = $fila["nombre"]." ".$fila["apellido"];
-            $_SESSION["rol"] = "estudiante";
+    switch($rol) {
+        case "estudiante":
+            $sql = "SELECT ci_alumno AS ci, nombre, apellido 
+                    FROM alumnos 
+                    WHERE ci_alumno = '$cedula' AND contrasena = '$contrasenia_hash'";
+            $home = "../pages/alumno.html";
+            break;
 
-            // Mensaje de bienvenida
-            echo "Bienvenido Estudiante ".$fila['nombre']." ".$fila['apellido']."<br>";
-            echo "<a href='../pages/alumno.html'>Ir a tu home</a>";
-            exit();
-        }
+        case "profesor":
+            $sql = "SELECT ci_docente AS ci, nombre, apellido 
+                    FROM docente 
+                    WHERE ci_docente = '$cedula' AND contrasena_docente = '$contrasenia_hash'";
+            $home = "../pages/docente.html";
+            break;
+
+        case "administrador":
+            $sql = "SELECT ci_adscripta AS ci, nombre, apellido 
+                    FROM adscripta 
+                    WHERE ci_adscripta = '$cedula' AND contrasena_adscripta = '$contrasenia_hash'";
+            $home = "../pages/adscripcion.html";
+            break;
+
+        default:
+            return false;
     }
-    
-    // ======================
-    // 2. Buscar en DOCENTES
-    // ======================
-    $consulta = "SELECT * FROM docente WHERE ci_docente = '$ci'";
-    $resultado = mysqli_query($con, $consulta);
-    
-    if (mysqli_num_rows($resultado) > 0) {
-        $fila = mysqli_fetch_assoc($resultado);
-        $password_bd = $fila["contrasena_docente"]; 
-        if (password_verify($contrasenia, $password_bd)) {
-            $_SESSION["ci"] = $ci;
-            $_SESSION["usuario"] = $fila["nombre"]." ".$fila["apellido"];
-            $_SESSION["rol"] = "docente";
 
-            echo "Bienvenido Docente ".$fila['nombre']." ".$fila['apellido']."<br>";
-            echo "<a href='../pages/docente.html'>Ir a tu home</a>";
-            exit();
-        }
+    $resultado = mysqli_query($con, $sql);
+
+    if ($resultado && mysqli_num_rows($resultado) == 1) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        $usuario['rol'] = $rol;
+        $usuario['home'] = $home;
+        return $usuario;
     }
-    
-    // ======================
-    // 3. Buscar en ADSCRIPTAS
-    // ======================
-    $consulta = "SELECT * FROM adscripta WHERE ci_adscripta = '$ci'";
-    $resultado = mysqli_query($con, $consulta);
 
-    if (mysqli_num_rows($resultado) > 0) {
-        $fila = mysqli_fetch_assoc($resultado);
-        $password_bd = $fila["contrasena_adscripta"]; 
-        if (password_verify($contrasenia, $password_bd)) {
-            $_SESSION["ci"] = $ci;
-            $_SESSION["usuario"] = $fila["nombre"]." ".$fila["apellido"];
-            $_SESSION["rol"] = "adscripta";
+    return false;
+}
 
-            echo "Bienvenida Adscripta ".$fila['nombre']." ".$fila['apellido']."<br>";
-            echo "<a href='../pages/adscripcion.html'>Ir a tu home</a>";
-            exit();
-        }
+function crearSesion($usuario) {
+    $_SESSION['loggedin'] = true;
+    $_SESSION['ci'] = $usuario['ci'];
+    $_SESSION['nombre'] = $usuario['nombre'];
+    $_SESSION['apellido'] = $usuario['apellido'];
+    $_SESSION['rol'] = $usuario['rol'];
+    $_SESSION['home'] = $usuario['home'];
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cedula = limpiar($_POST['cedula']);
+    $pass = $_POST['pass'];
+    $rol = limpiar($_POST['rol']);
+
+    $usuario = validarCredenciales($cedula, $pass, $rol);
+
+    if ($usuario) {
+        crearSesion($usuario);
+        
+        echo "Bienvenido/a {$usuario['rol']} {$usuario['nombre']} {$usuario['apellido']}<br>";
+        echo "Tu home es: <a href='{$usuario['home']}'>Ingresar</a>";
+    } else {
+        echo "Cédula o contraseña incorrectos";
     }
-    
-    // ========================
-    // Si no encontró coincidencia
-    // ========================
-    echo "Cédula o contraseña incorrecta";
 }
 ?>
+
+
 

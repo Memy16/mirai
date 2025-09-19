@@ -12,7 +12,7 @@ $con = conectar_bd();
     
     $cod_docente = "prof123KLASSO";
     $cod_ads = "ads321KLASSO";
-
+    
     switch($rol) {
     case "estudiante":
         $sql = "INSERT INTO alumnos (nombre, apellido, mail, ci_alumno, contrasena) 
@@ -35,7 +35,7 @@ $con = conectar_bd();
                 VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
         }
         break;
-
+        
     default:
         die("Rol no válido.");
     }

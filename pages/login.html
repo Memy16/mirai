@@ -75,14 +75,23 @@
     </header>
     <main class="main-login">
         <h1>Iniciar Sesión</h1>
-        <form>
+        <form action="../php/login.php" method="POST">
             <fieldset>
+                <div>
+                    <label for="rol" class="form-label mt-4">Rol</label>
+                    <select class="form-select" id="rol" name="rol" required>
+                        <option value="">Seleccione su rol</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="profesor">Profesor/a</option>
+                        <option value="administrador">Administrador o Adscripto/a</option>
+                    </select>
+                </div>
+                
                 <div>
                     <label for="exampleInputEmail1" class="form-label mt-4">Cédula</label>
                     <input type="text" class="form-control input-login" id="cedula" name="cedula"
-                        aria-describedby="emailHelp" placeholder="Ingrese la cédula de identidad"
-                        pattern="[0-9]{1}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{1}" fdprocessedid="wh7em" required>
-                    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos sus datos con
+                        placeholder="Ingrese la cédula de identidad" fdprocessedid="wh7em" required>
+                    <small class="form-text text-muted">Nunca compartiremos sus datos con
                         nadie más.</small>
                 </div>
                 <div>
@@ -96,7 +105,8 @@
                         Mantener la sesión iniciada
                     </label>
                 </div>
-                <button type="submit" name="inicio_sesion" class="btn btn-primary btn-login" fdprocessedid="3tgwfh">Iniciar Sesión</button>
+                <button type="submit" name="inicio_sesion" class="btn btn-primary btn-login"
+                    fdprocessedid="3tgwfh">Iniciar Sesión</button>
             </fieldset>
         </form>
         <small class="form-text text-muted">¿Olvidaste tu contraseña? <a href="#">Haz clic aquí</a></small>
@@ -109,7 +119,8 @@
                 <a href="./pages/contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
                 <a href="#"><img src="https://i.ibb.co/vCkxPPRP/prime-twitter.png" alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
