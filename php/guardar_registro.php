@@ -12,14 +12,6 @@ $con = conectar_bd();
     
     $cod_docente = "prof123KLASSO";
     $cod_ads = "ads321KLASSO";
-    
-    if ($rol === "profesor" && $codigo !== $cod_docente) {
-        die("❌ Código incorrecto para profesor/a.");
-    }
-    
-    if ($rol === "administrador" && $codigo !== $cod_ads){
-        die("❌ Código incorrecto para adscripto/a.");
-    }
 
     switch($rol) {
     case "estudiante":
@@ -27,23 +19,30 @@ $con = conectar_bd();
                 VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
         break;
         
-    case "profesor":
-        $sql = "INSERT INTO docente (nombre, apellido, mail_docente, ci_docente, contrasena_docente) 
-                VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
-        break;
-        
     case "administrador":
+        if ($rol === "administrador" && $codigo !== $cod_ads){
+        die("❌ Código incorrecto para adscripto/a.");
+        } else {
         $sql = "INSERT INTO adscripta (nombre, apellido, mail_adscripta, ci_adscripta, contrasena_adscripta) 
                 VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
+        }
         break;
-    
+    case "profesor":
+        if ($codigo !== $cod_docente) {
+        die("❌ Código incorrecto para profesor/a.");
+        }else{
+            $sql = "INSERT INTO docente (nombre, apellido, mail_docente, ci_docente, contrasena_docente) 
+                VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
+        }
+        break;
+
     default:
         die("Rol no válido.");
     }
     
-    if($conexion->query($sql) === TRUE) {
+    if($con->query($sql) === TRUE) {
         echo "Usuario registrado correctamente <a href='../pages/login.html'>Iniciar Sesión</a>";
     } else {
-        echo "Error: " . $conexion->error;
+        echo "Error: " . $con->error;
     }
 ?>
