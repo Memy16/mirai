@@ -123,12 +123,19 @@
                         placeholder="Ingrese el código si corresponde">
                 </div>
                 
-                <div>
-                    <label for="contrasenia" class="form-label mt-4">Contraseña</label>
-                    <input type="password" name="contrasenia" class="form-control input-login" id="contraseña"
-                        placeholder="Ingrese una nueva contraseña" required>
-                    <small id="ciHelp" class="form-text text-muted">Nunca compartiremos sus datos con nadie más.</small>
-                </div>
+                <!-- Contraseña -->
+            <div>
+                <label for="contrasena" class="form-label mt-4">Contraseña</label>
+                <input type="password" name="contrasenia" class="form-control input-login" id="contrasena"
+                    placeholder="Ingrese una nueva contraseña" required>
+            </div>
+
+            <!-- Repetir Contraseña -->
+            <div>
+                <label for="repetir" class="form-label mt-4">Repetir Contraseña</label>
+                <input type="password" class="form-control input-login" id="repetir"
+                    placeholder="Repita la contraseña" required>
+            </div>
                 
                 <!-- BOTÓN -->
                 <button type="submit" class="btn btn-primary btn-login mt-3 btn-registo1 ">Registrarse</button>
@@ -152,6 +159,7 @@
         </div>
     </footer>
     <script src="../JS/app.js"></script>
+    <script src="registro.js"></script>
     <script src="../JS/navbar.js"></script>
 </body>
 
