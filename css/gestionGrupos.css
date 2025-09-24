@@ -1,0 +1,61 @@
+.container-principal {
+    display: flex;
+    min-height: 100vh;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.aside-grupos {
+    width: 25%;
+    min-width: 250px;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.lista-grupos-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid var(--azuloscuro);
+    border-radius: 4px;
+    padding: 0.5rem;
+    background-color: white;
+}
+
+.lista-grupos-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista-grupos-container::-webkit-scrollbar-track {
+    background: var(--indigo);
+    border-radius: 4px;
+}
+
+.lista-grupos-container::-webkit-scrollbar-thumb {
+    background: var(--azul);
+    border-radius: 4px;
+}
+
+.section-formulario {
+    flex: 1;
+    padding: 1rem;
+}
+
+h3 {
+    padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .container-principal {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .aside-grupos {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .lista-grupos-container {
+        max-height: 300px;
+    }
+}

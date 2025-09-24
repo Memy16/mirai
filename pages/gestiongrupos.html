@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/gestionGrupos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Gestión de Grupos</title>
 </head>
@@ -76,79 +77,116 @@
     </header>
     <main class="main-login">
         <h1>Gestión de Grupos</h1>
-        <aside class="me-4" style="width: 25%; border-right: 1px solid #ccc; padding: 1rem;">
-            <h2>Grupos existentes</h2>
-            <ul id="listaGrupos" class="list-group"></ul>
-        </aside>
-        <section>
-            <form action="../php/grupos.php" method="POST">
-                <fieldset>
-                    <div>
-                        <label for="nombreGrupo" class="form-label mt-4">
-                            <font dir="auto" style="vertical-align: inherit;">
-                                <font dir="auto" style="vertical-align: inherit;">Nombre</font>
-                            </font>
-                        </label>
-                        <input type="text" name="nombreGrupo" class="form-control" id="nombreGrupo"
-                            placeholder="Introducir el nombre del grupo. Ej: MA" fdprocessedid="vosyw" required>
-                    </div>
-                    <div>
-                        <label for="gradoGrupo" class="form-label mt-4">
-                            <font dir="auto" style="vertical-align: inherit;">
-                                <font dir="auto" style="vertical-align: inherit;">Grado</font>
-                            </font>
-                        </label>
-                        <input type="text" name="gradoGrupo" class="form-control" id="gradoGrupo"
-                            placeholder="Introducir el grado del grupo. Ej: 3º" fdprocessedid="vosyw" required>
-                    </div>
-                    <div>
-                        <label for="turno" class="form-label mt-4">
-                            <font dir="auto" style="vertical-align: inherit;">
-                                <font dir="auto" style="vertical-align: inherit;">Turno</font>
-                            </font>
-                        </label>
-                        <select class="form-select" name="turno" id="turno" fdprocessedid="vosyw" required>
-                            <option>
+        <div class="container-principal">
+            <aside class="me-4 aside-grupos">
+                <h2>Grupos existentes</h2>
+                <div class="lista-grupos-container">
+                    <ul id="listaGrupos" name="listarGrupos" class="list-group"></ul>
+                </div>
+            </aside>
+            <section class="section-formulario">
+                <form action="../php/grupos.php" method="POST">
+                    <fieldset>
+                        <div>
+                            <label for="nombreGrupo" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Seleccione el turno</font>
+                                    <font dir="auto" style="vertical-align: inherit;">Nombre</font>
                                 </font>
-                            </option>
-                            <option value="MATUTINO">
+                            </label>
+                            <input type="text" name="nombreGrupo" class="form-control" id="nombreGrupo"
+                                placeholder="Introducir el nombre del grupo. Ej: MA" fdprocessedid="vosyw" required>
+                        </div>
+                        <div>
+                            <label for="gradoGrupo" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Matutino</font>
+                                    <font dir="auto" style="vertical-align: inherit;">Grado</font>
                                 </font>
-                            </option>
-                            <option value="VESPERTINO">
+                            </label>
+                            <input type="text" name="gradoGrupo" class="form-control" id="gradoGrupo"
+                                placeholder="Introducir el grado del grupo. Ej: 3º" fdprocessedid="vosyw" required>
+                        </div>
+                        <div>
+                            <label for="turno" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Vespertino</font>
+                                    <font dir="auto" style="vertical-align: inherit;">Turno</font>
                                 </font>
-                            </option>
-                            <option value="NOCTURNO">
+                            </label>
+                            <select class="form-select" name="turno" id="turno" fdprocessedid="vosyw" required>
+                                <option>
+                                    <font dir="auto" style="vertical-align: inherit;">
+                                        <font dir="auto" style="vertical-align: inherit;">Seleccione el turno</font>
+                                    </font>
+                                </option>
+                                <option value="MATUTINO">
+                                    <font dir="auto" style="vertical-align: inherit;">
+                                        <font dir="auto" style="vertical-align: inherit;">Matutino</font>
+                                    </font>
+                                </option>
+                                <option value="VESPERTINO">
+                                    <font dir="auto" style="vertical-align: inherit;">
+                                        <font dir="auto" style="vertical-align: inherit;">Vespertino</font>
+                                    </font>
+                                </option>
+                                <option value="NOCTURNO">
+                                    <font dir="auto" style="vertical-align: inherit;">
+                                        <font dir="auto" style="vertical-align: inherit;">Nocturno</font>
+                                    </font>
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="especificacionGrupo" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Nocturno</font>
+                                    <font dir="auto" style="vertical-align: inherit;">Especificación</font>
                                 </font>
-                            </option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="especificacionGrupo" class="form-label mt-4">
+                            </label>
+                            <input type="text" name="especificacionGrupo" class="form-control" id="especificacionGrupo"
+                                placeholder="Introducir la especificación del grupo. Ej: Robótica" fdprocessedid="vosyw"
+                                required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-login" fdprocessedid="hai99">
                             <font dir="auto" style="vertical-align: inherit;">
-                                <font dir="auto" style="vertical-align: inherit;">Especificación</font>
+                                <font dir="auto" style="vertical-align: inherit;">Crear Grupo</font>
                             </font>
-                        </label>
-                        <input type="text" name="especificacionGrupo" class="form-control" id="especificacionGrupo"
-                            placeholder="Introducir la especificación del grupo. Ej: Robótica" fdprocessedid="vosyw"
-                            required>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary btn-login" fdprocessedid="hai99">
-                        <font dir="auto" style="vertical-align: inherit;">
-                            <font dir="auto" style="vertical-align: inherit;">Crear Grupo</font>
-                        </font>
-                    </button>
-                </fieldset>
+                        </button>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+        <section id="editorGrupo" style="display: none; border-top: 1px solid #062863">
+            <h3>Editar grupo</h3>
+            <form id="formEditarGrupo" action="../php/editar_grupo.php" method="POST">
+                <input type="hidden" name="id" id="editId">
+
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" id="editNombre" required class="form-control">
+                </div>
+                <div>
+                    <label>Grado</label>
+                    <input type="text" name="grado" id="editGrado" required class="form-control">
+                </div>
+                <div>
+                    <label>Turno</label>
+                    <select name="turno" id="editTurno" required class="form-select">
+                        <option value="MATUTINO">Matutino</option>
+                        <option value="VESPERTINO">Vespertino</option>
+                        <option value="NOCTURNO">Nocturno</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Especificación</label>
+                    <input type="text" name="especificacion" id="editEspecificacion" required class="form-control">
+                </div>
+                
+                <br>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
+                <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
             </form>
         </section>
+        
     </main>
     <footer>
         <div class="footer-container">
@@ -168,6 +206,8 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/grupos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </body>
 
 </html>
