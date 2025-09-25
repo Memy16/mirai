@@ -1,6 +1,6 @@
 <?php
 include("../conexion.php");
-$con = conectar_bd();
+$conexion = conectar_bd();
 
 header('Content-Type: application/json');
 
