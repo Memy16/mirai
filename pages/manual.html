@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Manual de Usuario</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
@@ -15,7 +16,7 @@
         <nav class="navbar navbar-expand-lg" data-bs-theme="light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="../assets/img/klasso-logo.png" alt="logo de Klasso" class="logo">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png" alt="Logo Klasso" class="logo">
                 </a>
 
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
@@ -63,9 +64,25 @@
                             </script>
                             <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
                         </li>
-                        <li>
-                            <div class="profile">
-                                <img src="../assets/img/profile.png">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
+                                <img src="../assets/img/profile.png" alt="Profile" class="profile">
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
+                                        <p class="mb-0 text-muted" id="userRol"></p>
+                                    </div>
+                                </div>
+                                <a href="editar_perfil.html" class="dropdown-item">
+                                    <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                                </a>
+                                <a href="#" class="dropdown-item text-danger">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -83,14 +100,15 @@
                     <a href="./pages/contacto.html">Contactanos</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="https://i.ibb.co/vCkxPPRP/prime-twitter.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
                 </div>
                 <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
             </div>
         </footer>
         <script src="../JS/app.js"></script>
         <script src="../JS/navbar.js"></script>
+        <script src="../JS/perfil.js"></script>
 </body>
 
 </html>

@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand-lg" data-bs-theme="light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="../assets/img/klasso-logo.png" alt="logo de Klasso" class="logo">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png" alt="Logo Klasso" class="logo">
                 </a>
 
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
@@ -64,9 +64,25 @@
                             </script>
                             <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
                         </li>
-                        <li>
-                            <div class="profile">
-                                <img src="../assets/img/profile.png">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
+                                <img src="../assets/img/profile.png" alt="Profile" class="profile">
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
+                                        <p class="mb-0 text-muted" id="userRol"></p>
+                                    </div>
+                                </div>
+                                <a href="editar_perfil.html" class="dropdown-item">
+                                    <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                                </a>
+                                <a href="#" class="dropdown-item text-danger">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -84,22 +100,22 @@
             <div class="carrusel1-contenido">
                 <div class="carrusel1-caja">
                     <div class="carrusel1-elemento">
-                        <img class="img-carrusel1" src="https://i.ibb.co/GQDdSLmF/docente-1.png">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-1.png" alt="Docente 1" class="img-carrusel1" />
                     </div>
                     <div class="carrusel1-elemento">
-                        <img class="img-carrusel1" src="https://i.ibb.co/DHmg82nQ/docente-2.png">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-2.png" alt="Docente 2" class="img-carrusel1" />
                     </div>
                     <div class="carrusel1-elemento">
-                        <img class="img-carrusel1" src="https://i.ibb.co/kg2YW4S2/docente-3.png">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-3.png" alt="Docente 3" class="img-carrusel1" />
                     </div>
                     <div class="carrusel1-elemento">
-                        <img class="img-carrusel1" src="https://i.ibb.co/ynRqKB1D/docente-4.png">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-4.png" alt="Docente 4" class="img-carrusel1" />
                     </div>
                     <div class="carrusel1-elemento">
-                        <img class="img-carrusel1" src="https://i.ibb.co/hJS2nkL7/docente-5.png">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-5.png" alt="Docente 5" class="img-carrusel1" />
                     </div>
                     <div class="carrusel1-elemento">
-                        <img class="img-carrusel1" src="https://i.ibb.co/tT7tWwKx/docente-6.png">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-6.png" alt="Docente 6" class="img-carrusel1" />
                     </div>
                 </div>
             </div>
@@ -110,7 +126,7 @@
                     <div class="card card-gestion">
                         <div class="card-body text-center p-4">
                             <div class="card-icon fas">
-                                <img src="https://i.ibb.co/wGkPSNd/aula.png" alt="Reserva de aulas">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/aula.png" alt="Aula">
                             </div>
                             <h3 class="card-title h5">Reserva de aulas</h3>
                             <p class="card-text">Reservar aulas para un día y horario específico</p>
@@ -123,7 +139,7 @@
                     <div class="card card-gestion">
                         <div class="card-body text-center p-4">
                             <div class="card-icon fas">
-                                <img src="https://i.ibb.co/G4W8RtGP/recursos-matematica.png" alt="Reserva de recursos">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/recursos-matematica.png" alt="Recursos Matemática">
                             </div>
                             <h3 class="card-title h5">Reserva de recursos</h3>
                             <p class="card-text">Reservar recursos de matemáticas</p>
@@ -136,8 +152,7 @@
                     <div class="card card-gestion">
                         <div class="card-body text-center p-4">
                             <div class="card-icon fas">
-                                <img src="https://i.ibb.co/kV7HvPtZ/graficas-recursos.png"
-                                    alt="Utilización de recursos">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/graficas-recursos.png" alt="Gráficas Recursos">
                             </div>
                             <h3 class="card-title h5">Utilización de recursos</h3>
                             <p class="card-text">Gráficas del uso de aulas y recursos</p>
@@ -157,15 +172,15 @@
                 <a href="./pages/contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img
-                        src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="https://i.ibb.co/vCkxPPRP/prime-twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
+    <script src="../JS/perfil.js"></script>
 </body>
 
 </html>

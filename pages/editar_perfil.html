@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Sobre Nosotros</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/editar_perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Editar perfil</title>
 </head>
 
 <body>
@@ -69,7 +70,7 @@
                                 <img src="../assets/img/profile.png" alt="Profile" class="profile">
                                 <i class="fas fa-caret-down"></i>
                             </a>
-                            
+
                             <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
                                 <div class="d-flex align-items-center mb-3">
                                     <div>
@@ -90,42 +91,63 @@
             </div>
         </nav>
     </header>
-    <main class="main-login">
-        <h1>Contáctanos</h1>
-        <form id="contactForm" method="POST" action="../php/emai.php">
-            <fieldset>
-                <div>
-                    <label for="nombre" class="form-label mt-4">Nombre</label>
-                    <input type="text" class="form-control input-contact" id="nombre" name="nombre"
-                        placeholder="Ingrese su nombre completo" required>
-                    <small class="form-text text-muted">Nunca compartiremos sus datos con nadie más.</small>
+    <main class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title mb-3"><i class="fas fa-user-edit me-2"></i>Editar perfil</h3>
+                        <p class="text-muted small">Seleccioná tu avatar (usamos DiceBear) y guardá tu preferencia.</p>
+
+                        <!-- Preview + Form -->
+                        <div class="d-flex gap-4 align-items-center mb-4">
+                            <div class="text-center">
+                                <div id="avatarPreviewWrap" class="avatar-preview rounded-circle mb-2">
+                                    <!-- IMG preview se setea desde JS -->
+                                    <img id="avatarPreview" src="../assets/img/profile.png" alt="Avatar preview"
+                                        class="rounded-circle">
+                                </div>
+                                <div class="small text-muted">Vista previa</div>
+                            </div>
+
+                            <div class="flex-fill">
+                                <label for="seedInput" class="form-label">Texto / seed (ej: tu nombre o nick)</label>
+                                <input id="seedInput" class="form-control mb-2" type="text"
+                                    placeholder="Ej: Mirai" maxlength="40">
+
+                                <div class="d-flex align-items-center gap-2">
+                                    <button id="randomSeedBtn" class="btn btn-outline-secondary btn-sm">
+                                        <i class="fas fa-random me-1"></i> Semilla aleatoria
+                                    </button>
+
+                                    <button id="guardarBtn" class="btn btn-primary ms-auto">
+                                        <i class="fas fa-save me-1"></i> Guardar avatar
+                                    </button>
+                                </div>
+
+                                <div id="statusMsg" class="mt-2"></div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- Galería de estilos (thumbnails) -->
+                        <h6>Elegí un estilo</h6>
+                        <div id="stylesGrid" class="row gy-3 mt-2">
+                            <!-- JS inyecta las tarjetas aquí -->
+                        </div>
+
+                        <div class="mt-4">
+                            <small class="text-muted">Los avatares se generan por la API de DiceBear. El avatar no se
+                                sube; se genera dinámicamente a partir del <strong>style</strong> y la
+                                <strong>seed</strong>.</small>
+                        </div>
+
+                    </div>
                 </div>
-
-                <div>
-                    <label for="email" class="form-label mt-4">Correo Electrónico</label>
-                    <input type="email" class="form-control input-contact" id="email" name="email"
-                        placeholder="Ingrese su correo electrónico" required>
-                    <small class="form-text text-muted">Recibirá una confirmación a este correo.</small>
-                </div>
-
-                <div>
-                    <label for="mensaje" class="form-label mt-4">Mensaje</label>
-                    <textarea class="form-control input-contact" id="mensaje" name="mensaje" rows="5"
-                        placeholder="Escriba su mensaje aquí" required></textarea>
-                </div>
-
-                <div class="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" value="" id="consentimiento" required>
-                    <label class="form-check-label" for="consentimiento">
-                        Acepto que se utilicen mis datos para contactarme.
-                    </label>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-contact mt-4">Enviar Mensaje</button>
-            </fieldset>
-        </form>
-
-        <small class="form-text text-muted mt-3">Gracias por contactarnos, responderemos a la brevedad.</small>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -143,8 +165,8 @@
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
-    <script src="../JS/contacto.js"></script>
     <script src="../JS/perfil.js"></script>
+    <script src="../JS/edit_perfil.js"></script>
 </body>
 
 </html>

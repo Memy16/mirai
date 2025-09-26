@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Eventos</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
@@ -15,7 +16,7 @@
         <nav class="navbar navbar-expand-lg" data-bs-theme="light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="../assets/img/klasso-logo.png" alt="logo de Klasso" class="logo">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png" alt="Logo Klasso" class="logo">
                 </a>
 
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
@@ -63,9 +64,25 @@
                             </script>
                             <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
                         </li>
-                        <li>
-                            <div class="profile">
-                                <img src="../assets/img/profile.png">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
+                                <img src="../assets/img/profile.png" alt="Profile" class="profile">
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
+                                        <p class="mb-0 text-muted" id="userRol"></p>
+                                    </div>
+                                </div>
+                                <a href="editar_perfil.html" class="dropdown-item">
+                                    <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                                </a>
+                                <a href="#" class="dropdown-item text-danger">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -80,7 +97,7 @@
         <div class="text_box">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/QFDvhFQq/evento-1.png" alt="Evento">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-1.png" alt="Jornada Sanducera de Tecnología y Programación" />
                 </div>
                 <div class="text_box_content">
                     <h2>Jornada Sanducera de Tecnología y Programación</h2>
@@ -101,7 +118,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/mV1f18dK/evento-2.png" alt="Evento">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-2.png" alt="Hackatón Juvenil: Código Queguay" />
                 </div>
                 <div class="text_box_content">
                     <h2 >Hackatón Juvenil "Código Queguay"</h2>
@@ -114,7 +131,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/2YnxTBxQ/evento-3.png" alt="Evento">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-3.png" alt="Festival de Innovación Digital" />
                 </div>
                 <div class="text_box_content">
                     <h2>Festival de Innovación Digital</h2>
@@ -130,7 +147,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/PZfJwkBH/evento-4.png" alt="Semana del Software Libre">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-4.png" alt="Semana del Software Libre" />
                 </div>
                 <div class="text_box_content">
                     <h2>Semana del Software Libre</h2>
@@ -143,7 +160,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/3YGj7JTg/evento-5.png" alt="Expo Educación y Tecnología Paysandú">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-5.png" alt="Expo Educación y Tecnología Paysandú" />
                 </div>
                 <div class="text_box_content">
                     <h2>Expo Educación y Tecnología Paysandú</h2>
@@ -156,7 +173,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/35XyK0K6/evento-6.png" alt="Congreso de Ciberseguridad para Jóvenes">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-6.png" alt="Congreso de Ciberseguridad para Jóvenes" />
                 </div>
                 <div class="text_box_content">
                     <h2>Congreso de Ciberseguridad para Jóvenes</h2>
@@ -169,7 +186,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/ZRP7dN4n/evento-7.png" alt="Conversatorio Tecnológico: Tendencias Tech: Desafíos y Oportunidades">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-7.png" alt="Conversatorio Tecnológico: Tendencias Tech: Desafíos y Oportunidades" />
                 </div>
                 <div class="text_box_content">
                     <h2>Conversatorio Tecnológico "Tendencias Tech: Desafíos y Oportunidades"</h2>
@@ -182,7 +199,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/Ps1F9xzR/evento-8.png" alt="Jornada de Emprendimiento: Ideas que Transforman: Del Aula al Mercado">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-8.png" alt="Jornada de Emprendimiento: Ideas que Transforman: Del Aula al Mercado" />
                 </div>
                 <div class="text_box_content">
                     <h2>Jornada de Emprendimiento "Ideas que Transforman: Del Aula al Mercado"</h2>
@@ -195,7 +212,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/4wqxz5ks/evento-9.png" alt="Panel de Expertos: Ingeniería del Futuro: Construyendo Soluciones">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-9.png" alt="Panel de Expertos: Ingeniería del Futuro: Construyendo Soluciones" />
                 </div>
                 <div class="text_box_content">
                     <h2>Panel de Expertos "Ingeniería del Futuro: Construyendo Soluciones"</h2>
@@ -208,7 +225,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/b5W2rVnX/evento-10.png" alt="Conversatorio: Desarrollo Sostenible: Tecnología al Servicio del Ambiente">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-10.png" alt="Conversatorio: Desarrollo Sostenible: Tecnología al Servicio del Ambiente" />   
                 </div>
                 <div class="text_box_content">
                     <h2>Conversatorio "Desarrollo Sostenible: Tecnología al Servicio del Ambiente"</h2>
@@ -221,7 +238,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/RR5cGWB/evento-11.png" alt="Expo Proyectos: Creatividad en Acción: Soluciones Innovadoras">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-11.png" alt="Expo Proyectos: Creatividad en Acción: Soluciones Innovadoras" />
                 </div>
                 <div class="text_box_content">
                     <h2>Expo Proyectos "Creatividad en Acción: Soluciones Innovadoras"</h2>
@@ -234,7 +251,7 @@
         <div class="text_box oblig">
             <div class="text_box_inner">
                 <div class="text_box_img">
-                    <img src="https://i.ibb.co/XZzXc6Ch/evento-12.png" alt="Feria de Carreras: Tu Futuro en el ITSP: Elige tu Camino">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-12.png" alt="Feria de Carreras: Tu Futuro en el ITSP: Elige tu Camino" />
                 </div>
                 <div class="text_box_content">
                     <h2>Feria de Carreras "Tu Futuro en el ITSP: Elige tu Camino"</h2>
@@ -251,14 +268,15 @@
                 <a href="./pages/contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="https://i.ibb.co/vCkxPPRP/prime-twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
+    <script src="../JS/perfil.js"></script>
 </body>
 
 </html>
