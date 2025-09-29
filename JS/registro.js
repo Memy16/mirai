@@ -1,9 +1,16 @@
-document.getElementById("formulario").addEventListener("submit", function(event) {
+// En lugar de esto:
+// document.getElementById("formulario").addEventListener("submit", function(event) {
+
+// Usa esto:
+document.querySelector("form").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const pass = document.getElementById("contrasena").value;
     const repetir = document.getElementById("repetir").value;
     const mensaje = document.getElementById("mensaje");
+
+    // Limpiar mensaje anterior
+    mensaje.textContent = "";
 
     // 1. primero comparar contraseñas
     if (pass !== repetir) {
@@ -40,14 +47,17 @@ document.getElementById("formulario").addEventListener("submit", function(event)
         return;
     }
 
-    // 6. al menos un símbolo especial (cualquier no alfanumérico)
+    // 6. al menos un símbolo especial
     if (!/[^A-Za-z0-9]/.test(pass)) {
         mensaje.textContent = "La contraseña debe incluir al menos un símbolo especial.";
         mensaje.style.color = "red";
         return;
     }
 
+    // Si pasa todas las validaciones
     mensaje.style.color = "green";
     mensaje.textContent = "Contraseña válida. Enviando...";
+    
+    // Enviar el formulario
     this.submit();
 });
