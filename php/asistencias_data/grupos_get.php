@@ -4,13 +4,12 @@ $conexion = conectar_bd();
 
 header('Content-Type: application/json');
 
-$sql = "SELECT DISTINCT grupo FROM asistencia ORDER BY grupo";
+$sql = "SELECT nombre, grado, turno, especificacion FROM grupo ORDER BY nombre";
 $result = $conexion->query($sql);
 
 $grupos = [];
 while($row = $result->fetch_assoc()) {
-    $grupos[] = $row['grupo'];
+    $grupos[] = $row;
 }
 
-echo json_encode($grupos);
-?>
+echo json_encode($grupos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

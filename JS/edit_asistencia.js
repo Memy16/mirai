@@ -216,12 +216,12 @@ function cargarGrupos() {
         grupoSelect.innerHTML = "";
         grupos.forEach(grupo => {
             const option = document.createElement("option");
-            option.value = grupo;
-            option.textContent = grupo;
+            option.textContent = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
+            option.value = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
             grupoSelect.appendChild(option);
         });
         if(grupos.length > 0) {
-            grupoSelect.value = grupos[0];
+            grupoSelect.value = `${grupos[0].grado}${grupos[0].nombre} ${grupos[0].turno}`;
             cargarAsistencia();
         }
     })

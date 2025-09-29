@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Horarios</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/gestionGrupos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Gestión de Grupos</title>
 </head>
 
-<body main-tabla-hora>
+<body>
     <header>
         <nav class="navbar navbar-expand-lg" data-bs-theme="light">
             <div class="container-fluid">
@@ -64,25 +65,9 @@
                             </script>
                             <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
-                                <img src="../assets/img/profile.png" alt="Profile" class="profile">
-                                <i class="fas fa-caret-down"></i>
-                            </a>
-                            
-                            <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div>
-                                        <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
-                                        <p class="mb-0 text-muted" id="userRol"></p>
-                                    </div>
-                                </div>
-                                <a href="editar_perfil.html" class="dropdown-item">
-                                    <i class="fas fa-user-edit me-2"></i> Editar Perfil
-                                </a>
-                                <a href="#" class="dropdown-item text-danger">
-                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
-                                </a>
+                        <li>
+                            <div class="profile">
+                                <img src="../assets/img/profile.png">
                             </div>
                         </li>
                     </ul>
@@ -91,86 +76,7 @@
         </nav>
     </header>
     <main class="main-login">
-        <div class="grupo-select">
-            <label for="grupo">Selecciona un grupo:</label>
-            <select id="grupo"></select>
-        </div>
-        <br>
-        <table>
-    <tr>
-      <th>Hora</th>
-      <th>Horarios</th>
-      <th>Lunes</th>
-      <th>Martes</th>
-      <th>Miércoles</th>
-      <th>Jueves</th>
-      <th>Viernes</th>
-    </tr>
-    <tr>
-      <td class="horacolorfila1">1°</td>
-      <td class="horacolorfila1">18:10 - 18:55</td>
-      <td ></td>
-      <td></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-    </tr>
-    <tr>
-      <td class="horacolorfila2">2°</td>
-      <td class="horacolorfila2">19:00 - 19:45</td>
-      <td ></td>
-      <td ></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="horacolorfila1">3°</td>
-      <td class="horacolorfila1">19:50 - 20:35</td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-    </tr>
-    <tr>
-      <td class="horacolorfila2">4°</td>
-      <td class="horacolorfila2">20:40 - 21:25</td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-    </tr>
-    <tr>
-      <td class="horacolorfila1">5°</td>
-      <td class="horacolorfila1">21:30 - 22:15</td>
-      <td ></td>
-      <td ></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="horacolorfila2">6°</td>
-      <td class="horacolorfila2">22:20 - 23:05</td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="horacolorfila1" >7°</td>
-      <td class="horacolorfila1">23:10 - 23:55</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-        <br>
+        
     </main>
     <footer>
         <div class="footer-container">
@@ -180,16 +86,18 @@
                 <a href="./pages/contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://i.ibb.co/5X9ZKDhc/formkit-instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="https://i.ibb.co/vCkxPPRP/prime-twitter.png" alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
-    <script src="../JS/perfil.js"></script>
-    <script src="../JS/horarios.js"></script>
+    <script src="../JS/grupos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </body>
 
 </html>
