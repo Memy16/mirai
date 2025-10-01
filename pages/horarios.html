@@ -80,9 +80,9 @@
                                 <a href="editar_perfil.html" class="dropdown-item">
                                     <i class="fas fa-user-edit me-2"></i> Editar Perfil
                                 </a>
-                                <a href="#" class="dropdown-item text-danger">
-                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
-                                </a>
+                                <a href="../php/logout.php" class="dropdown-item text-danger">
+                  <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                </a>
                             </div>
                         </li>
                     </ul>
@@ -91,6 +91,10 @@
         </nav>
     </header>
     <main class="main-login">
+        <div class="grupo-select">
+            <label for="grupo">Selecciona un grupo:</label>
+            <select id="grupo"></select>
+        </div>
         <br>
         <table>
     <tr>
@@ -185,6 +189,7 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
+    <script src="../JS/horarios.js"></script>
 </body>
 
 </html>

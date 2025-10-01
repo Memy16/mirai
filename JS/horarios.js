@@ -1,18 +1,19 @@
-function actualizarAsistencia() {
-    fetch('../php/asistencias_data/asistencia_get.php')
-    .then(res => res.json())
-    .then(data => {
+const grupoSelect = document.getElementById("grupo");
+
+async function actualizarAsistencia() {
+    if(!grupoSelect) return;
+    try {
+        const res = await fetch(`../php/asistencias_data/asistencia_get.php?grupo=${encodeURIComponent(grupoSelect.value)}`);
+        const data = await res.json();
+
         const tabla = document.querySelector("table");
         const filas = tabla.querySelectorAll("tr");
-        // Omitimos la fila de cabecera
+
         data.forEach(item => {
-            // Iteramos sobre las horas que abarca el bloque
             for (let h = item.hora; h <= item.hora_fin; h++) {
-                // Buscamos la fila correspondiente
                 const fila = Array.from(filas).find(f => f.querySelector("td")?.textContent.includes(h + "°"));
                 if (!fila) continue;
 
-                // Obtenemos la columna según el día
                 let diaIndex;
                 switch(item.dia) {
                     case "Lunes": diaIndex = 2; break;
@@ -36,9 +37,33 @@ function actualizarAsistencia() {
                 }
             }
         });
-    })
-    .catch(err => console.error(err));
+    } catch (err) {
+        console.error(err);
+    }
 }
 
-actualizarAsistencia();
+async function cargarGrupos() {
+    try {
+        const res = await fetch("../php/asistencias_data/grupos_get.php");
+        const grupos = await res.json();
+
+        grupoSelect.innerHTML = "";
+        grupos.forEach(grupo => {
+            const option = document.createElement("option");
+            option.textContent = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
+            option.value = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
+            grupoSelect.appendChild(option);
+        });
+
+        if(grupos.length > 0) {
+            grupoSelect.value = `${grupos[0].grado}${grupos[0].nombre} ${grupos[0].turno}`;
+            await actualizarAsistencia();
+        }
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+cargarGrupos();
 setInterval(actualizarAsistencia, 10000);
+grupoSelect.addEventListener("change", actualizarAsistencia);

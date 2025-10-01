@@ -81,9 +81,9 @@
                                 <a href="editar_perfil.html" class="dropdown-item">
                                     <i class="fas fa-user-edit me-2"></i> Editar Perfil
                                 </a>
-                                <a href="#" class="dropdown-item text-danger">
-                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
-                                </a>
+                                <a href="../php/logout.php" class="dropdown-item text-danger">
+                  <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                </a>
                             </div>
                         </li>
                     </ul>
@@ -92,7 +92,7 @@
         </nav>
     </header>
     <main class="main-login">
-        <form action="../php/guardar_registro.php" method="POST">
+        <form id="formulario" action="../php/guardar_registro.php" method="POST">
             <fieldset>
                 <!-- NOMBRE -->
                 <div>
@@ -139,21 +139,23 @@
                     <input type="text" name="codigo" class="form-control input-login" id="codigo"
                         placeholder="Ingrese el código si corresponde">
                 </div>
-                
                 <!-- Contraseña -->
-            <div>
-                <label for="contrasena" class="form-label mt-4">Contraseña</label>
-                <input type="password" name="contrasenia" class="form-control input-login" id="contrasena"
-                    placeholder="Ingrese una nueva contraseña" required>
-            </div>
-            
-            <!-- Repetir Contraseña -->
-            <div>
-                <label for="repetir" class="form-label mt-4">Repetir Contraseña</label>
-                <input type="password" class="form-control input-login" id="repetir"
-                    placeholder="Repita la contraseña" required>
-            </div>
-            
+                <div>
+                    <label for="contrasena" class="form-label mt-4">Contraseña</label>
+                    <input type="password" name="contrasenia" class="form-control input-login" id="contrasena"
+                        placeholder="Ingrese una nueva contraseña" required>
+                </div>
+
+                <!-- Repetir Contraseña -->
+                <div>
+                    <label for="repetir" class="form-label mt-4">Repetir Contraseña</label>
+                    <input type="password" class="form-control input-login" id="repetir"
+                        placeholder="Repita la contraseña" required>
+                </div>
+
+                <!-- Elemento para mostrar mensajes -->
+                <div id="mensaje" class="mt-2"></div>
+                
                 <!-- BOTÓN -->
                 <button type="submit" class="btn btn-primary btn-login mt-3 btn-registo1 ">Registrarse</button>
             </fieldset>
