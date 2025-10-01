@@ -4,7 +4,6 @@ $con = conectar_bd();
 
 header('Content-Type: application/json');
 
-// Validar que se reciban todos los campos
 if (!isset($_POST['id'], $_POST['nombre'], $_POST['grado'], $_POST['turno'], $_POST['especificacion'])) {
     echo json_encode(["success" => false, "error" => "Faltan datos"]);
     exit;
@@ -19,7 +18,7 @@ $especificacion = ($_POST['especificacion']);
 $sql = "UPDATE grupo 
         SET nombre='$nombre', grado='$grado', turno='$turno', especificacion='$especificacion' 
         WHERE id_grupo=$id";
-
+        
 if ($con->query($sql) === TRUE) {
     if ($con->affected_rows > 0) {
         echo json_encode(["success" => true]);

@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (result.isConfirmed) {
                     const data = new URLSearchParams();
                     data.append("id", grupoActual);
-
+                    
                     const resp = await fetch("../php/eliminar_grupo.php", {
                         method: "POST",
                         headers: {

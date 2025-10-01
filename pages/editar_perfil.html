@@ -17,7 +17,8 @@
         <nav class="navbar navbar-expand-lg" data-bs-theme="light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png" alt="Logo Klasso" class="logo">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
+                        alt="Logo Klasso" class="logo">
                 </a>
 
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
@@ -91,20 +92,85 @@
             </div>
         </nav>
     </header>
-    <main class="container py-4">
-        <div class="row justify-content-center">
+    <main>
+        <section>
+            <h1>Editar mi perfil</h1>
+            <div class="container mt-4">
+                <h3>Editar Perfil</h3>
+                <form id="formEditarUsuario" action="../php/editar_usuario.php" method="POST">
+
+                    <!-- Nombre -->
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+
+                    <!-- Apellido -->
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Gmail</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <!-- Teléfono (solo profesores y administradores) -->
+                    <div class="mb-3 d-none" id="telefonoGroup">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono">
+                    </div>
+
+                    <!-- Botón cambiar contraseña -->
+                    <button type="button" id="btnCambiarPass" class="btn btn-warning mb-3">
+                        Cambiar contraseña
+                    </button>
+
+                    <div id="passGroup" class="d-none">
+                        <!-- Contraseña actual -->
+                        <div class="mb-3">
+                            <label for="password_actual" class="form-label">Contraseña actual</label>
+                            <input type="password" class="form-control" id="password_actual" name="password_actual">
+                        </div>
+
+                        <!-- Nueva contraseña -->
+                        <div class="mb-3">
+                            <label for="password_nueva" class="form-label">Nueva contraseña</label>
+                            <input type="password" class="form-control" id="password_nueva" name="password_nueva">
+                        </div>
+
+                        <!-- Repetir nueva contraseña -->
+                        <div class="mb-3">
+                            <label for="password_repetir" class="form-label">Repetir nueva contraseña</label>
+                            <input type="password" class="form-control" id="password_repetir" name="password_repetir">
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+                        <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar cuenta</button>
+                    </div>
+                </form>
+            </div>
+
+
+        </section>
+        <!--<div class="row justify-content-center">
             <div class="col-lg-8">
 
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h3 class="card-title mb-3"><i class="fas fa-user-edit me-2"></i>Editar perfil</h3>
                         <p class="text-muted small">Seleccioná tu avatar (usamos DiceBear) y guardá tu preferencia.</p>
+                        
 
-                        <!-- Preview + Form -->
                         <div class="d-flex gap-4 align-items-center mb-4">
                             <div class="text-center">
                                 <div id="avatarPreviewWrap" class="avatar-preview rounded-circle mb-2">
-                                    <!-- IMG preview se setea desde JS -->
+                                
                                     <img id="avatarPreview" src="../assets/img/profile.png" alt="Avatar preview"
                                         class="rounded-circle">
                                 </div>
@@ -113,8 +179,8 @@
 
                             <div class="flex-fill">
                                 <label for="seedInput" class="form-label">Texto / seed (ej: tu nombre o nick)</label>
-                                <input id="seedInput" class="form-control mb-2" type="text"
-                                    placeholder="Ej: Mirai" maxlength="40">
+                                <input id="seedInput" class="form-control mb-2" type="text" placeholder="Ej: Mirai"
+                                    maxlength="40">
 
                                 <div class="d-flex align-items-center gap-2">
                                     <button id="randomSeedBtn" class="btn btn-outline-secondary btn-sm">
@@ -132,10 +198,10 @@
 
                         <hr>
 
-                        <!-- Galería de estilos (thumbnails) -->
+                        
                         <h6>Elegí un estilo</h6>
                         <div id="stylesGrid" class="row gy-3 mt-2">
-                            <!-- JS inyecta las tarjetas aquí -->
+                            
                         </div>
 
                         <div class="mt-4">
@@ -147,7 +213,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </main>
     <footer>
         <div class="footer-container">
@@ -157,8 +223,12 @@
                 <a href="./pages/contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
+                        alt="Instagram"></a>
+                <a href="#"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png"
+                        alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
@@ -167,6 +237,7 @@
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
     <script src="../JS/edit_perfil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

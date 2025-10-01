@@ -7,7 +7,7 @@ $con = conectar_bd();
     $email = $_POST['email'];
     $ci = $_POST['ci'];
     $rol = $_POST['rol'];
-    $contrasenia = md5($_POST['contrasenia']);
+    $contrasenia = ($_POST['contrasenia']);
     $codigo = $_POST['codigo'];
     
     $cod_docente = "prof123KLASSO";
@@ -15,9 +15,11 @@ $con = conectar_bd();
     
     switch($rol) {
     case "estudiante":
+        $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
         $sql = "INSERT INTO alumnos (nombre, apellido, mail, ci_alumno, contrasena) 
                 VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
         break;
+        
         
     case "administrador":
         if ($rol === "administrador" && $codigo !== $cod_ads){

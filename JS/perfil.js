@@ -1,4 +1,4 @@
-fetch("../php/obtener_usuario.php")
+fetch("../php/obtener_perfil.php")
     .then(res => res.json())
     .then(data => {
         if (!data.error) {
