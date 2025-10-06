@@ -1,10 +1,32 @@
 <?php
 session_start();
 require("conexion.php");
+require("loadenv.php");
 
 function limpiar($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
+
+function verificarHCaptcha($token) {
+    $secret = $_ENV['HCAPTCHA_SECRET'] ?? '';
+    
+    $ch = curl_init('https://hcaptcha.com/siteverify');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+        'secret' => $secret,
+        'response' => $token,
+        'remoteip' => $_SERVER['REMOTE_ADDR']
+    ]));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // evita errores SSL en Windows
+    
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    $data = json_decode($response, true);
+    return $data['success'] ?? false;
+}
+
 
 function validarCredenciales($cedula, $pass, $rol) {
     $con = conectar_bd();
@@ -42,7 +64,7 @@ function validarCredenciales($cedula, $pass, $rol) {
     
     if ($resultado && mysqli_num_rows($resultado) == 1) {
         $usuario = mysqli_fetch_assoc($resultado);
-
+        
         if (password_verify($pass, $usuario['hash'])) {
             unset($usuario['hash']); 
             $usuario['rol'] = $rol;
@@ -65,10 +87,25 @@ function crearSesion($usuario) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cedula = limpiar($_POST['cedula'] ?? '');
-    $pass = $_POST['pass'] ?? '';
-    $rol = limpiar($_POST['rol'] ?? '');
+    $cedula = limpiar($_POST['cedula']);
+    $pass = $_POST['pass'];
+    $rol = limpiar($_POST['rol']);
+    $hcaptcha_token = $_POST['h-captcha-response'] ?? '';
     
+    if (!verificarHCaptcha($hcaptcha_token)) {
+        echo "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Captcha falló',
+                text: 'Por favor completa el captcha correctamente',
+                confirmButtonText: 'Intentar de nuevo'
+            }).then(() => { window.history.back(); });
+        </script>";
+        exit;
+    }
+
     $usuario = validarCredenciales($cedula, $pass, $rol);
     
     if ($usuario) {

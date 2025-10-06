@@ -122,6 +122,7 @@
                         Mantener la sesión iniciada
                     </label>
                 </div>
+                <div id="captcha" class="h-captcha" data-sitekey=""></div>
                 <button type="submit" name="inicio_sesion" class="btn btn-primary btn-login"
                     fdprocessedid="3tgwfh">Iniciar Sesión</button>
             </fieldset>
@@ -145,6 +146,20 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
+    <script>
+    fetch("../php/get_sitekey.php")
+    .then(res => res.json())
+    .then(data => {
+        if (data.sitekey) {
+            document.getElementById("captcha").setAttribute("data-sitekey", data.sitekey);
+            if (window.hcaptcha) hcaptcha.render('captcha', { sitekey: data.sitekey });
+        } else {
+            console.error("No se pudo cargar la clave del captcha");
+        }
+    })
+    .catch(err => console.error(err));
+    </script>
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </body>
 
 </html>
