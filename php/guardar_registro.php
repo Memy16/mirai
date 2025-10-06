@@ -3,7 +3,7 @@ require("conexion.php");
 $con = conectar_bd();
 
 function verificarHCaptcha($token) {
-    $secret = 'ES_2cf5950c050648b5984358b3ce688226';
+    $secret = '';
     
     $ch = curl_init('https://hcaptcha.com/siteverify');
     curl_setopt($ch, CURLOPT_POST, true);
