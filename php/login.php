@@ -12,21 +12,21 @@ function validarCredenciales($cedula, $pass, $rol) {
     
     switch($rol) {
         case "estudiante":
-            $sql = "SELECT ci_alumno AS ci, nombre, apellido 
+            $sql = "SELECT id_alumno AS user_id, ci_alumno AS ci, nombre, apellido 
                     FROM alumnos 
                     WHERE ci_alumno = '$cedula' AND contrasena = '$contrasenia_hash'";
             $home = "../pages/alumno.html";
             break;
             
         case "profesor":
-            $sql = "SELECT ci_docente AS ci, nombre, apellido 
+            $sql = "SELECT id_docente AS user_id, ci_docente AS ci, nombre, apellido 
                     FROM docente 
-                    WHERE ci_docente = '$cedula' AND contrasena_docente = '$contrasenia_hash'";
+                    WHERE ci_docente = '$cedula' AND contrasena_docente = '$pass'";
             $home = "../pages/docente.html";
             break;
             
         case "administrador":
-            $sql = "SELECT ci_adscripta AS ci, nombre, apellido 
+            $sql = "SELECT id_adscripta AS user_id, ci_adscripta AS ci, nombre, apellido 
                     FROM adscripta 
                     WHERE ci_adscripta = '$cedula' AND contrasena_adscripta = '$contrasenia_hash'";
             $home = "../pages/adscripcion.html";
@@ -50,6 +50,7 @@ function validarCredenciales($cedula, $pass, $rol) {
 
 function crearSesion($usuario) {
     $_SESSION['loggedin'] = true;
+    $_SESSION['user_id'] = $usuario['user_id'];
     $_SESSION['ci'] = $usuario['ci'];
     $_SESSION['nombre'] = $usuario['nombre'];
     $_SESSION['apellido'] = $usuario['apellido'];
@@ -104,6 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <div class='toast'>
             ✅ Bienvenido/a {$usuario['rol']} {$usuario['nombre']} {$usuario['apellido']}<br>
+            <small>ID de usuario: {$usuario['user_id']}</small><br>
             Serás redirigido en 3 segundos...
         </div>
 
@@ -141,6 +143,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
-
-
