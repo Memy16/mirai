@@ -1,14 +1,14 @@
 <?php
 session_start();
 require("conexion.php");
-
+require("loadenv.php");
 
 function limpiar($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
 function verificarHCaptcha($token) {
-    $secret = '';
+    $secret = $_ENV['HCAPTCHA_SECRET'] ?? '';
     
     $ch = curl_init('https://hcaptcha.com/siteverify');
     curl_setopt($ch, CURLOPT_POST, true);

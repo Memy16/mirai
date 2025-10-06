@@ -1,9 +1,11 @@
 <?php
 require("conexion.php");
 $con = conectar_bd();
+require("loadenv.php");
+
 
 function verificarHCaptcha($token) {
-    $secret = '';
+    $secret = $_ENV['HCAPTCHA_SECRET'] ?? '';
     
     $ch = curl_init('https://hcaptcha.com/siteverify');
     curl_setopt($ch, CURLOPT_POST, true);
