@@ -15,12 +15,12 @@ $grado = ($_POST['grado']);
 $turno = ($_POST['turno']);
 $especificacion = ($_POST['especificacion']);
 
-$sql = "UPDATE grupo 
-        SET nombre='$nombre', grado='$grado', turno='$turno', especificacion='$especificacion' 
-        WHERE id_grupo=$id";
-        
-if ($con->query($sql) === TRUE) {
-    if ($con->affected_rows > 0) {
+$stmt = $con->prepare("UPDATE grupo 
+        SET nombre=?, grado=?, turno=?, especificacion=? 
+        WHERE id_grupo=?");
+$stmt->bind_param("siss", $nombre, $grado, $turno, $especificacion, $id);
+if ($stmt->execute()) {
+    if ($stmt->affected_rows > 0) {
         echo json_encode(["success" => true]);
     } else {
         echo json_encode(["success" => false, "error" => "No se encontró el grupo o no se realizaron cambios"]);
@@ -29,4 +29,5 @@ if ($con->query($sql) === TRUE) {
     echo json_encode(["success" => false, "error" => $con->error]);
 }
 
+$stmt->close();
 $con->close();

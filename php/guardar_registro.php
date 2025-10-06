@@ -16,8 +16,8 @@ $con = conectar_bd();
     switch($rol) {
     case "estudiante":
         $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO alumnos (nombre, apellido, mail, ci_alumno, contrasena) 
-                VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
+        $stmt = $con->prepare("INSERT INTO alumnos (nombre, apellido, mail, ci_alumno, contrasena) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $nombre, $apellido, $email, $ci, $contrasenia);
         break;
         
         
@@ -33,8 +33,9 @@ $con = conectar_bd();
         if ($codigo !== $cod_docente) {
         die("❌ Código incorrecto para profesor/a.");
         }else{
-            $sql = "INSERT INTO docente (nombre, apellido, mail_docente, ci_docente, contrasena_docente) 
-                VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
+            $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
+            $stmt = $con->prepare("INSERT INTO docente (nombre, apellido, mail_docente, ci_docente, contrasena_docente) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $nombre, $apellido, $email, $ci, $contrasenia);
         }
         break;
         
@@ -42,9 +43,11 @@ $con = conectar_bd();
         die("Rol no válido.");
     }
     
-    if($con->query($sql) === TRUE) {
+    if(isset($stmt) && $stmt->execute()) {
         echo "Usuario registrado correctamente <a href='../pages/login.html'>Iniciar Sesión</a>";
     } else {
         echo "Error: " . $con->error;
     }
+    
+    if (isset($stmt)) $stmt->close();
 ?>

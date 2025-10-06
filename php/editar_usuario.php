@@ -23,14 +23,17 @@ $password_repetir= $_POST['password_repetir'] ?? null;*/
 
 switch($rol) {
     case "estudiante":
-            $sql = "UPDATE alumnos SET nombre='$nombre', apellido='$apellido', mail='$email' WHERE id_alumno='$id'";
+            $stmt = $con->prepare("UPDATE alumnos SET nombre=?, apellido=?, mail=? WHERE id_alumno=?");
+            $stmt->bind_param("sssi", $nombre, $apellido, $email, $id);
             break;
     case "profesor":
-            $sql = "UPDATE docente SET nombre='$nombre', apellido='$apellido', mail_docente='$email', tel_docente='$tel' WHERE id_docente='$id'";
+            $stmt = $con->prepare("UPDATE docente SET nombre=?, apellido=?, mail_docente=?, tel_docente=? WHERE id_docente=?");
+            $stmt->bind_param("ssssi", $nombre, $apellido, $email, $tel, $id);
         break;
-
+        
     case "administrador":
-            $sql = "UPDATE adscripta SET nombre='$nombre', apellido='$apellido', mail_adscripta='$email', tel_adscripta='$tel' WHERE id_adscripta='$id'";
+            $stmt = $con->prepare("UPDATE adscripta SET nombre=?, apellido=?, mail_adscripta=?, tel_adscripta=? WHERE id_adscripta=?");
+            $stmt->bind_param("ssssi", $nombre, $apellido, $email, $tel, $id);
         break;
         
     default:
@@ -38,8 +41,8 @@ switch($rol) {
         exit;
 }
 
-if ($con->query($sql) === TRUE) {
-    if ($con->affected_rows > 0) {
+if ($stmt->execute()) {
+    if ($stmt->affected_rows > 0) {
         echo json_encode(["success" => true]);
     } else {
         echo json_encode(["success" => false, "error" => "No se encontró el usuario o no se realizaron cambios"]);
@@ -48,5 +51,6 @@ if ($con->query($sql) === TRUE) {
     echo json_encode(["success" => false, "error" => $con->error]);
 }
 
+$stmt->close();
 $con->close();
 ?>

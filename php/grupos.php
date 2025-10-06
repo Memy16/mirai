@@ -14,12 +14,15 @@ if (!in_array($turno, $turnosValidos)) {
     exit;
 }
 
-$sql = "INSERT INTO grupo (nombre, grado, turno, especificacion) 
-        VALUES ('$nombreGrupo', '$gradoGrupo', '$turno', '$especificacionGrupo')";
+$stmt = $con->prepare("INSERT INTO grupo (nombre, grado, turno, especificacion) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $nombreGrupo, $gradoGrupo, $turno, $especificacionGrupo);
 
-if($con->query($sql) === TRUE) {
+
+if($stmt->execute()) {
     echo json_encode(["success" => true]);
 } else {
     http_response_code(500);
     echo json_encode(["success" => false, "error" => $con->error]);
 }
+
+$stmt->close();

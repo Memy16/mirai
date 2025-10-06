@@ -8,27 +8,26 @@ function limpiar($data) {
 
 function validarCredenciales($cedula, $pass, $rol) {
     $con = conectar_bd();
-    $contrasenia_hash = md5($pass);
     
     switch($rol) {
         case "estudiante":
-            $sql = "SELECT id_alumno AS user_id, ci_alumno AS ci, nombre, apellido 
+            $sql = "SELECT id_alumno AS user_id, ci_alumno AS ci, nombre, apellido, contrasena AS hash 
                     FROM alumnos 
-                    WHERE ci_alumno = '$cedula' AND contrasena = '$contrasenia_hash'";
+                    WHERE ci_alumno = ?";
             $home = "../pages/alumno.html";
             break;
             
         case "profesor":
-            $sql = "SELECT id_docente AS user_id, ci_docente AS ci, nombre, apellido 
+            $sql = "SELECT id_docente AS user_id, ci_docente AS ci, nombre, apellido, contrasena_docente AS hash  
                     FROM docente 
-                    WHERE ci_docente = '$cedula' AND contrasena_docente = '$pass'";
+                    WHERE ci_docente = ?";
             $home = "../pages/docente.html";
             break;
             
         case "administrador":
-            $sql = "SELECT id_adscripta AS user_id, ci_adscripta AS ci, nombre, apellido 
+            $sql = "SELECT id_adscripta AS user_id, ci_adscripta AS ci, nombre, apellido, contrasena_adscripta AS hash 
                     FROM adscripta 
-                    WHERE ci_adscripta = '$cedula' AND contrasena_adscripta = '$contrasenia_hash'";
+                    WHERE ci_adscripta = ?";
             $home = "../pages/adscripcion.html";
             break;
             
@@ -36,15 +35,22 @@ function validarCredenciales($cedula, $pass, $rol) {
             return false;
     }
     
-    $resultado = mysqli_query($con, $sql);
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $cedula);
+    mysqli_stmt_execute($stmt);
+    $resultado = mysqli_stmt_get_result($stmt);
     
     if ($resultado && mysqli_num_rows($resultado) == 1) {
         $usuario = mysqli_fetch_assoc($resultado);
-        $usuario['rol'] = $rol;
-        $usuario['home'] = $home;
-        return $usuario;
-    }
 
+        if (password_verify($pass, $usuario['hash'])) {
+            unset($usuario['hash']); 
+            $usuario['rol'] = $rol;
+            $usuario['home'] = $home;
+            return $usuario;
+        }
+    }
+    
     return false;
 }
 
@@ -59,12 +65,12 @@ function crearSesion($usuario) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cedula = limpiar($_POST['cedula']);
-    $pass = $_POST['pass'];
-    $rol = limpiar($_POST['rol']);
+    $cedula = limpiar($_POST['cedula'] ?? '');
+    $pass = $_POST['pass'] ?? '';
+    $rol = limpiar($_POST['rol'] ?? '');
     
     $usuario = validarCredenciales($cedula, $pass, $rol);
-
+    
     if ($usuario) {
         crearSesion($usuario);
         
@@ -108,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <small>ID de usuario: {$usuario['user_id']}</small><br>
             Serás redirigido en 3 segundos...
         </div>
-
+        
         <script>
             setTimeout(function(){
                 window.location.href = '{$usuario['home']}';
