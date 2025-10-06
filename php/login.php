@@ -87,9 +87,9 @@ function crearSesion($usuario) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cedula = limpiar($_POST['cedula']);
-    $pass = $_POST['pass'];
-    $rol = limpiar($_POST['rol']);
+    $cedula = limpiar($_POST['cedula'] ?? '');
+    $pass = $_POST['pass'] ?? '';
+    $rol = limpiar($_POST['rol']) ?? '';
     $hcaptcha_token = $_POST['h-captcha-response'] ?? '';
     
     if (!verificarHCaptcha($hcaptcha_token)) {
