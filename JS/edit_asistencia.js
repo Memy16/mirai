@@ -1,11 +1,13 @@
 const grupoSelect = document.getElementById("grupo");
 const tablaBody = document.querySelector(".tabla-asistencia tbody");
 const addRowBtn = document.getElementById("addRow");
+const loading = document.getElementById("loading");
 
 function cargarAsistencia() {
     fetch(`../php/asistencias_data/asistencia_get.php?grupo=${grupoSelect.value}`)
     .then(res => res.json())
     .then(data => {
+        if(loading) loading.remove();
         tablaBody.innerHTML = "";
 
         const filas = {};
@@ -179,31 +181,101 @@ tablaBody.addEventListener("click", async e => {
     }
 });
 
+function mostrarNotificacion(mensaje, tipo = "success") {
+    const notif = document.createElement("div");
+    notif.textContent = mensaje;
+    notif.style.position = "fixed";
+    notif.style.top = "20px";
+    notif.style.right = "20px";
+    notif.style.padding = "10px 20px";
+    notif.style.borderRadius = "5px";
+    notif.style.color = "#fff";
+    notif.style.zIndex = "10000";
+    notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
+    notif.style.transition = "opacity 0.3s";
+    notif.style.opacity = "1";
+
+    if(tipo === "success") notif.style.backgroundColor = "#4caf50";
+    else if(tipo === "error") notif.style.backgroundColor = "#f44336";
+
+    document.body.appendChild(notif);
+
+    setTimeout(() => {
+        notif.style.opacity = "0";
+        setTimeout(() => notif.remove(), 300);
+    }, 3000);
+}
+
+
 
 // Añadir nueva fila
 addRowBtn.addEventListener("click", () => {
-    const hora = prompt("Hora inicio (ej: 1° (envia solo el numero))");
-    if(!hora) return;
-    const hora_fin = prompt("Hora fin (ej: 2°-3° (envia solo el numero))") || "";
-    const dia = prompt("Día (Lunes, Martes...)") || "Lunes";
-    const materia = prompt("Materia") || "";
+    // Crear modal temporal
+    const modal = document.createElement("div");
+    modal.id = "tempModal";
+    modal.style.position = "fixed";
+    modal.style.top = "0";
+    modal.style.left = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.backgroundColor = "rgba(0,0,0,0.5)";
+    modal.style.display = "flex";
+    modal.style.justifyContent = "center";
+    modal.style.alignItems = "center";
+    modal.style.zIndex = "9999";
 
-    fetch("../php/asistencias_data/guardar_asistencia.php", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({
-            accion:"nuevo",
-            grupo: grupoSelect.value,
-            hora,
-            hora_fin,
-            dia,
-            materia,
-            estado: "0"
+    modal.innerHTML = `
+        <div style="background:white; padding:20px; border-radius:10px; width:300px;">
+            <h3>Agregar asistencia</h3>
+            <label>Hora inicio:</label>
+            <input type="number" id="horaInput" placeholder="Ej: 1"><br><br>
+            <label>Hora fin:</label>
+            <input type="text" id="horaFinInput" placeholder="Ej: 2-3"><br><br>
+            <label>Día:</label>
+            <input type="text" id="diaInput" value="Lunes"><br><br>
+            <label>Materia:</label>
+            <input type="text" id="materiaInput"><br><br>
+            <button id="saveBtn">Guardar</button>
+            <button id="cancelBtn">Cancelar</button>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    document.getElementById("cancelBtn").addEventListener("click", () => {
+        modal.remove();
+    });
+
+    modal.querySelector("#saveBtn").addEventListener("click", () => {
+        const hora = parseInt(document.getElementById("horaInput").value);
+        const hora_fin = parseInt(document.getElementById("horaFinInput").value) || hora;
+        const dia = document.getElementById("diaInput").value;
+        const materia = document.getElementById("materiaInput").value;
+
+        fetch("../php/asistencias_data/guardar_asistencia.php", {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({
+                accion:"nuevo",
+                grupo: grupoSelect.value,
+                hora,
+                hora_fin,
+                dia,
+                materia,
+                estado: "0"
+            })
         })
-    })
-    .then(res => res.json())
-    .then(res => {
-        if(res.status === "ok") cargarAsistencia();
+        .then(res => res.json())
+        .then(res => {
+            if(res.status === "ok") {
+                mostrarNotificacion("Asistencia guardada correctamente", "success");
+                cargarAsistencia();
+                document.body.removeChild(modal);
+            } else {
+                mostrarNotificacion("Error al guardar la asistencia", "error");
+            }
+        })
+        .catch(() => mostrarNotificacion("Error en la solicitud", "error"));
     });
 });
 

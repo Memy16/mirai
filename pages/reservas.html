@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reservas.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/gestionGrupos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -75,8 +76,23 @@
             </div>
         </nav>
     </header>
-    <main class="main-login">
-        
+    <main class="main-reservas">
+        <h1>Reservas de Recursos y Aulas</h1>
+
+        <div class="grupo-select">
+            <label for="grupo">Selecciona lo que quieras resevar (Recursos/Aulas):</label>
+            <select id="grupo"></select>
+        </div>
+
+        <div class="filters">
+            <h3 data-type="Aula">Aulas</h3>
+            <h3 data-type="Laboratorio">Laboratorios</h3>
+            <h3 data-type="Equipo">Equipos</h3>
+        </div>
+        <div id="aulas-container">
+            
+        </div>
+
     </main>
     <footer>
         <div class="footer-container">
@@ -95,7 +111,7 @@
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
-    <script src="../JS/grupos.js"></script>
+    <script src="../JS/reservas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </body>

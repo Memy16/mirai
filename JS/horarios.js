@@ -1,13 +1,31 @@
 const grupoSelect = document.getElementById("grupo");
+const loading = document.getElementById("loading");
 
-async function actualizarAsistencia() {
-    if(!grupoSelect) return;
+async function actualizarAsistencia(mostrarLoading = false) {
+    if (!grupoSelect) return;
+    if (mostrarLoading) {
+        loading.innerHTML = `
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" style="width:50px;">
+            <p>Cargando Horarios de ${grupoSelect.value}...</p>
+        `;
+    }
     try {
         const res = await fetch(`../php/asistencias_data/asistencia_get.php?grupo=${encodeURIComponent(grupoSelect.value)}`);
         const data = await res.json();
+        loading.innerHTML = "";
 
         const tabla = document.querySelector("table");
         const filas = tabla.querySelectorAll("tr");
+
+        filas.forEach((fila, index) => {
+            if (index === 0) return;
+            const celdas = fila.querySelectorAll("td");
+            for (let i = 2; i <= 6; i++) {
+                celdas[i].textContent = "";
+                celdas[i].style.backgroundColor = "";
+                celdas[i].style.color = "";
+            }
+        });
 
         data.forEach(item => {
             for (let h = item.hora; h <= item.hora_fin; h++) {
@@ -27,13 +45,8 @@ async function actualizarAsistencia() {
                 const celda = celdas[diaIndex];
                 if(celda) {
                     celda.textContent = item.materia;
-                    if(item.estado === "no") {
-                        celda.style.backgroundColor = "red";
-                        celda.style.color = "white";
-                    } else {
-                        celda.style.backgroundColor = "green";
-                        celda.style.color = "white";
-                    }
+                    celda.style.backgroundColor = item.estado === "no" ? "red" : "green";
+                    celda.style.color = "white";
                 }
             }
         });
@@ -43,6 +56,8 @@ async function actualizarAsistencia() {
 }
 
 async function cargarGrupos() {
+    loading.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" style="width:50px;">
+            <p>Cargando Horarios...</p>`;
     try {
         const res = await fetch("../php/asistencias_data/grupos_get.php");
         const grupos = await res.json();
@@ -55,7 +70,7 @@ async function cargarGrupos() {
             grupoSelect.appendChild(option);
         });
 
-        if(grupos.length > 0) {
+        if (grupos.length > 0) {
             grupoSelect.value = `${grupos[0].grado}${grupos[0].nombre} ${grupos[0].turno}`;
             await actualizarAsistencia();
         }
@@ -66,4 +81,4 @@ async function cargarGrupos() {
 
 cargarGrupos();
 setInterval(actualizarAsistencia, 10000);
-grupoSelect.addEventListener("change", actualizarAsistencia);
+grupoSelect.addEventListener("change", () => actualizarAsistencia(true));
