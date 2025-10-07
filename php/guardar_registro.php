@@ -59,7 +59,52 @@ function verificarHCaptcha($token) {
         
     case "administrador":
         if ($rol === "administrador" && $codigo !== $cod_ads){
-        die("❌ Código incorrecto para adscripto/a.");
+        die("<!DOCTYPE html>
+    <html lang='es'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Redirigiendo...</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f0f2f5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .toast {
+                background: #ff0000ff;
+                color: white;
+                padding: 20px 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                font-size: 18px;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+            @keyframes fadein {
+                from {opacity: 0; transform: translateY(20px);}
+                to {opacity: 1; transform: translateY(0);}
+            }
+            @keyframes fadeout {
+                from {opacity: 1;}
+                to {opacity: 0;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class='toast'>
+            Error al registrar usuario: ❌ Código incorrecto para adscripto/a.<br>
+            Serás redirigido en 3 segundos...
+        </div>
+        
+        <script>
+            setTimeout(function(){
+                window.location.href ='../pages/registro.html';
+            }, 3000);
+        </script>
+    </body>
+    </html>");
         } else {
         $sql = "INSERT INTO adscripta (nombre, apellido, mail_adscripta, ci_adscripta, contrasena_adscripta) 
                 VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasenia')";
@@ -67,7 +112,52 @@ function verificarHCaptcha($token) {
         break;
     case "profesor":
         if ($codigo !== $cod_docente) {
-        die("❌ Código incorrecto para profesor/a.");
+        die("<!DOCTYPE html>
+    <html lang='es'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Redirigiendo...</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f0f2f5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .toast {
+                background: #ff0000ff;
+                color: white;
+                padding: 20px 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                font-size: 18px;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+            @keyframes fadein {
+                from {opacity: 0; transform: translateY(20px);}
+                to {opacity: 1; transform: translateY(0);}
+            }
+            @keyframes fadeout {
+                from {opacity: 1;}
+                to {opacity: 0;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class='toast'>
+            Error al registrar usuario: ❌ Código incorrecto para profesor/a.<br>
+            Serás redirigido en 3 segundos...
+        </div>
+        
+        <script>
+            setTimeout(function(){
+                window.location.href ='../pages/registro.html';
+            }, 3000);
+        </script>
+    </body>
+    </html>");
         }else{
             $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
             $stmt = $con->prepare("INSERT INTO docente (nombre, apellido, mail_docente, ci_docente, contrasena_docente) VALUES (?, ?, ?, ?, ?)");
@@ -80,9 +170,104 @@ function verificarHCaptcha($token) {
     }
     
     if(isset($stmt) && $stmt->execute()) {
-        echo "Usuario registrado correctamente <a href='../pages/login.html'>Iniciar Sesión</a>";
+        echo "
+    <!DOCTYPE html>
+    <html lang='es'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Redirigiendo...</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f0f2f5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .toast {
+                background: #4CAF50;
+                color: white;
+                padding: 20px 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                font-size: 18px;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+            @keyframes fadein {
+                from {opacity: 0; transform: translateY(20px);}
+                to {opacity: 1; transform: translateY(0);}
+            }
+            @keyframes fadeout {
+                from {opacity: 1;}
+                to {opacity: 0;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class='toast'>
+            ✅ Usuario registrado correctamente<br>
+            Serás redirigido en 3 segundos...
+        </div>
+        
+        <script>
+            setTimeout(function(){
+                window.location.href ='../pages/login.html';
+            }, 3000);
+        </script>
+    </body>
+    </html>
+    ";
     } else {
-        echo "Error: " . $con->error;
+        $error = $con->error;
+        echo "
+    <!DOCTYPE html>
+    <html lang='es'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Redirigiendo...</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f0f2f5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .toast {
+                background: #ff0000ff;
+                color: white;
+                padding: 20px 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                font-size: 18px;
+                animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            }
+            @keyframes fadein {
+                from {opacity: 0; transform: translateY(20px);}
+                to {opacity: 1; transform: translateY(0);}
+            }
+            @keyframes fadeout {
+                from {opacity: 1;}
+                to {opacity: 0;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class='toast'>
+            Error al registrar usuario: $error<br>
+            Serás redirigido en 3 segundos...
+        </div>
+        
+        <script>
+            setTimeout(function(){
+                window.location.href ='../pages/registro.html';
+            }, 3000);
+        </script>
+    </body>
+    </html>
+    ";
     }
     
     if (isset($stmt)) $stmt->close();
