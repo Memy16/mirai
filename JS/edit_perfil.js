@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const telefonoGroup = document.getElementById("telefonoGroup");
     const btnCambiarPass = document.getElementById("btnCambiarPass");
     const passGroup = document.getElementById("passGroup");
+    const btnEliminarUsuario = document.getElementById("btnEliminar");
 
     let rolUsuario = null;
     let idUsuario = null;
@@ -79,6 +80,62 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(() => {
                 Swal.fire("Error", "Error en la petición", "error");
+                
+             
+                
             });
     });
+
+if (btnEliminarUsuario) {
+        btnEliminarUsuario.addEventListener("click", async () => {
+            if (!idUsuario) return;
+
+            Swal.fire({
+                title: "¿Seguro que deseas eliminar tu cuenta?",
+                text: "¡Esta acción no se puede deshacer!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#1C4C96",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar"
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    const data = new URLSearchParams();
+                    data.append("id", idUsuario);
+                    data.append("rol", rolUsuario);
+
+                    try {
+                        const resp = await fetch("../php/eliminar_usuario.php", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: data
+                        });
+                        const resultDelete = await resp.json();
+
+                        if (resultDelete.success) {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Cuenta eliminada",
+                                text: "Tu usuario fue eliminado correctamente",
+                                timer: 2500,
+                                showConfirmButton: false
+                            }).then(() => {
+                                // Por ejemplo, redirigir al login
+                                window.location.href = "../pages/login.html";
+                            });
+                        } else {
+                            Swal.fire("Error", resultDelete.error || "No se pudo eliminar el usuario", "error");
+                        }
+                    } catch (err) {
+                        Swal.fire("Error", "Error en la petición al servidor", "error");
+                    }
+                }
+            });
+        });
+    }
+
 });
+
+
+

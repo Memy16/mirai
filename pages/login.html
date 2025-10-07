@@ -122,7 +122,7 @@
                         Mantener la sesión iniciada
                     </label>
                 </div>
-                <div id="captcha" class="h-captcha" data-sitekey=""></div>
+                <div id="captcha"></div>
                 <button type="submit" name="inicio_sesion" class="btn btn-primary btn-login"
                     fdprocessedid="3tgwfh">Iniciar Sesión</button>
             </fieldset>
@@ -134,7 +134,7 @@
             <div class="footer-links">
                 <a href="preguntasfrecuentes.html">Preguntas Frecuentes</a>
                 <a href="sobrenosotros.html">Sobre Nosotros</a>
-                <a href="./pages/contacto.html">Contactanos</a>
+                <a href="contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
                 <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
@@ -146,20 +146,24 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
-    <script>
-    fetch("../php/get_sitekey.php")
-    .then(res => res.json())
-    .then(data => {
-        if (data.sitekey) {
-            document.getElementById("captcha").setAttribute("data-sitekey", data.sitekey);
-            if (window.hcaptcha) hcaptcha.render('captcha', { sitekey: data.sitekey });
-        } else {
-            console.error("No se pudo cargar la clave del captcha");
-        }
-    })
-    .catch(err => console.error(err));
-    </script>
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
+    <script>
+    window.onload = function() {
+        fetch("../php/get_sitekey.php")
+        .then(res => res.json())
+        .then(data => {
+            if (data.sitekey) {
+                document.getElementById("captcha").setAttribute("data-sitekey", data.sitekey);
+                if (window.hcaptcha) {
+                    hcaptcha.render('captcha', { sitekey: data.sitekey });
+                }
+            } else {
+                console.error("No se pudo cargar la clave del captcha");
+            }
+        })
+        .catch(err => console.error(err));
+    };
+    </script>
 </body>
 
 </html>
