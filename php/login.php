@@ -93,16 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hcaptcha_token = $_POST['h-captcha-response'] ?? '';
     
     if (!verificarHCaptcha($hcaptcha_token)) {
-        echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Captcha falló',
-                text: 'Por favor completa el captcha correctamente',
-                confirmButtonText: 'Intentar de nuevo'
-            }).then(() => { window.history.back(); });
-        </script>";
+        include(__DIR__ . '/../templates/error_captcha.html');
         exit;
     }
 
@@ -110,79 +101,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($usuario) {
         crearSesion($usuario);
-        
-        echo "
-    <!DOCTYPE html>
-    <html lang='es'>
-    <head>
-        <meta charset='UTF-8'>
-        <title>Redirigiendo...</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background: #f0f2f5;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-            .toast {
-                background: #4CAF50;
-                color: white;
-                padding: 20px 30px;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                font-size: 18px;
-                animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            }
-            @keyframes fadein {
-                from {opacity: 0; transform: translateY(20px);}
-                to {opacity: 1; transform: translateY(0);}
-            }
-            @keyframes fadeout {
-                from {opacity: 1;}
-                to {opacity: 0;}
-            }
-        </style>
-    </head>
-    <body>
-        <div class='toast'>
-            ✅ Bienvenido/a {$usuario['rol']} {$usuario['nombre']} {$usuario['apellido']}<br>
-            <small>ID de usuario: {$usuario['user_id']}</small><br>
-            Serás redirigido en 3 segundos...
-        </div>
-        
-        <script>
-            setTimeout(function(){
-                window.location.href = '{$usuario['home']}';
-            }, 3000);
-        </script>
-    </body>
-    </html>
-    ";
+        include(__DIR__ . '/../templates/exito_login.php');
+        exit;
     } else {
-        echo "
-    <!DOCTYPE html>
-    <html lang='es'>
-    <head>
-        <meta charset='UTF-8'>
-        <title>Error</title>
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-    </head>
-    <body>
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Cédula o contraseña incorrectos',
-                confirmButtonText: 'Intentar de nuevo'
-            }).then(() => {
-                window.history.back();
-            });
-        </script>
-    </body>
-    </html>
-    ";
+        include(__DIR__ . '/../templates/error_login.html');
+        exit;
     }
 }
 ?>
