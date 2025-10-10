@@ -7,9 +7,10 @@
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/editar_perfil.css">
+    <link rel="stylesheet" href="../css/gestionGrupos.css">
+    <link rel="stylesheet" href="../css/gestionAlumnos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Editar perfil</title>
+    <title>Gestión Alumnos</title>
 </head>
 
 <body>
@@ -92,128 +93,74 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="main-login">
+        <h1>Gestión de alumnos</h1>
         <section>
-            <h1>Editar mi perfil</h1>
+            <h3>Cédula alumno</h3>
+            <form id="buscarAlumnoForm" action="../php/gestion_alumnos/buscar_alumno.php" method="POST">
+                <fieldset>
+                    <label for="ciAlumno" class="form-label mt-4">
+                        <font dir="auto" style="vertical-align: inherit;">
+                            <font dir="auto" style="vertical-align: inherit;">Ingrese la cédula de un estudiante para
+                                saber si está registrado en la plataforma</font>
+                        </font>
+                    </label>
+                    <input type="text" name="ciAlumno" class="form-control" id="ciAlumno"
+                        placeholder="Introducir la cédula del alumno" fdprocessedid="vosyw" required>
+                </fieldset>
+                <button type="submit" class="btn btn-info">Buscar alumno</button>
+            </form>
+            <div id="alertas"></div>
+        </section>
+        <section>
+            <div class="container-alerts" id="alertCI"></div>
+        </section>
+        <section>
+            <div class="container-alerts" id="alertRegistro"></div>
+        </section>
+        <!---<section>
             <div class="container mt-4">
-                <h3>Editar Perfil</h3>
-                <form id="formEditarUsuario" action="../php/editar_usuario.php" method="POST">
-
-                    <!-- Nombre -->
+                <h3>información del estudiante</h3>
+                <form id="formEditarAlumno" action="" method="POST">
+                
+                
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>
-
-                    <!-- Apellido -->
+                    
+                    
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>
                         <input type="text" class="form-control" id="apellido" name="apellido" required>
                     </div>
-
-                    <!-- Email -->
+                    
+                    
                     <div class="mb-3">
                         <label for="email" class="form-label">Gmail</label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
-
-                    <!-- Teléfono (solo profesores y administradores) -->
-                    <div class="mb-3 d-none" id="telefonoGroup">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono">
+                    
+                    <div class="mb-3 d-none" id="telRef">
+                        <label for="telRef" class="form-label">Teléfono referente</label>
+                        <input type="text" class="form-control" id="telRef" name="telRef">
                     </div>
-
-                    <!-- Botón cambiar contraseña -->
-                    <button type="button" id="btnCambiarPass" class="btn btn-warning mb-3">
-                        Cambiar contraseña
-                    </button>
-
-                    <div id="passGroup" class="d-none">
-                        <!-- Contraseña actual -->
-                        <div class="mb-3">
-                            <label for="password_actual" class="form-label">Contraseña actual</label>
-                            <input type="password" class="form-control" id="password_actual" name="password_actual">
-                        </div>
-
-                        <!-- Nueva contraseña -->
-                        <div class="mb-3">
-                            <label for="password_nueva" class="form-label">Nueva contraseña</label>
-                            <input type="password" class="form-control" id="password_nueva" name="password_nueva">
-                        </div>
-
-                        <!-- Repetir nueva contraseña -->
-                        <div class="mb-3">
-                            <label for="password_repetir" class="form-label">Repetir nueva contraseña</label>
-                            <input type="password" class="form-control" id="password_repetir" name="password_repetir">
-                        </div>
-                    </div>
-
+                    
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <button type="button" class="btn btn-primary">Guardar cambios</button>
                         <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
                         <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar cuenta</button>
                     </div>
                 </form>
             </div>
-
-
         </section>
-        <!--<div class="row justify-content-center">
-            <div class="col-lg-8">
-
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h3 class="card-title mb-3"><i class="fas fa-user-edit me-2"></i>Editar perfil</h3>
-                        <p class="text-muted small">Seleccioná tu avatar (usamos DiceBear) y guardá tu preferencia.</p>
-                        
-
-                        <div class="d-flex gap-4 align-items-center mb-4">
-                            <div class="text-center">
-                                <div id="avatarPreviewWrap" class="avatar-preview rounded-circle mb-2">
-                                
-                                    <img id="avatarPreview" src="../assets/img/profile.png" alt="Avatar preview"
-                                        class="rounded-circle">
-                                </div>
-                                <div class="small text-muted">Vista previa</div>
-                            </div>
-
-                            <div class="flex-fill">
-                                <label for="seedInput" class="form-label">Texto / seed (ej: tu nombre o nick)</label>
-                                <input id="seedInput" class="form-control mb-2" type="text" placeholder="Ej: Mirai"
-                                    maxlength="40">
-
-                                <div class="d-flex align-items-center gap-2">
-                                    <button id="randomSeedBtn" class="btn btn-outline-secondary btn-sm">
-                                        <i class="fas fa-random me-1"></i> Semilla aleatoria
-                                    </button>
-
-                                    <button id="guardarBtn" class="btn btn-primary ms-auto">
-                                        <i class="fas fa-save me-1"></i> Guardar avatar
-                                    </button>
-                                </div>
-
-                                <div id="statusMsg" class="mt-2"></div>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        
-                        <h6>Elegí un estilo</h6>
-                        <div id="stylesGrid" class="row gy-3 mt-2">
-                            
-                        </div>
-
-                        <div class="mt-4">
-                            <small class="text-muted">Los avatares se generan por la API de DiceBear. El avatar no se
-                                sube; se genera dinámicamente a partir del <strong>style</strong> y la
-                                <strong>seed</strong>.</small>
-                        </div>
-
-                    </div>
-                </div>
+        <aside class="me-4 aside-grupos">
+            <h2>Grupos existentes</h2>
+            <div class="lista-grupos-container">
+                <ul id="listaGrupos" name="listarGrupos" class="list-group"></ul>
             </div>
-        </div>-->
+        </aside>-->
+
     </main>
     <footer>
         <div class="footer-container">
@@ -236,8 +183,9 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
-    <script src="../JS/edit_perfil.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--<script src="../JS/grupos.js"></script>-->
+    <script src="../JS/buscar_alumno.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </body>
 
