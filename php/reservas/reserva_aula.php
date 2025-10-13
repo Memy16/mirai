@@ -21,26 +21,29 @@ if($res_h && $row_h = $res_h->fetch_assoc()){
 }
 $stmt_h->close();
 
-$stmt_check = $con->prepare("SELECT * FROM reserva_aulas ra
-JOIN horarios h ON h.id_horario = ra.id_horario
-WHERE ra.id_aula = ?
-AND ra.hora_turno = ?
-AND ra.hora_reservada = ?
-AND h.turno = ?");
-$stmt_check->bind_param("isss", $id_aula, $hora, $fecha, $turno);
+$stmt_check = $con->prepare("
+    SELECT * FROM reserva_aulas
+    WHERE id_aula = ?
+    AND hora_turno = ?
+    AND hora_reservada = ?
+");
+$stmt_check->bind_param("iss", $id_aula, $hora, $fecha);
 $stmt_check->execute();
-
 $result = $stmt_check->get_result();
+
 if($result && $result->num_rows > 0){
     echo json_encode(["success"=>false, "message"=>"El aula ya está reservada en esa fecha y hora."]);
     exit;
 }
+$stmt_check->close();
+
 
 $sql_reserva = "INSERT INTO reserva (hora_entrada, hora_salida) VALUES ('00:00:00', '00:00:00')";
 if($con->query($sql_reserva)){
     $id_reserva = $con->insert_id;
 
     $stmt_insert = $con->prepare("INSERT INTO reserva_aulas (id_reserva, id_aula, id_horario, hora_turno, hora_reservada) VALUES (?, ?, ?, ?, ?)");
+    $stmt_insert->bind_param("iiiss", $id_reserva, $id_aula, $id_horario, $hora, $fecha);
     if($stmt_insert->execute()){
         echo json_encode(["success"=>true, "message"=>"Reserva realizada correctamente"]);
     } else {

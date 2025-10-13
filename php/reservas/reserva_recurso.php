@@ -22,16 +22,16 @@ if($res_h && $row_h = $res_h->fetch_assoc()){
 }
 $stmt_h->close();
 
-$stmt_check = $con->prepare("SELECT * FROM reserva_recursos rr
-JOIN horarios h ON h.id_horario = rr.id_horario
-WHERE rr.id_recurso = ?
-AND rr.hora_turno = ?
-AND rr.hora_reservada = ?
-AND h.turno = ?") ;
-$stmt_check->bind_param("isss", $id_recurso, $hora, $fecha, $turno);
+$stmt_check = $con->prepare("
+    SELECT * FROM reserva_recursos
+    WHERE id_recurso = ?
+    AND hora_turno = ?
+    AND hora_reservada = ?
+");
+$stmt_check->bind_param("iss", $id_recurso, $hora, $fecha);
 $stmt_check->execute();
-
 $result = $stmt_check->get_result();
+
 if($result && $result->num_rows > 0){
     echo json_encode(["success"=>false, "message"=>"El recurso ya está reservado en esa fecha y hora."]);
     exit;
