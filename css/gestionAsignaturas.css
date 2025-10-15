@@ -5,14 +5,14 @@
     padding: 1rem;
 }
 
-.aside-grupos {
+.aside-materias {
     width: 25%;
     min-width: 250px;
     border-radius: 8px;
     padding: 1.5rem;
 }
 
-.lista-grupos-container {
+.lista-asign-container {
     max-height: 500px;
     overflow-y: auto;
     border: 1px solid var(--azuloscuro);
@@ -21,16 +21,16 @@
     background-color: white;
 }
 
-.lista-grupos-container::-webkit-scrollbar {
+.lista-asign-container::-webkit-scrollbar {
     width: 8px;
 }
 
-.lista-grupos-container::-webkit-scrollbar-track {
+.lista-asign-container::-webkit-scrollbar-track {
     background: var(--indigo);
     border-radius: 4px;
 }
 
-.lista-grupos-container::-webkit-scrollbar-thumb {
+.lista-asign-container::-webkit-scrollbar-thumb {
     background: var(--azul);
     border-radius: 4px;
 }
@@ -38,10 +38,11 @@
 .section-formulario {
     flex: 1;
     padding: 1rem;
+    padding-bottom: .1875rem;
 }
 
 h3 {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 @media (max-width: 768px) {
@@ -50,12 +51,12 @@ h3 {
         padding: 0.5rem;
     }
     
-    .aside-grupos {
+    .aside-materias {
         width: 100%;
         min-width: auto;
     }
     
-    .lista-grupos-container {
+    .lista-asign-container {
         max-height: 300px;
     }
 }
