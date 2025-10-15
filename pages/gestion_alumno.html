@@ -72,7 +72,7 @@
                                 <img src="../assets/img/profile.png" alt="Profile" class="profile">
                                 <i class="fas fa-caret-down"></i>
                             </a>
-
+                            
                             <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
                                 <div class="d-flex align-items-center mb-3">
                                     <div>
@@ -95,9 +95,10 @@
     </header>
     <main class="main-login">
         <h1>Gestión de alumnos</h1>
+        <div class="grid-gestionAlumnos">
         <section>
             <h3>Cédula alumno</h3>
-            <form id="buscarAlumnoForm" action="../php/gestion_alumnos/buscar_alumno.php" method="POST">
+            <form id="buscarAlumnoForm" action="../php/gestion_alumnos/buscar_alumno.php" method="POST" class="alumno-busqueda">
                 <fieldset>
                     <label for="ciAlumno" class="form-label mt-4">
                         <font dir="auto" style="vertical-align: inherit;">
@@ -112,55 +113,79 @@
             </form>
             <div id="alertas"></div>
         </section>
-        <section>
-            <div class="container-alerts" id="alertCI"></div>
-        </section>
-        <section>
-            <div class="container-alerts" id="alertRegistro"></div>
-        </section>
-        <!---<section>
-            <div class="container mt-4">
-                <h3>información del estudiante</h3>
-                <form id="formEditarAlumno" action="" method="POST">
-                
+        <section id="infoEstudianteSection" class="alumno-info" style="display: none;">
+            <h4>Información del estudiante</h4>
+            <form id="alumnoForm" action="../php/gestion_alumnos/editar_alumno.php" method="POST">
+                <fieldset>
                 
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required
+                            placeholder="Ingrese el nombre del alumno">
                     </div>
-                    
                     
                     <div class="mb-3">
-                        <label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" required>
+                        <label for="apellido" class="form-label">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" required
+                            placeholder="Ingrese el apellido del alumno">
                     </div>
-                    
                     
                     <div class="mb-3">
-                        <label for="email" class="form-label">Gmail</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="cedula" class="form-label">Cédula:</label>
+                        <input type="text" class="form-control" id="cedula" name="cedula" required
+                            placeholder="Ingrese la cédula de identidad"
+                            pattern="[0-9]{1}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{1}"
+                            title="Formato: 1.234.567-8 o 12345678">
                     </div>
                     
-                    <div class="mb-3 d-none" id="telRef">
-                        <label for="telRef" class="form-label">Teléfono referente</label>
-                        <input type="text" class="form-control" id="telRef" name="telRef">
+                    <div class="mb-3">
+                        <label for="telefonoReferente" class="form-label">Teléfono del referente:</label>
+                        <input type="tel" class="form-control" id="telefonoReferente" name="telefonoReferente" required
+                            placeholder="Ej: 099 123 456" pattern="[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{3}"
+                            title="Formato: 099 123 456">
                     </div>
-                    
-                    <div class="mt-3">
-                        <button type="button" class="btn btn-primary">Guardar cambios</button>
-                        <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
-                        <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar cuenta</button>
-                    </div>
-                </form>
+                </fieldset>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
+                <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+            </form>
+        </section>
+        <section id="estado-alumno" class="mt-4 alertas">
+            <div id="mensaje-registrado-grupo" class="alert alert-success d-none">
+                <p id="texto-registrado-grupo"></p>
+                <button id="btn-cambiar-grupo" class="btn btn-primary">Cambiar de grupo</button>
+            </div>
+            
+            <div id="mensaje-no-registrado" class="alert alert-danger d-none">
+                <p>Este alumno no se encuentra registrado en la plataforma.</p>
+            </div>
+            
+            <div id="mensaje-registrado-sin-grupo" class="alert alert-info d-none">
+                <p id="texto-registrado-sin-grupo"></p>
+                <button id="btn-asignar-grupo" class="btn btn-primary">Asignar grupo</button>
             </div>
         </section>
-        <aside class="me-4 aside-grupos">
-            <h2>Grupos existentes</h2>
+        
+        <aside class="me-4 aside-grupos grupos-existentes">
+            <h2>Grupos</h2>
             <div class="lista-grupos-container">
                 <ul id="listaGrupos" name="listarGrupos" class="list-group"></ul>
             </div>
-        </aside>-->
-
+        </aside>
+        </div>
+        <section id="asignar-grupo" class="mt-4 d-none">
+            <h5 id="titulo-asignar"></h5>
+            <p>Seleccione el grupo al que quiere asignar a este alumno</p>
+            
+            <form id="form-asignar-grupo" action="../php/gestion_alumnos/asignar_grupo.php" method="post">
+                <input type="hidden" name="id_alumno" id="input-id-alumno">
+                <input type="hidden" name="id_grupo" id="input-id-grupo">
+                
+                <div id="grupos-container" class="d-flex flex-wrap gap-3"></div>
+                
+                <button id="btn-confirmar-asignacion" class="btn btn-primary mt-3">Asignar grupo</button>
+            </form>
+        </section>
     </main>
     <footer>
         <div class="footer-container">
@@ -183,9 +208,11 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
-    <!--<script src="../JS/grupos.js"></script>-->
+    <script src="../JS/lista_grupos.js"></script>
     <script src="../JS/buscar_alumno.js"></script>
+    <script src="../JS/asignar_grupo_ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </body>
 

@@ -1,0 +1,60 @@
+.btn-info {
+    margin-top: .625rem;
+}
+
+.alert {
+    margin-top: .625rem;
+}
+
+.container-section {
+    border: 1px solid var(--azuloscuro);
+    border-radius: 4px;
+    padding: 0.5rem;
+    background-color: white;
+}
+
+#infoEstudianteSection {
+    margin-top: 1rem;
+}
+
+.grupo-seleccionado {
+    border: 3px solid var(--indigo) !important;
+    background-color: var(--beige) !important;
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.4);
+    transform: scale(1.03);
+    transition: all 0.2s ease;
+}
+
+.grid-gestionAlumnos {
+    display: grid;
+    grid-template-areas:
+        "alumno-busqueda alertas grupos-existentes";
+    grid-template-columns: 2fr 1.5fr 1.5fr;
+    gap: 10px;
+    padding: 5px;
+    align-items: start;
+    min-height: 440px;
+}
+
+.alumno-busqueda {
+    grid-area: alumno-busqueda;
+}
+
+.alertas {
+    grid-area: alertas;
+}
+
+.grupos-existentes {
+    grid-area: grupos-existentes;
+}
+
+.alertas {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(40, 60, 120, .09);
+}
+
+.grupos-existentes {
+    min-width: 320px;
+    /* Asegura mínimo ancho */
+}
