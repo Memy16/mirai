@@ -50,13 +50,13 @@
 
 <body>
     <div class='toast'>
-        Error al registrar usuario: $error<br>
+        Error al registrar la relación: $error<br>
         Serás redirigido en 3 segundos...
     </div>
     
     <script>
         setTimeout(function () {
-            window.location.href = '../pages/registro.html';
+            window.history.back();
         }, 3000);
     </script>
 </body>

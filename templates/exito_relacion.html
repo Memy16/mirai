@@ -15,7 +15,7 @@
         }
         
         .toast {
-            background: #ff0000ff;
+            background: #4CAF50;
             color: white;
             padding: 20px 30px;
             border-radius: 8px;
@@ -50,14 +50,14 @@
 
 <body>
     <div class='toast'>
-        Error al registrar usuario: $error<br>
-        Serás redirigido en 3 segundos...
+        ✅ Relación registrada correctamente<br>
+        Serás redirigido en 4 segundos...
     </div>
     
     <script>
         setTimeout(function () {
-            window.location.href = '../pages/registro.html';
-        }, 3000);
+            window.history.back();
+        }, 4000);
     </script>
 </body>
 
