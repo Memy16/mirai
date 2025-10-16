@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/eventos.css">
 </head>
 
 <body>
@@ -92,170 +93,268 @@
     </header>
     <main class="main-eventos">
         <h1>Institución Eventos</h1>
-        <br>
-        <br>
-        <div class="text_box">
+        <br><br>
+        <!-- Sección de filtros bottones -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="obligatorio">Obligatorios</button>
+            <button class="filter-btn" data-filter="cultura">Cultura</button>
+            <button class="filter-btn" data-filter="academico">Académico</button>
+        </div>
+        
+        <!-- Eventos con etiquetas -->
+        <div class="text_box event-item" data-categories="academico">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-1.png" alt="Jornada Sanducera de Tecnología y Programación" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Jornada Sanducera de Tecnología y Programación</h2>
+                    <h2>Jornada Sanducera de Tecnología y Programación <span class="event-category">Académico</span></h2>
                     <p>Un evento anual donde estudiantes y docentes presentan proyectos de software, videojuegos, apps móviles y sistemas web. Hay concursos de programación, charlas de egresados y empresas locales de IT.</p>
+                 <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
                 </div>
+
+               
             </div>
         </div>
         <br>
         <br>
-        
 
-        <div class="filters">
-
-            <button type="submit" class="btn btn-primary btn-login mt-3 btn-registo1 ">Obligatorios</button>
-            <button type="submit" class="btn btn-primary btn-login mt-3 btn-registo1 ">Cultura</button>
-            <button type="submit" class="btn btn-primary btn-login mt-3 btn-registo1 ">Academico</button>
-        </div>
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="obligatorio academico">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-2.png" alt="Hackatón Juvenil: Código Queguay" />
                 </div>
                 <div class="text_box_content">
-                    <h2 >Hackatón Juvenil "Código Queguay"</h2>
+                    <h2>Hackatón Juvenil "Código Queguay" <span class="event-category">Obligatorio</span> <span class="event-category">Académico</span></h2>
                     <p>Competencia intensiva de desarrollo de soluciones digitales en 24 horas. Participan equipos de liceos y UTUs, creando apps o prototipos que respondan a desafíos sociales, educativos o ambientales.</p>
+                    <button class="evntosinfo-btn" data-target="extra2">mas info</button>
+                 <div id="extra2" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
+                
                 </div>
             </div>
         </div>
         <br>
         <br>
-        <div class="text_box oblig">
+        
+        <div class="text_box event-item" data-categories="cultura">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-3.png" alt="Festival de Innovación Digital" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Festival de Innovación Digital</h2>
+                    <h2>Festival de Innovación Digital <span class="event-category">Cultura</span></h2>
                     <p>Un encuentro de innovación con exposición de startups tecnológicas, talleres de impresión 3D, realidad aumentada y videojuegos. Participan referentes nacionales en tecnología</p>
+                    <button class="evntosinfo-btn" data-target="extra3">mas info</button>
+                 <div id="extra3" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br>
         <br>
 
-        
-
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="obligatorio academico">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-4.png" alt="Semana del Software Libre" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Semana del Software Libre</h2>
+                    <h2>Semana del Software Libre <span class="event-category">Obligatorio</span> <span class="event-category">Académico</span></h2>
                     <p>Ciclo de talleres y charlas sobre sistemas operativos libres, ética del software, seguridad informática y herramientas de código abierto. Se promueve el uso de Linux, GIMP, LibreOffice y más.</p>
+                    <button class="evntosinfo-btn" data-target="extra4">mas info</button>
+                 <div id="extra4" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="academico">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-5.png" alt="Expo Educación y Tecnología Paysandú" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Expo Educación y Tecnología Paysandú</h2>
+                    <h2>Expo Educación y Tecnología Paysandú <span class="event-category">Académico</span></h2>
                     <p>Feria interinstitucional donde se muestran carreras tecnológicas y proyectos educativos. Instituciones como UTU, UTEC y centros privados presentan sus propuestas académicas en informática.</p>
+                    <button class="evntosinfo-btn" data-target="extra5">mas info</button>
+                 <div id="extra5" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="obligatorio">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-6.png" alt="Congreso de Ciberseguridad para Jóvenes" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Congreso de Ciberseguridad para Jóvenes</h2>
+                    <h2>Congreso de Ciberseguridad para Jóvenes <span class="event-category">Obligatorio</span></h2>
                     <p>Evento de formación con charlas sobre hacking ético, protección de datos, contraseñas seguras, ciberbullying y uso responsable de la tecnología.</p>
+                    <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div> 
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="cultura academico">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-7.png" alt="Conversatorio Tecnológico: Tendencias Tech: Desafíos y Oportunidades" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Conversatorio Tecnológico "Tendencias Tech: Desafíos y Oportunidades"</h2>
+                    <h2>Conversatorio Tecnológico "Tendencias Tech: Desafíos y Oportunidades" <span class="event-category">Cultura</span> <span class="event-category">Académico</span></h2>
                     <p>Espacio de diálogo sobre las últimas innovaciones y proyecciones en diversas áreas tecnológicas.</p>
+                    <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="cultura">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-8.png" alt="Jornada de Emprendimiento: Ideas que Transforman: Del Aula al Mercado" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Jornada de Emprendimiento "Ideas que Transforman: Del Aula al Mercado"</h2>
+                    <h2>Jornada de Emprendimiento "Ideas que Transforman: Del Aula al Mercado" <span class="event-category">Cultura</span></h2>
                     <p>Presentación de proyectos innovadores de estudiantes y charlas inspiradoras sobre el ecosistema emprendedor.</p>
+                    <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="academico">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-9.png" alt="Panel de Expertos: Ingeniería del Futuro: Construyendo Soluciones" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Panel de Expertos "Ingeniería del Futuro: Construyendo Soluciones"</h2>
+                    <h2>Panel de Expertos "Ingeniería del Futuro: Construyendo Soluciones" <span class="event-category">Académico</span></h2>
                     <p>Discusión con profesionales destacados sobre el impacto de la ingeniería en la sociedad y los retos venideros.</p>
+                    <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="cultura">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-10.png" alt="Conversatorio: Desarrollo Sostenible: Tecnología al Servicio del Ambiente" />   
                 </div>
                 <div class="text_box_content">
-                    <h2>Conversatorio "Desarrollo Sostenible: Tecnología al Servicio del Ambiente"</h2>
+                    <h2>Conversatorio "Desarrollo Sostenible: Tecnología al Servicio del Ambiente" <span class="event-category">Cultura</span></h2>
                     <p>Diálogo sobre cómo la tecnología puede contribuir a la protección del medio ambiente y la construcción de un futuro más verde.</p>
+                    <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="obligatorio">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-11.png" alt="Expo Proyectos: Creatividad en Acción: Soluciones Innovadoras" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Expo Proyectos "Creatividad en Acción: Soluciones Innovadoras"</h2>
+                    <h2>Expo Proyectos "Creatividad en Acción: Soluciones Innovadoras" <span class="event-category">Obligatorio</span></h2>
                     <p>Exposición de los trabajos finales y prototipos desarrollados por los estudiantes de las diferentes carreras.</p>
+                    <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <br><br>
 
-        <div class="text_box oblig">
+        <div class="text_box event-item" data-categories="academico">
             <div class="text_box_inner">
                 <div class="text_box_img">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Eventos/evento-12.png" alt="Feria de Carreras: Tu Futuro en el ITSP: Elige tu Camino" />
                 </div>
                 <div class="text_box_content">
-                    <h2>Feria de Carreras "Tu Futuro en el ITSP: Elige tu Camino"</h2>
+                    <h2>Feria de Carreras "Tu Futuro en el ITSP: Elige tu Camino" <span class="event-category">Académico</span></h2>
                     <p>Presentación de las ofertas académicas del instituto para estudiantes de bachillerato y público en general.</p>
+                    <button class="evntosinfo-btn" data-target="extra1">mas info</button>
+                 <div id="extra1" class="extra-cont">
+                    <div class="extra-extend">
+                        <h3>Detalles</h3>
+                        <p>Información adicional</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -277,6 +376,7 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
+    <script src="../JS/eventos.js"></script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </body>
 
