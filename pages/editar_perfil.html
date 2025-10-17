@@ -239,6 +239,22 @@
     <script src="../JS/edit_perfil.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+    <div id="number" class="text-danger" style="font-size: 0px;"></div><script>
+    var n = 30 * 60; // 30 minutos en segundos
+    var l = document.getElementById("number");
+    setInterval(function() {
+        // Convierte segundos a minutos y segundos
+        var min = Math.floor(n / 60);
+        var sec = n % 60;
+        // Actualiza el div
+        l.innerText = min + ":" + (sec < 10 ? "0" : "") + sec;
+        // Disminuye el contador
+        n--;
+        // Si llega a 0, redirige
+        if (n < 0) {
+            location.href = "../php/logout.php";
+        }
+    }, 1000); // Actualiza cada segundo</script>
 </body>
 
 </html>
