@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chatai.css">
 </head>
 
 <body>
@@ -92,7 +93,11 @@
         </nav>
     </header>
     <main>
-
+        <div id="chat-container">
+            <div id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+            <button id="send-btn">Enviar</button>
+        </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -101,6 +106,7 @@
                 <a href="sobrenosotros.html">Sobre Nosotros</a>
                 <a href="contacto.html">Contactanos</a>
             </div>
+
             <div class="footer-social">
                 <a href="https://www.instagram.com/miraicompanyofficial/"><img
                         src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
@@ -115,6 +121,7 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
+    <script src="../JS/chatai.js"></script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
     <div id="number" class="text-danger" style="font-size: 0px;"></div><script>
     var n = 30 * 60; // 30 minutos en segundos
