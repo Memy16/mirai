@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $mail->setFrom('miraiyco@mastalentos.site', 'MiraiYco Site');
         
-        $mail->addAddress('correakevin121314@gmail.com', 'Kevin');
+        $mail->addAddress('miraiyco18@gmail.com', 'MiraiYco Admin');
         $mail->Subject = 'Nuevo mensaje desde el formulario de contacto';
         $mail->isHTML(true);
         $mail->Body = "
@@ -36,8 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);\">
         
                   <tr>
-                    <td style=\"text-align:center; background: url('https://i.ibb.co/9JxndDJ/img-itsp-1.png') no-repeat center center; background-size: cover; border-radius: 12px 12px 0 0; padding: 30px;\">
-                      <img src=\"https://i.ibb.co/chkvvQd5/klasso-logo.png\" alt=\"Logo\" style=\"max-width:120px; border:none;\">
+                    <td style=\"text-align:center; background: url('https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/inicio/img-itsp-1.png') no-repeat center center; background-size: cover; border-radius: 12px 12px 0 0; padding: 30px;\">
+                      <img src=\"https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png\" alt=\"Logo\" style=\"max-width:120px; border:none;\">
                       <h2 style=\"margin:15px 0 0 0; font-size:22px; color:#fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);\">
                         📩 Nuevo mensaje desde el formulario
                       </h2>
@@ -89,8 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);\">
         
                   <tr>
-                    <td style=\"text-align:center; background: url('https://i.ibb.co/9JxndDJ/img-itsp-1.png') no-repeat center center; background-size: cover; border-radius: 12px 12px 0 0; padding: 30px;\">
-                      <img src=\"https://i.ibb.co/chkvvQd5/klasso-logo.png\" alt=\"Logo\" style=\"max-width:120px; border:none;\">
+                    <td style=\"text-align:center; background: url('https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/inicio/img-itsp-1.png') no-repeat center center; background-size: cover; border-radius: 12px 12px 0 0; padding: 30px;\">
+                      <img src=\"https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png\" alt=\"Logo\" style=\"max-width:120px; border:none;\">
                       <h2 style=\"margin:15px 0 0 0; font-size:22px; color:#fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);\">
                         ✅ Gracias por contactarnos
                       </h2>
