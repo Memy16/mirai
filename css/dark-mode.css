@@ -1,0 +1,84 @@
+/* === MODO OSCURO === */
+.dark-mode .navbar {
+    background: rgba(30, 30, 30, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-mode .navbar.solid {
+    background: var(--negro) !important;
+    border-bottom: 10px solid var(--amarilloclaro) !important;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: white;
+}
+
+.dark-mode {
+    background-color: var(--negro) !important;
+    color: var(--blanco) !important;
+}
+
+.dark-mode .navbar {
+    background: var(--negro) !important;
+    border-bottom: 10px solid --amarilloclaro !important;
+}
+
+.dark-mode .grid-item {
+    background-color: var(--negro) !important;
+    color: var(--blanco) !important;
+    filter: brightness(0.7);
+}
+
+.dark-mode .light_mode {
+    background: var(--amarilloclaro) !important;
+}
+
+.dark-mode .grid-item {
+    background-color: var(--negro) !important;
+    color: var(--blanco) !important;
+    filter: brightness(0.7);
+}
+
+.dark-mode .nav-inicio .nav-link {
+    background-color: var(--indigo) !important;
+}
+
+.dark-mode .card {
+    background-color: gray;
+    color: white;
+}
+
+.dark-mode .div-tar p {
+    color: white;
+}
+
+.dark-mode .text_box {
+    background-color: gray;
+}
+
+.dark-mode .text-muted {
+    color: white!important;
+}
+
+.dark-mode td {
+    color: black!important;
+}
+
+.dark-mode .asistencia {
+    background: gray;
+}
+
+.dark-mode .grupo-select label {
+    color: white;
+}
+
+.dark-mode .mrg-top {
+
+    margin-top: 10rem!important;
+
+}

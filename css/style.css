@@ -25,7 +25,7 @@ h2 {
 
 .mrg-top {
 
-    margin-top: 10rem;
+    margin-top: 10rem!important;
 
 }
 
@@ -134,17 +134,6 @@ h2 {
     margin-left: 0;
 }
 
-/* === MODO OSCURO === */
-.dark-mode .navbar {
-    background: rgba(30, 30, 30, 0.7) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-.dark-mode .navbar.solid {
-    background: var(--negro) !important;
-    border-bottom: 10px solid var(--amarilloclaro) !important;
-}
-
 /* Remover text-shadow en estado sólido para mejor legibilidad */
 .navbar.solid .nav-link {
     text-shadow: none !important;
@@ -208,36 +197,6 @@ h2 {
     align-items: center;
     justify-content: center;
     margin: 0 1rem;
-}
-
-.dark-mode {
-    background-color: var(--negro) !important;
-    color: var(--blanco) !important;
-}
-
-.dark-mode .navbar {
-    background: var(--negro) !important;
-    border-bottom: 10px solid --amarilloclaro !important;
-}
-
-.dark-mode .grid-item {
-    background-color: var(--negro) !important;
-    color: var(--blanco) !important;
-    filter: brightness(0.7);
-}
-
-.dark-mode .light_mode {
-    background: var(--amarilloclaro) !important;
-}
-
-.dark-mode .grid-item {
-    background-color: var(--negro) !important;
-    color: var(--blanco) !important;
-    filter: brightness(0.7);
-}
-
-.dark-mode .nav-inicio .nav-link {
-    background-color: var(--indigo) !important;
 }
 
 .navbar-toggler {
