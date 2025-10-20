@@ -7,6 +7,7 @@ $gradoGrupo = $_POST['gradoGrupo'];
 $turno = $_POST['turno'];
 $especificacionGrupo = $_POST['especificacionGrupo'];
 
+
 $turnosValidos = ['MATUTINO', 'VESPERTINO', 'NOCTURNO'];
 if (!in_array($turno, $turnosValidos)) {
     http_response_code(400);
@@ -14,11 +15,24 @@ if (!in_array($turno, $turnosValidos)) {
     exit;
 }
 
+
+$check = $con->prepare("SELECT COUNT(*) FROM grupo WHERE nombre = ? AND grado = ?");
+$check->bind_param("ss", $nombreGrupo, $gradoGrupo);
+$check->execute();
+$check->bind_result($count);
+$check->fetch();
+$check->close();
+
+if ($count > 0) {
+    http_response_code(409); 
+    echo json_encode(["success" => false, "error" => "Ya existe un grupo con ese nombre y grado"]);
+    exit;
+}
+
 $stmt = $con->prepare("INSERT INTO grupo (nombre, grado, turno, especificacion) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $nombreGrupo, $gradoGrupo, $turno, $especificacionGrupo);
 
-
-if($stmt->execute()) {
+if ($stmt->execute()) {
     echo json_encode(["success" => true]);
 } else {
     http_response_code(500);
@@ -26,3 +40,5 @@ if($stmt->execute()) {
 }
 
 $stmt->close();
+$con->close();
+?>
