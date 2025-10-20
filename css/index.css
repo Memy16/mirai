@@ -19,8 +19,8 @@
 }
 
 .seccion-tar{
- margin-top: -12rem;
-    background-color: var(--blanco2);
+ margin-top: -5rem;
+    
     border-radius: 16px;
     padding: 0px 0; /* Solo padding arriba y abajo */
     display: grid;
