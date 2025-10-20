@@ -7,6 +7,26 @@ function limpiar($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
+function validarCedulaUruguaya($cedula) {
+    $cedula = preg_replace('/[^\d]/', '', $cedula);
+
+    if (strlen($cedula) != 8) return false;
+
+    $numeros = str_split($cedula);
+    $verificador = array_pop($numeros);
+    $pesos = [2, 9, 8, 7, 6, 3, 4];
+    $suma = 0;
+
+    foreach ($numeros as $i => $n) {
+        $suma += $n * $pesos[$i];
+    }
+
+    $dv = 10 - ($suma % 10);
+    if ($dv == 10) $dv = 0;
+
+    return intval($verificador) === $dv;
+}
+
 function verificarHCaptcha($token) {
     $secret = $_ENV['HCAPTCHA_SECRET'] ?? '';
     
@@ -94,6 +114,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (!verificarHCaptcha($hcaptcha_token)) {
         include(__DIR__ . '/../templates/error_captcha.html');
+        exit;
+    }
+
+    if (strpos($cedula, '@') !== false) {
+        include(__DIR__ . '/../templates/error_cedula.html');
+        exit;
+    }
+
+    if (!validarCedulaUruguaya($cedula)) {
+        header("Location: ../templates/error_cedula_invalida.php?cedula=" . urlencode($cedula));
         exit;
     }
 

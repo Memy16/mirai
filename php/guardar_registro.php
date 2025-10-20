@@ -3,6 +3,49 @@ require("conexion.php");
 $con = conectar_bd();
 require("loadenv.php");
 
+function cedulaYaRegistrada($con, $ci, $rol) {
+    switch($rol) {
+        case "estudiante":
+            $sql = "SELECT 1 FROM alumnos WHERE ci_alumno = ?";
+            break;
+        case "profesor":
+            $sql = "SELECT 1 FROM docente WHERE ci_docente = ?";
+            break;
+        case "administrador":
+            $sql = "SELECT 1 FROM adscripta WHERE ci_adscripta = ?";
+            break;
+        default:
+            return false;
+    }
+
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("s", $ci);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $existe = $resultado->num_rows > 0;
+    $stmt->close();
+    return $existe;
+}
+
+function validarCedulaUruguaya($cedula) {
+    $cedula = preg_replace('/[^\d]/', '', $cedula);
+
+    if (strlen($cedula) != 8) return false;
+
+    $numeros = str_split($cedula);
+    $verificador = (int) array_pop($numeros);
+    $pesos = [2, 9, 8, 7, 6, 3, 4];
+    $suma = 0;
+
+    foreach ($numeros as $i => $n) {
+        $suma += ((int)$n) * $pesos[$i]; 
+    }
+
+    $dv = 10 - ($suma % 10);
+    if ($dv == 10) $dv = 0;
+
+    return $verificador == $dv; 
+}
 
 function verificarHCaptcha($token) {
     $secret = $_ENV['HCAPTCHA_SECRET'] ?? '';
@@ -37,6 +80,16 @@ function verificarHCaptcha($token) {
     $cod_ads = "ads321KLASSO";
     if (!verificarHCaptcha($hcaptcha_token)) {
         include(__DIR__ . '/../templates/error_captcha.html');
+        exit;
+    }
+
+    if (!validarCedulaUruguaya($ci)) {
+        header("Location: ../templates/error_cedula_invalida.php?cedula=" . urlencode($ci));
+        exit;
+    }
+
+    if (cedulaYaRegistrada($con, $ci, $rol)) {
+        header("Location: ../templates/error_cedula_existente.php?cedula=" . urlencode($ci));
         exit;
     }
     
