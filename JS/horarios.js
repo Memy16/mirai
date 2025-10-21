@@ -65,13 +65,13 @@ async function cargarGrupos() {
         grupoSelect.innerHTML = "";
         grupos.forEach(grupo => {
             const option = document.createElement("option");
-            option.textContent = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
-            option.value = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
+            option.textContent = `${grupo.grado} ${grupo.nombre} ${grupo.especificacion} ${grupo.turno}`;
+            option.value = `${grupo.grado} ${grupo.nombre} ${grupo.especificacion} ${grupo.turno}`;
             grupoSelect.appendChild(option);
         });
 
         if (grupos.length > 0) {
-            grupoSelect.value = `${grupos[0].grado}${grupos[0].nombre} ${grupos[0].turno}`;
+            grupoSelect.value = `${grupos[0].grado} ${grupos[0].nombre} ${grupos[0].especificacion} ${grupos[0].turno}`;
             await actualizarAsistencia();
         }
     } catch (err) {

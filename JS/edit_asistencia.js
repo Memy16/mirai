@@ -9,10 +9,10 @@ function cargarAsistencia() {
     .then(data => {
         if(loading) loading.remove();
         tablaBody.innerHTML = "";
-
+        
         const filas = {};
         let maxHora = 0;
-
+        
         data.forEach(item => {
             const hInicio = parseInt(item.hora);
             const hFin = parseInt(item.hora_fin) || hInicio;
@@ -30,7 +30,7 @@ function cargarAsistencia() {
 
             if (hFin > maxHora) maxHora = hFin;
         });
-
+        
         for (let h = 1; h <= maxHora; h++) {
             const fila = filas[h] || {};
             const tr = document.createElement("tr");
@@ -52,7 +52,7 @@ function cargarAsistencia() {
                     tr.innerHTML += `<td></td>`;
                 }
             });
-
+            
             tr.innerHTML = `<td>${h}-${h}</td>` + tr.innerHTML;
             tr.innerHTML += `<td>
                 <button class="btn-guardar" data-ids='${JSON.stringify(Object.values(fila).map(x => x.id))}'>Guardar</button>
@@ -67,7 +67,7 @@ function cargarAsistencia() {
             select.addEventListener("change", () => {
                 const id = select.dataset.id;
                 const estado = select.value;
-
+                
                 // Actualizar la DB sin recargar la página
                 fetch("../php/asistencias_data/guardar_asistencia.php", {
                     method: "POST",
@@ -91,7 +91,7 @@ grupoSelect.addEventListener("change", cargarAsistencia);
 tablaBody.addEventListener("click", async e => {
     const btn = e.target;
     const tr = btn.closest("tr");
-
+    
     if(btn.classList.contains("btn-guardar")) {
         const ids = JSON.parse(btn.dataset.ids);
         ["Lunes","Martes","Miércoles","Jueves","Viernes"].forEach((dia, idx) => {
@@ -101,7 +101,7 @@ tablaBody.addEventListener("click", async e => {
             const materia = celda.textContent.trim();
             const hora = tr.children[0].textContent.split("-")[0];
             const hora_fin = tr.children[0].textContent.split("-")[1] || hora;
-
+            
             fetch("../php/asistencias_data/guardar_asistencia.php", {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},
@@ -119,7 +119,7 @@ tablaBody.addEventListener("click", async e => {
         alert("Guardado!");
         cargarAsistencia();
     }
-
+    
     if(btn.classList.contains("btn-eliminar")) {
         const ids = JSON.parse(btn.dataset.ids);
         if(ids.length === 0) return;
@@ -143,7 +143,7 @@ tablaBody.addEventListener("click", async e => {
                 const celda = tr.children[idx + 1];
                 if(celda.textContent.trim() !== "") materias.push({dia, id: ids[idx], nombre: celda.textContent.trim()});
             });
-
+            
             let seleccion = prompt(`Seleccione materia a eliminar por día o nombre:\n${materias.map(m => `${m.dia}: ${m.nombre}`).join("\n")}`);
             if(!seleccion) return;
 
@@ -176,7 +176,7 @@ tablaBody.addEventListener("click", async e => {
                 });
             }
         }
-
+        
         cargarAsistencia();
     }
 });
@@ -194,7 +194,7 @@ function mostrarNotificacion(mensaje, tipo = "success") {
     notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
     notif.style.transition = "opacity 0.3s";
     notif.style.opacity = "1";
-
+    
     if(tipo === "success") notif.style.backgroundColor = "#4caf50";
     else if(tipo === "error") notif.style.backgroundColor = "#f44336";
 
@@ -223,7 +223,7 @@ addRowBtn.addEventListener("click", () => {
     modal.style.justifyContent = "center";
     modal.style.alignItems = "center";
     modal.style.zIndex = "9999";
-
+    
     modal.innerHTML = `
         <div style="background:white; padding:20px; border-radius:10px; width:300px;">
             <h3>Agregar asistencia</h3>
@@ -245,13 +245,13 @@ addRowBtn.addEventListener("click", () => {
     document.getElementById("cancelBtn").addEventListener("click", () => {
         modal.remove();
     });
-
+    
     modal.querySelector("#saveBtn").addEventListener("click", () => {
         const hora = parseInt(document.getElementById("horaInput").value);
         const hora_fin = parseInt(document.getElementById("horaFinInput").value) || hora;
         const dia = document.getElementById("diaInput").value;
         const materia = document.getElementById("materiaInput").value;
-
+        
         fetch("../php/asistencias_data/guardar_asistencia.php", {
             method: "POST",
             headers: {"Content-Type":"application/json"},
