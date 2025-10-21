@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (!validarCedulaUruguaya($cedula)) {
-        header("Location: ../templates/error_cedula_invalida.php?cedula=" . urlencode($cedula));
+        header("Location: /../templates/error_cedula_invalida.php?cedula=" . urlencode($cedula));
         exit;
     }
 
