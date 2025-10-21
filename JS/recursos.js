@@ -1,31 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const lista = document.getElementById("listaAsignaturas");
+    const lista = document.getElementById("listaRecursos");
     const form = document.querySelector("form");
     
-    const formEditar = document.getElementById("formEditarAsign");
-    const editorAsign = document.getElementById("editorAsign");
+    const formEditar = document.getElementById("formeditorRecurso");
+    const editorRecurso = document.getElementById("editorRecurso");
     const btnEliminar = document.getElementById("btnEliminar");
     const btnCancelar = document.getElementById("btnCancelar");
-    let asignActual = null;
+    let RecursoActual = null;
     
-    async function cargarAsignaturas() {
+    async function cargarRecursos() {
         try {
-            const resp = await fetch("../php/asignaturas/listar_asignaturas.php");
-            const asignaturas = await resp.json();
+            const resp = await fetch("../php/recursos/listar_recursos.php");
+            const recursos = await resp.json();
             
             lista.innerHTML = "";
-            if (asignaturas.length === 0) {
-                lista.innerHTML = "<li class='list-group-item'>No hay asignaturas</li>";
+            if (recursos.length === 0) {
+                lista.innerHTML = "<li class='list-group-item'>No hay recursos</li>";
                 return;
             }
             
-            asignaturas.forEach((a, index) => {
+            recursos.forEach((r, index) => {
                 const li = document.createElement("li");
                 li.className = "list-group-item d-flex justify-content-between align-items-center";
                 
                 li.innerHTML = `
-                    <span>${a.nombre} | ${a.descripcion}</span>
-                    <button class="btn btn-sm btn-editar" data-id="${a.id_asignatura}" style="background-color: #062863; color: white; border: none; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
+                    <span>${r.nombre} | Cantidad: ${r.cantidad}</span>
+                    <button class="btn btn-sm btn-editar" data-id="${r.id_recurso}" style="background-color: #062863; color: white; border: none; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-edit" style="font-size: 14px;"></i>
                     </button>
                 `;
@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             
         } catch (err) {
-            console.error("Error cargando asignaturas:", err);
+            console.error("Error cargando recursos:", err);
             lista.innerHTML = `
                 <div class="alert alert-dismissible alert-warning">
                     <h4 class="alert-heading">¡Error de conexión!</h4>
-                    <p class="mb-0">No se pudieron cargar las asignaturas desde el servidor. Por favor, verifica tu conexión a internet e inténtalo nuevamente. Si el problema persiste, <a href="#" class="alert-link" onclick="cargarAsignaturas()">haz clic aquí para reintentar</a>.</p>
+                    <p class="mb-0">No se pudieron cargar los recursos desde el servidor. Por favor, verifica tu conexión a internet e inténtalo nuevamente. Si el problema persiste, <a href="#" class="alert-link" onclick="cargarRecursos()">haz clic aquí para reintentar</a>.</p>
                 </div>
             `;
         }
@@ -57,40 +57,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 const data = new URLSearchParams();
                 data.append("id", id);
                 
-                const resp = await fetch("../php/asignaturas/obtener_asignatura.php", {
+                const resp = await fetch("../php/recursos/obtener_recurso.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     },
                     body: data
                 });
-                const asignatura = await resp.json();
+                const recurso = await resp.json();
                 
-                if (asignatura.error) {
+                if (recurso.error) {
                     Swal.fire({
                         icon: "error",
                         title: "Ups...",
-                        text: "Error: " + asignatura.error,
+                        text: "Error: " + recurso.error,
                         timer: 5000,
                         showConfirmButton: false
                     });
                     return;
                 }
                 
-                asignActual = id;
-                document.getElementById("editId").value = asignatura.id_asignatura;
-                document.getElementById("editNombre").value = asignatura.nombre;
-                document.getElementById("editDescripcion").value = asignatura.descripcion;
+                RecursoActual = id;
+                document.getElementById("editId").value = recurso.id_recurso;
+                document.getElementById("editNombre").value = recurso.nombre;
+                document.getElementById("editCantidad").value = recurso.cantidad;
                 
-                editorAsign.style.display = "block";
+                editorRecurso.style.display = "block";
                 
-                editorAsign.scrollIntoView({ 
+                editorRecurso.scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start' 
                 });
                 
             } catch (error) {
-                console.error("Error al obtener asignatura:", error);
+                console.error("Error al obtener recurso:", error);
             }
         }
     });
@@ -111,12 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     Swal.fire({
                         icon: "success",
                         title: "¡Perfecto!",
-                        text: "Asignatura creada correctamente",
+                        text: "Recurso registrado correctamente",
                         timer: 3000,
                         showConfirmButton: false
                     });
                     form.reset();
-                    cargarAsignaturas(); 
+                    cargarRecursos(); 
                 } else {
                     Swal.fire({
                         icon: "error",
@@ -153,18 +153,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 Swal.fire({
                     icon: "success",
                     title: "¡Perfecto!",
-                    text: "Asignatura actualizada correctamente",
+                    text: "Recurso actualizado correctamente",
                     timer: 3000,
                     showConfirmButton: false
                 });
-                editorAsign.style.display = "none";
-                cargarAsignaturas();
+                editorRecurso.style.display = "none";
+                cargarRecursos();
             } else {
-                if (result.error === "No se encontró la asignatura o no se realizaron cambios") {
+                if (result.error === "No se encontró el recurso o no se realizaron cambios") {
                     Swal.fire({
                         icon: "info",
                         title: "Sin cambios",
-                        text: "No se detectaron cambios en los datos de la asignatura.",
+                        text: "No se detectaron cambios en los datos del recurso.",
                         timer: 4000,
                         showConfirmButton: false
                     });
@@ -183,10 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (btnEliminar) {
         btnEliminar.addEventListener("click", async () => {
-            if (!asignActual) return;
+            if (!RecursoActual) return;
             
             Swal.fire({
-                title: "¿Seguro que deseas eliminar esta asignatura?",
+                title: "¿Seguro que deseas eliminar este recurso?",
                 text: "¡No podrás revertir esta acción!",
                 icon: "warning",
                 showCancelButton: true,
@@ -197,9 +197,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     const data = new URLSearchParams();
-                    data.append("id", asignActual);
+                    data.append("id", RecursoActual);
                     
-                    const resp = await fetch("../php/asignaturas/eliminar_asignatura.php", {
+                    const resp = await fetch("../php/recursos/eliminar_recurso.php", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded"
@@ -209,9 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     const resultDelete = await resp.json();
                     
                     if (resultDelete.success) {
-                        Swal.fire("¡Eliminada!", "La asignatura fue eliminada.", "success");
-                        editorAsign.style.display = "none";
-                        cargarAsignaturas();
+                        Swal.fire("¡Eliminado!", "El recurso fue eliminado.", "success");
+                        editorRecurso.style.display = "none";
+                        cargarRecursos();
                     } else {
                         Swal.fire("Error", resultDelete.error, "error");
                     }
@@ -222,9 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (btnCancelar) {
         btnCancelar.addEventListener("click", () => {
-            editorAsign.style.display = "none";
+            editorRecurso.style.display = "none";
         });
     }
     
-    cargarAsignaturas();
+    cargarRecursos();
 });

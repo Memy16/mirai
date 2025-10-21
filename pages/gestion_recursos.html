@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/gestionAsignaturas.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Gestión asignaturas</title>
+    <title>Gestión de recursos</title>
 </head>
 <body>
     <header>
@@ -19,7 +19,7 @@
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
                         alt="Logo Klasso" class="logo">
                 </a>
-
+                
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
                         <li class="nav-item nav-inicio">
                             <a class="nav-link" href="login.html">Iniciar sesión</a>
                         </li>
-
+                        
                         <li>
                             <div class="light_mode">
                                 <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
@@ -91,17 +91,17 @@
             </div>
         </nav>
     </header>
-    <main class="main-login">
-        <h1>Gestión de Asignaturas</h1>
+    <main class="main-login margin-top">
+        <h1>Gestión de Recursos</h1>
         <div class="container-principal">
             <aside class="me-4 aside-materias">
-                <h2>Asignaturas existentes</h2>
+                <h2>Recursos ingresados</h2>
                 <div class="lista-asign-container">
-                    <ul id="listaAsignaturas" name="listarAsign" class="list-group"></ul>
+                    <ul id="listaRecursos" name="listarRecurso" class="list-group"></ul>
                 </div>
             </aside>
             <section class="section-formulario">
-                <form action="../php/asignaturas/asignaturas.php" method="POST">
+                <form action="../php/recursos/recursos.php" method="POST">
                     <fieldset>
                         <div>
                             <label for="nombreAsign" class="form-label mt-4">
@@ -110,31 +110,30 @@
                                 </font>
                             </label>
                             <input type="text" name="nombre" class="form-control" id="nombreAsign"
-                                placeholder="Introducir el nombre de la asignatura. Ej: Programación" fdprocessedid="vosyw" required>
+                                placeholder="Introducir el nombre del recurso. Ej: Calculadora" fdprocessedid="vosyw" required>
                         </div>
                         <div>
-                            <label for="descripcion" class="form-label mt-4">
+                            <label for="cantidad" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Descripción</font>
+                                    <font dir="auto" style="vertical-align: inherit;">Cantidad</font>
                                 </font>
                             </label>
-                            <input type="text" name="descripcion" class="form-control" id="descripcion"
-                                placeholder="Introducir la descripción de la asignatura." fdprocessedid="vosyw" required>
+                            <input type="number" name="cantidad" class="form-control" id="cantidad" placeholder="Introducir la cantidad que hay de este recurso." fdprocessedid="vosyw" required>
                         </div>
                         
                         <br>
                         <button type="submit" class="btn btn-primary btn-login" fdprocessedid="hai99">
                             <font dir="auto" style="vertical-align: inherit;">
-                                <font dir="auto" style="vertical-align: inherit;">Crear Asignatura</font>
+                                <font dir="auto" style="vertical-align: inherit;">Ingresar recurso</font>
                             </font>
                         </button>
                     </fieldset>
                 </form>
             </section>
         </div>
-        <section id="editorAsign" style="display: none; border-top: 1px solid #062863">
+        <section id="editorRecurso" style="display: none; border-top: 1px solid #062863">
             <h3>Editar Asignatura</h3>
-            <form id="formEditarAsign" action="../php/asignaturas/editar_asignatura.php" method="POST">
+            <form id="formeditorRecurso" action="../php/recursos/editar_recurso.php" method="POST">
                 <input type="hidden" name="id" id="editId">
                 
                 <div>
@@ -142,8 +141,8 @@
                     <input type="text" name="nombre" id="editNombre" required class="form-control">
                 </div>
                 <div>
-                    <label for="editDescripcion">Descripción</label>
-                    <input type="text" name="descripcion" id="editDescripcion" class="form-control">
+                    <label for="editCantidad">Cantidad</label>
+                    <input type="number" name="cantidad" id="editCantidad" class="form-control">
                 </div>
                 
                 <br>
@@ -162,12 +161,8 @@
                 <a href="contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img
-                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
-                        alt="Instagram"></a>
-                <a href="#"><img
-                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png"
-                        alt="Twitter"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
@@ -175,7 +170,7 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
-    <script src="../JS/asignaturas.js"></script>
+    <script src="../JS/recursos.js"></script>
     <script src="../JS/cssnavbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>

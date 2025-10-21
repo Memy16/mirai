@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/gestionGrupos.css">
+    <link rel="stylesheet" href="../css/gestionAsignaturas.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Gestión de Asignaturas</title>
+    <title>Gestión asignaturas</title>
 </head>
-
-<body class="mrg-top">
+<body>
     <header>
         <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png" alt="Logo Klasso" class="logo">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
+                        alt="Logo Klasso" class="logo">
                 </a>
                 
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
@@ -47,7 +46,7 @@
                         <li class="nav-item nav-inicio">
                             <a class="nav-link" href="login.html">Iniciar sesión</a>
                         </li>
-
+                        
                         <li>
                             <div class="light_mode">
                                 <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
@@ -83,8 +82,8 @@
                                     <i class="fas fa-user-edit me-2"></i> Editar Perfil
                                 </a>
                                 <a href="../php/logout.php" class="dropdown-item text-danger">
-                  <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
-                </a>
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -95,93 +94,58 @@
     <main class="main-login">
         <h1>Gestión de Asignaturas</h1>
         <div class="container-principal">
-            <aside class="me-4 aside-grupos">
-                <h2>Asingaturas existentes</h2>
-                <div class="lista-grupos-container">
-                    <ul id="listaGrupos" name="listarGrupos" class="list-group"></ul>
+            <aside class="me-4 aside-materias">
+                <h2>Asignaturas existentes</h2>
+                <div class="lista-asign-container">
+                    <ul id="listaAsignaturas" name="listarAsign" class="list-group"></ul>
                 </div>
             </aside>
             <section class="section-formulario">
-                <form action="../php/grupos.php" method="POST">
+                <form action="../php/asignaturas/asignaturas.php" method="POST">
                     <fieldset>
                         <div>
-                            <label for="nombreGrupo" class="form-label mt-4">
+                            <label for="nombreAsign" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Nombre Asignatura</font>
+                                    <font dir="auto" style="vertical-align: inherit;">Nombre</font>
                                 </font>
                             </label>
-                            <input type="text" name="nombreGrupo" class="form-control" id="nombreGrupo"
-                                placeholder="Introducir el nombre de la asignatura. Ej: A.S Operativos" fdprocessedid="vosyw" required>
+                            <input type="text" name="nombre" class="form-control" id="nombreAsign"
+                                placeholder="Introducir el nombre de la asignatura. Ej: Programación" fdprocessedid="vosyw" required>
                         </div>
                         <div>
-                            <label for="turno" class="form-label mt-4">
+                            <label for="descripcion" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Especificacion</font>
+                                    <font dir="auto" style="vertical-align: inherit;">Descripción</font>
                                 </font>
                             </label>
-                            <select class="form-select" name="turno" id="turno" fdprocessedid="vosyw" required>
-                                <option>
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Selecciona especificacion</font>
-                                    </font>
-                                </option>
-                                <option value="TODAS">
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Todas</font>
-                                    </font>
-                                </option>
-                                <option value="OTRAS">
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Otras</font>
-                                    </font>
-                                </option>
-                            </select>
-                            <div id="otrasOpciones" style="display:none; margin-top:10px;">
-                                <label for="otraEspecificacion">Especifica cuál:</label>
-                                <select class="form-select" id="otraEspecificacion" name="otraEspecificacion">
-                                    <option value="">Selecciona</option>
-                                    <option value="Especificacion1">Robotica</option>
-                                    <option value="Especificacion2">Informatica</option>
-                                    <option value="Especificacion3">Programacion</option>
-                                </select>
-                            </div>
+                            <input type="text" name="descripcion" class="form-control" id="descripcion"
+                                placeholder="Introducir la descripción de la asignatura." fdprocessedid="vosyw" required>
                         </div>
+                        
                         <br>
                         <button type="submit" class="btn btn-primary btn-login" fdprocessedid="hai99">
                             <font dir="auto" style="vertical-align: inherit;">
-                                <font dir="auto" style="vertical-align: inherit;">Crear Grupo</font>
+                                <font dir="auto" style="vertical-align: inherit;">Crear Asignatura</font>
                             </font>
                         </button>
                     </fieldset>
                 </form>
             </section>
         </div>
-        <section id="editorGrupo" style="display: none; border-top: 1px solid #062863">
-            <h3>Editar Asignaruta</h3>
-            <form id="formEditarGrupo" action="../php/editar_grupo.php" method="POST">
+        <section id="editorAsign" style="display: none; border-top: 1px solid #062863">
+            <h3>Editar Asignatura</h3>
+            <form id="formEditarAsign" action="../php/asignaturas/editar_asignatura.php" method="POST">
                 <input type="hidden" name="id" id="editId">
-
+                
                 <div>
-                    <label>Nombre</label>
+                    <label for="editNombre">Nombre</label>
                     <input type="text" name="nombre" id="editNombre" required class="form-control">
                 </div>
                 <div>
-                    <label>Grado</label>
-                    <input type="text" name="grado" id="editGrado" required class="form-control">
+                    <label for="editDescripcion">Descripción</label>
+                    <input type="text" name="descripcion" id="editDescripcion" class="form-control">
                 </div>
-                <div>
-                    <label>Turno</label>
-                    <select name="turno" id="editTurno" required class="form-select">
-                        <option value="MATUTINO">Matutino</option>
-                        <option value="VESPERTINO">Vespertino</option>
-                        <option value="NOCTURNO">Nocturno</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Especificación</label>
-                    <input type="text" name="especificacion" id="editEspecificacion" required class="form-control">
-                </div>
-
+                
                 <br>
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
@@ -198,31 +162,22 @@
                 <a href="contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
+                        alt="Instagram"></a>
+                <a href="#"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png"
+                        alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
-    <script src="../JS/grupos.js"></script>
     <script src="../JS/perfil.js"></script>
+    <script src="../JS/asignaturas.js"></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
-    <script>
-        const turno = document.getElementById('turno');
-        const otrasOpciones = document.getElementById('otrasOpciones');
-
-        turno.addEventListener('change', function() {
-            if(this.value === 'OTRAS') {
-                otrasOpciones.style.display = 'block'; // Mostrar la lista adicional
-            } else {
-                otrasOpciones.style.display = 'none'; // Ocultar si no es "Otras"
-            }
-        });
-    </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </body>
-
 </html>
