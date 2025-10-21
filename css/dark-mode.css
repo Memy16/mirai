@@ -82,3 +82,13 @@
     margin-top: 10rem!important;
 
 }
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: gray!important;
+    color: white;
+}
+
+.dark-mode .form-control::placeholder {
+    color: white;
+}

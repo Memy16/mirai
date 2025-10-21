@@ -2,13 +2,13 @@
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  width: calc(100% - 120px); /* 60px margen a cada lado */
+  width: calc(100% - 120px); 
   margin: 0 60px;
 }
 
 #chat-img {
   width: 400px;
-  max-width: 40%; /* Ajustable según tamaño de pantalla */
+  max-width: 40%; 
   height: auto;
   object-fit: cover;
   border-radius: 10px;
@@ -21,12 +21,16 @@
 }
 
 #chat-box {
-  height: 300px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  overflow-y: auto;
-  margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    overflow-y: auto;
+    margin-bottom: 10px;
 }
 
 #user-input {
@@ -62,20 +66,42 @@
     overflow-y: auto;
     margin-bottom: 12px;
 }
+
 .user-msg {
-    text-align: right;
     background: #9db3fd;
-    margin: 4px 0;
+    color: #000;
     padding: 8px 12px;
     border-radius: 12px;
+    max-width: 60%;
+    align-self: flex-end;
+    word-wrap: break-word;
 }
+
 .bot-msg {
-    text-align: left;
+    position: relative;
     background: hsl(54, 100%, 81%);
-    margin: 4px 0;
+    color: #000;
     padding: 8px 12px;
     border-radius: 12px;
+    max-width: 60%;
+    align-self: flex-start;
+    word-wrap: break-word;
+    margin-left: 20px;
 }
+
+.bot-msg::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid hsl(54, 100%, 81%);
+}
+
+
 #user-input {
     width: 90%;
     padding: 8px;
@@ -83,4 +109,21 @@
 #send-btn {
     width: 18%;
     padding: 8px;
+}
+
+.bot-msg.loading {
+    background: hsl(54, 100%, 90%); 
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    max-width: 60%;
+    border-radius: 12px;
+    margin-left: 20px;
+}
+
+.bot-msg.loading img {
+    width: 100px;
+    height: auto;
 }
