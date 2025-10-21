@@ -101,3 +101,131 @@
     transform: translateY(-1px);
     box-shadow: 0 3px 10px rgba(52, 152, 219, 0.4);
 }
+
+
+.seccion-tarj {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 60px 80px; /* margen arriba/abajo e izquierda/derecha */
+}
+
+.imagen-contenido-tarj {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.img-tarj {
+    width: 20rem;
+    /* height: 250px; */
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto-contenido-tarj {
+    flex: 1;
+}
+
+.titulo-tarj {
+    color: var(--blanco2);
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.parrafo-tarj {
+    font-size: 18px;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.contenedor-tarj2{
+    color: var(--blanco);
+    background-color: var(--azul);
+    padding: 60px;
+}
+
+.reverso-tarj{
+    color: var(--blanco);
+    background-color: #27152b;
+    padding: 60px;
+}
+.titulo-tarj2 {
+    color: var(--blanco2);
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+.contenedor-util {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .titulo-util {
+            color: var(--azul);
+            margin-bottom: 40px;
+            font-size: 32px;
+            text-align: center;
+            border-bottom: 3px solid var(--amarilloclaro);
+            padding-bottom: 15px;
+        }
+        
+        .linea-util {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .cuadrado-util {
+            width: 400px;
+            height: 200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .cuadrado-util:hover {
+            transform: translateY(-5px);
+        }
+        
+        .img-util {
+            width:  150px;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+        
+        .subtitulo-util {
+            font-weight: bold;
+            color: #1C4C96;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .desc-util {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .categoria-util {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: var(--azul);
+            font-weight: bold;
+        }
+
