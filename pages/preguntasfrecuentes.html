@@ -94,12 +94,15 @@
         </nav>
     </header>
     <main>
-        <div id="chat-container">
-            <div id="chat-box"></div>
-            <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
-            <button id="send-btn">Enviar</button>
-        </div>
-    </main>
+  <div id="chat-wrapper">
+    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/mirai3.png" alt="Chatbot" id="chat-img">
+    <div id="chat-container">
+      <div id="chat-box"></div>
+      <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+      <button id="send-btn">Enviar</button>
+    </div>
+  </div>
+</main>
     <footer>
         <div class="footer-container">
             <div class="footer-links">
@@ -125,22 +128,6 @@
     <script src="../JS/chatai.js"></script>
     <script src="../JS/cssnavbar.js"></script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
-    <div id="number" class="text-danger" style="font-size: 0px;"></div><script>
-    var n = 30 * 60; // 30 minutos en segundos
-    var l = document.getElementById("number");
-    setInterval(function() {
-        // Convierte segundos a minutos y segundos
-        var min = Math.floor(n / 60);
-        var sec = n % 60;
-        // Actualiza el div
-        l.innerText = min + ":" + (sec < 10 ? "0" : "") + sec;
-        // Disminuye el contador
-        n--;
-        // Si llega a 0, redirige
-        if (n < 0) {
-            location.href = "../php/logout.php";
-        }
-    }, 1000); // Actualiza cada segundo</script>
 </body>
 
 </html>
