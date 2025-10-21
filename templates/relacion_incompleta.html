@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='UTF-8'>
-    <title>Relación creada</title>
+    <title>Datos incompletos</title>
 </head>
 
 <body>
@@ -11,13 +11,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             Swal.fire({
-                icon: 'success',
-                title: '¡Relación creada!',
-                text: 'El docente fue asignado correctamente a la asignatura.',
+                icon: 'info',
+                title: 'Datos incompletos',
+                text: 'Debe seleccionar un docente y una asignatura.',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Aceptar'
             }).then(() => {
-                window.location.href = '../../pages/relacionar_asignatura_docente.html';
+                window.history.back();
             });
         });
     </script>

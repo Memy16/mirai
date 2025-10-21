@@ -20,14 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 Swal.fire("Error", data.error, "error");
                 return;
             }
-
+            
             rolUsuario = data.rol;
             idUsuario = data.id_alumno || data.id_docente || data.id_adscripta;
 
             document.getElementById("nombre").value = data.nombre || "";
             document.getElementById("apellido").value = data.apellido || "";
             document.getElementById("email").value = data.mail || data.mail_docente || data.mail_adscripta || "";
-
+            
             if (rolUsuario === "profesor" || rolUsuario === "administrador") {
                 telefonoGroup.classList.remove("d-none");
                 document.getElementById("telefono").value = data.tel_docente || data.tel_adscripta || "";

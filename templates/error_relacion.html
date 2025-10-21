@@ -3,62 +3,27 @@
 
 <head>
     <meta charset='UTF-8'>
-    <title>Redirigiendo...</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        
-        .toast {
-            background: #ff0000ff;
-            color: white;
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            font-size: 18px;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
-        
-        @keyframes fadein {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeout {
-            from {
-                opacity: 1;
-            }
-            
-            to {
-                opacity: 0;
-            }
-        }
-    </style>
+    <title>Error al crear la relación</title>
 </head>
 
 <body>
-    <div class='toast'>
-        Error al registrar la relación: $error<br>
-        Serás redirigido en 3 segundos...
-    </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        setTimeout(function () {
-            window.history.back();
-        }, 3000);
+        document.addEventListener('DOMContentLoaded', function () {
+            const mensaje = "<?php echo isset($msg) ? addslashes($msg) : 'Error desconocido'; ?>";
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Error en la base de datos',
+                text: 'Ocurrió un error: ' + mensaje,
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
+                window.location.href = '../../pages/relacionar_asignatura_docente.html';
+            });
+        });
     </script>
+
 </body>
 
 </html>
