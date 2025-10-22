@@ -298,64 +298,6 @@ h2 {
 }
 
 
-
-.agenda {
-    display: grid;
-    grid-template-columns: 120px repeat(5, 1fr);
-    /* Columna horas + 5 días */
-    grid-template-rows: 55px repeat(8, 70px);
-    /* Cabecera + 8 filas */
-    gap: 8px;
-}
-
-
-.agenda-topagenda {
-    background: var(--azuloscuro);
-    color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-}
-
-/* Columna horas */
-.agenda-hora {
-    background: var(--amarillo);
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    /* agenda-entrada y agenda-salida */
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.agenda-entrada,
-.agenda-salida {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.agenda-entrada {
-    background: var(--amarilloclaro);
-    font-weight: bold;
-    border-top: none;
-}
-
-.agenda-salida {
-    background: var(--amarilloclaro);
-}
-
-/* Celdas vacías para días */
-.agenda-celda {
-    background: var(--indigoclaro);
-    border-radius: 6px;
-}
-
-
-
 .main-login {
     overflow-x: auto;
     /* activa scroll horizontal */
