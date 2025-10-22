@@ -158,7 +158,7 @@
 
                 <!-- Elemento para mostrar mensajes -->
                 <div id="mensaje" class="mt-2"></div>
-                <div id="captcha" class="h-captcha" data-sitekey=""></div>
+                <div id="captcha"></div>
 
                 <!-- BOTÓN -->
                 <button type="submit" class="btn btn-primary btn-login mt-3 btn-registo1 ">Registrarse</button>
@@ -189,22 +189,26 @@
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script>
-        fetch("../php/get_sitekey.php")
-            .then(res => res.json())
-            .then(data => {
-                if (data.sitekey) {
-                    document.getElementById("captcha").setAttribute("data-sitekey", data.sitekey);
-                    if (window.hcaptcha) hcaptcha.render('captcha', {
-                        sitekey: data.sitekey
-                    });
-                } else {
-                    console.error("No se pudo cargar la clave del captcha");
-                }
-            })
-            .catch(err => console.error(err));
-    </script>
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
+    <script>
+        window.onload = function () {
+            fetch("../php/get_sitekey.php")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.sitekey) {
+                        document.getElementById("captcha").setAttribute("data-sitekey", data.sitekey);
+                        if (window.hcaptcha) {
+                            hcaptcha.render('captcha', {
+                                sitekey: data.sitekey
+                            });
+                        }
+                    } else {
+                        console.error("No se pudo cargar la clave del captcha");
+                    }
+                })
+                .catch(err => console.error(err));
+        };
+    </script>
     <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
     
 </body>
