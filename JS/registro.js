@@ -61,3 +61,21 @@ document.querySelector("form").addEventListener("submit", function(event) {
     // Enviar el formulario
     this.submit();
 });
+
+ const password = document.getElementById('contrasena');
+  const repetir = document.getElementById('repetir');
+  const viewPassword = document.getElementById('viewPassword');
+  const iconoVer = document.getElementById('iconoVer');
+  const texto = viewPassword.querySelector('span');
+  let visible = false;
+
+  viewPassword.addEventListener('click', () => {
+    visible = !visible;
+    const tipo = visible ? 'text' : 'password';
+    password.type = tipo;
+    repetir.type = tipo;
+    texto.textContent = visible ? 'Ocultar contraseña' : 'Mostrar contraseña';
+    iconoVer.src = visible
+      ? 'https://cdn-icons-png.flaticon.com/512/159/159604.png'  // ícono de ocultar
+      : 'https://cdn-icons-png.flaticon.com/512/565/565655.png'; // ícono de ver
+  });

@@ -8,6 +8,7 @@
     <title>Registro</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/registro.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
 
@@ -144,16 +145,21 @@
                 </div>
                 <!-- Contraseña -->
                 <div>
-                    <label for="contrasena" class="form-label mt-4">Contraseña</label>
-                    <input type="password" name="contrasenia" class="form-control input-login" id="contrasena"
-                        placeholder="Ingrese una nueva contraseña" required>
+                <label for="contrasena" class="form-label mt-4">Contraseña</label>
+                <input type="password" name="contrasenia" class="form-control input-login" id="contrasena"
+                    placeholder="Ingrese una nueva contraseña" required>
                 </div>
 
                 <!-- Repetir Contraseña -->
                 <div>
-                    <label for="repetir" class="form-label mt-4">Repetir Contraseña</label>
-                    <input type="password" class="form-control input-login" id="repetir"
-                        placeholder="Repita la contraseña" required>
+                <label for="repetir" class="form-label mt-4">Repetir Contraseña</label>
+                <input type="password" class="form-control input-login" id="repetir"
+                    placeholder="Repita la contraseña" required>
+                </div>
+
+                <div id="viewPassword" class="mostrar-pass">
+                <img id="iconoVer" src="https://cdn-icons-png.flaticon.com/512/565/565655.png" alt="ver" width="18">
+                <span>Mostrar contraseña</span>
                 </div>
 
                 <!-- Elemento para mostrar mensajes -->

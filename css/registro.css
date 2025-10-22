@@ -1,0 +1,36 @@
+.mostrar-pass {
+    cursor: pointer;
+    color: blue;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .mostrar-pass img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .mostrar-pass {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--amarillo);
+  color: #fff;
+  margin-top: 30px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.mostrar-pass:hover {
+  background-color: var(--amarillooscuro) /* tono más oscuro */
+}
+
+.mostrar-pass img {
+  width: 30px;
+  height: 30px;
+}
