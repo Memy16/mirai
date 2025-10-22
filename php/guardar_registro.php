@@ -84,12 +84,12 @@ function verificarHCaptcha($token) {
     }
 
     if (!validarCedulaUruguaya($ci)) {
-        header("Location: ../templates/error_cedula_invalida.php?cedula=" . urlencode($ci));
+        header("Location: /../templates/error_cedula_invalida.php?cedula=" . urlencode($ci));
         exit;
     }
 
     if (cedulaYaRegistrada($con, $ci, $rol)) {
-        header("Location: ../templates/error_cedula_existente.php?cedula=" . urlencode($ci));
+        header("Location: /../templates/error_cedula_existente.php?cedula=" . urlencode($ci));
         exit;
     }
     
