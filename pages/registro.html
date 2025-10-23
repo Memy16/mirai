@@ -124,6 +124,7 @@
                     <label for="ci" class="form-label mt-4">Cédula</label>
                     <input type="number" name="ci" class="form-control input-login" id="ci"
                         placeholder="Ingrese su cédula" required>
+                    <small id="ciHelp" class="form-text text-muted">Coloca la cedula sin puntos ni gion</small>
                     <small id="ciHelp" class="form-text text-muted">Nunca compartiremos sus datos con nadie más.</small>
                 </div>
 
@@ -215,7 +216,10 @@
                 .catch(err => console.error(err));
         };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer> </script>
+
+
+    
 </body>
 
 </html>
