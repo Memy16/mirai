@@ -268,8 +268,6 @@ addRowBtn.addEventListener("click", () => {
             <button id="cancelBtn">Cancelar</button>
         </div>
     `;
-    
-    //<input type="text" id="diaInput" value="Lunes"><br><br>
 
     document.body.appendChild(modal);
 
