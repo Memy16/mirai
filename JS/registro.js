@@ -79,3 +79,31 @@ document.querySelector("form").addEventListener("submit", function(event) {
       ? 'https://cdn-icons-png.flaticon.com/512/159/159604.png'  // ícono de ocultar
       : 'https://cdn-icons-png.flaticon.com/512/565/565655.png'; // ícono de ver
   });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const nombre = document.getElementById('nombre');
+  const apellido = document.getElementById('apellido');
+  const gmail = document.getElementById('gmail');
+  const ci = document.getElementById('ci');
+
+  // Solo letras y espacios
+  const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]*$/;
+
+  nombre.addEventListener('input', () => {
+    nombre.value = nombre.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
+  });
+
+  apellido.addEventListener('input', () => {
+    apellido.value = apellido.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
+  });
+
+  // Cédula: solo números
+  ci.addEventListener('input', () => {
+    ci.value = ci.value.replace(/[^0-9]/g, '');
+  });
+
+  // Gmail: bloquea < y >
+  gmail.addEventListener('input', () => {
+    gmail.value = gmail.value.replace(/[<>]/g, '');
+  });
+});
