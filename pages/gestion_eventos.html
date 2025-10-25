@@ -7,17 +7,15 @@
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/gestionGrupos.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Gestión de Grupos</title>
+    <title>Gestión de eventos</title>
 </head>
 
 <body class="mrg-top">
     <header>
         <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="adscripcion.html">
+                <a class="navbar-brand" href="../index.html">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
                         alt="Logo Klasso" class="logo">
                 </a>
@@ -31,10 +29,12 @@
                 <div class="collapse navbar-collapse" id="navbarColor03">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="../index.html">Inicio</a>
+                            <a class="nav-link active" href="horarios.html">Horarios
+                                <span class="visually-hidden">(current)</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="horarios.html">Horarios</a>
+                            <a class="nav-link" href="eventos.html">Eventos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="manual.html">Manual de Usuario</a>
@@ -84,108 +84,84 @@
         </nav>
     </header>
     <main class="main-login">
-        <h1>Gestión de Grupos</h1>
+        <h1>Gestión de Eventos</h1>
         <div class="container-principal">
-            <aside class="me-4 aside-grupos">
-                <h2>Grupos existentes</h2>
-                <div class="lista-grupos-container">
-                    <ul id="listaGrupos" name="listarGrupos" class="list-group"></ul>
+            <aside class="me-4 aside-eventos">
+                <h2>Eventos</h2>
+                <div class="lista-asign-container">
+                    <ul id="listaEventos" name="listarEvento" class="list-group"></ul>
                 </div>
             </aside>
             <section class="section-formulario">
-                <form action="../php/grupos/grupos.php" method="POST">
+                <form action="" method="POST" id="formEvento" enctype="multipart/form-data">
                     <fieldset>
                         <div>
-                            <label for="nombreGrupo" class="form-label mt-4">
+                            <label for="nombreEvento" class="form-label mt-4">
                                 <font dir="auto" style="vertical-align: inherit;">
                                     <font dir="auto" style="vertical-align: inherit;">Nombre</font>
                                 </font>
                             </label>
-                            <input type="text" name="nombreGrupo" class="form-control" id="nombreGrupo"
-                                placeholder="Introducir el nombre del grupo. Ej: MA" fdprocessedid="vosyw" required>
+                            <input type="text" name="nombre" class="form-control" id="nombreEvento"
+                                placeholder="Introducir el título del evento." required>
                         </div>
+                        <br>
                         <div>
-                            <label for="gradoGrupo" class="form-label mt-4">
-                                <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Grado</font>
-                                </font>
-                            </label>
-                            <input type="text" name="gradoGrupo" class="form-control" id="gradoGrupo"
-                                placeholder="Introducir el grado del grupo. Ej: 3º" fdprocessedid="vosyw" required>
+                            <label for="descripcion" class="form-label mt-4">Descripción</label>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="2"
+                                placeholder="Descripción breve de que se trata el evento"></textarea>
                         </div>
+                        <br>
                         <div>
-                            <label for="turno" class="form-label mt-4">
-                                <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Turno</font>
-                                </font>
-                            </label>
-                            <select class="form-select" name="turno" id="turno" fdprocessedid="vosyw" required>
-                                <option>
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Seleccione el turno</font>
-                                    </font>
-                                </option>
-                                <option value="MATUTINO">
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Matutino</font>
-                                    </font>
-                                </option>
-                                <option value="VESPERTINO">
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Vespertino</font>
-                                    </font>
-                                </option>
-                                <option value="NOCTURNO">
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Nocturno</font>
-                                    </font>
-                                </option>
+                            <label>Tipo de evento</label>
+                            <select name="tipo" id="tipoEvento" required class="form-select">
+                                <option value="">- Seleccione el tipo de evento -</option>
+                                <option value="Evento">Evento</option>
+                                <option value="Salida">Salida didáctica</option>
                             </select>
                         </div>
+                        <br>
                         <div>
-                            <label for="especificacionGrupo" class="form-label mt-4">
-                                <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Especificación</font>
-                                </font>
-                            </label>
-                            <input type="text" name="especificacionGrupo" class="form-control" id="especificacionGrupo"
-                                placeholder="Introducir la especificación del grupo. Ej: Robótica" fdprocessedid="vosyw"
-                                required>
+                            <label>Filtro</label>
+                            <select name="tipo" id="tipoEvento" required class="form-select">
+                                <option value="">- Seleccione el filtro correspondiente -</option>
+                                <option value="OBLIGATORIO">Obligatorio</option>
+                                <option value="CULTURAL">Cultural</option>
+                                <option value="ACADEMICO">Académico</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="detalles" class="form-label mt-4">Detalles</label>
+                            <textarea class="form-control" id="detalles" name="detalles" rows="3"
+                                placeholder="Amplié la información del evento, desde fechas, formularios, etc."></textarea>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="img" class="form-label mt-4">Subir imagen del evento</label>
+                            <input class="form-control" type="file" id="img" name="img">
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary btn-login" fdprocessedid="hai99">
                             <font dir="auto" style="vertical-align: inherit;">
-                                <font dir="auto" style="vertical-align: inherit;">Crear Grupo</font>
+                                <font dir="auto" style="vertical-align: inherit;">Crear Evento</font>
                             </font>
                         </button>
                     </fieldset>
                 </form>
             </section>
         </div>
-        <section id="editorGrupo" style="display: none; border-top: 1px solid #062863">
-            <h3>Editar grupo</h3>
-            <form id="formEditarGrupo" action="../php/grupos/editar_grupo.php" method="POST">
+        <section id="editorEvento" style="display: none; border-top: 1px solid #062863">
+            <h3>Editar Asignatura</h3>
+            <form id="formEditarEvento" action="../php/asignaturas/editar_asignatura.php" method="POST">
                 <input type="hidden" name="id" id="editId">
 
                 <div>
-                    <label>Nombre</label>
+                    <label for="editNombre">Nombre</label>
                     <input type="text" name="nombre" id="editNombre" required class="form-control">
                 </div>
                 <div>
-                    <label>Grado</label>
-                    <input type="text" name="grado" id="editGrado" required class="form-control">
-                </div>
-                <div>
-                    <label>Turno</label>
-                    <select name="turno" id="editTurno" required class="form-select">
-                        <option value="MATUTINO">Matutino</option>
-                        <option value="VESPERTINO">Vespertino</option>
-                        <option value="NOCTURNO">Nocturno</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Especificación</label>
-                    <input type="text" name="especificacion" id="editEspecificacion" required class="form-control">
+                    <label for="editDescripcion">Descripción</label>
+                    <input type="text" name="descripcion" id="editDescripcion" class="form-control">
                 </div>
 
                 <br>
@@ -194,7 +170,7 @@
                 <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
             </form>
         </section>
-        
+
     </main>
     <footer>
         <div class="footer-container">
@@ -216,11 +192,11 @@
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
-    <script src="../JS/grupos.js"></script>
     <script src="../JS/perfil.js"></script>
+    <script src="../JS/eventos.js"></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer>
+    </script>
 </body>
 
 </html>

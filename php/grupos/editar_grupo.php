@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../conexion.php");
 $con = conectar_bd();
 
 header('Content-Type: application/json');
@@ -18,7 +18,7 @@ $especificacion = ($_POST['especificacion']);
 $stmt = $con->prepare("UPDATE grupo 
         SET nombre=?, grado=?, turno=?, especificacion=? 
         WHERE id_grupo=?");
-$stmt->bind_param("siss", $nombre, $grado, $turno, $especificacion, $id);
+$stmt->bind_param("ssssi", $nombre, $grado, $turno, $especificacion, $id);
 if ($stmt->execute()) {
     if ($stmt->affected_rows > 0) {
         echo json_encode(["success" => true]);

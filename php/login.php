@@ -16,7 +16,7 @@ function validarCedulaUruguaya($cedula) {
     $verificador = array_pop($numeros);
     $pesos = [2, 9, 8, 7, 6, 3, 4];
     $suma = 0;
-
+    
     foreach ($numeros as $i => $n) {
         $suma += $n * $pesos[$i];
     }

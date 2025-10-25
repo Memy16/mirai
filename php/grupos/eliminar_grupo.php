@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../conexion.php");
 $con = conectar_bd();
 
 $id = intval($_POST['id']);

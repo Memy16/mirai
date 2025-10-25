@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     async function cargarGrupos() {
         try {
-            const resp = await fetch("../php/listar_grupos.php");
+            const resp = await fetch("../php/grupos/listar_grupos.php");
             const grupos = await resp.json();
             
             lista.innerHTML = "";
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const data = new URLSearchParams();
                 data.append("id", id);
                 
-                const resp = await fetch("../php/obtener_grupo.php", {
+                const resp = await fetch("../php/grupos/obtener_grupo.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const data = new URLSearchParams();
                     data.append("id", grupoActual);
                     
-                    const resp = await fetch("../php/eliminar_grupo.php", {
+                    const resp = await fetch("../php/grupos/eliminar_grupo.php", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded"
