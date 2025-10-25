@@ -152,9 +152,9 @@
         </div>
         <section id="editorEvento" style="display: none; border-top: 1px solid #062863">
             <h3>Editar Asignatura</h3>
-            <form id="formEditarEvento" action="../php/asignaturas/editar_asignatura.php" method="POST">
+            <form id="formEditarEvento" action="../php/eventos/editar_evento.php" method="POST">
                 <input type="hidden" name="id" id="editId">
-
+                
                 <div>
                     <label for="editNombre">Nombre</label>
                     <input type="text" name="nombre" id="editNombre" required class="form-control">
@@ -194,6 +194,8 @@
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
     <script src="../JS/eventos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../JS/gestion_eventos.js"></script>
     <script src="../JS/cssnavbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer>
     </script>

@@ -5,8 +5,8 @@ $con = conectar_bd();
 // ---------------------
 // CONFIGURACIÓN DE IMAGEN
 // ---------------------
-$inputName  = 'img'; // nombre del input file
-$uploadDir = __DIR__ . './uploads/img'; // carpeta donde se guardan
+$inputName  = 'img'; 
+$uploadDir = __DIR__ . '/../../uploads/img'; // carpeta donde se guardan
 $publicBase = 'uploads/img/'; // ruta pública (desde raíz web)
 
 if (!file_exists($uploadDir)) {
@@ -29,32 +29,32 @@ $img_url = null;
 if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
     $tmp = $_FILES[$inputName]['tmp_name'];
     $imgInfo = @getimagesize($tmp);
-
+    
     if ($imgInfo === false) {
         http_response_code(400);
         echo json_encode(["success" => false, "error" => "El archivo no es una imagen válida."]);
         exit;
     }
-
+    
     $extension = image_type_to_extension($imgInfo[2], false);
     $permitidas = ['jpeg', 'jpg', 'png', 'gif', 'webp'];
     if ($extension === 'jpg') $extension = 'jpeg';
-
+    
     if (!in_array($extension, $permitidas, true)) {
         http_response_code(415);
         echo json_encode(["success" => false, "error" => "Formato de imagen no permitido."]);
         exit;
     }
-
+    
     $filename = bin2hex(random_bytes(8)) . '_' . time() . '.' . ($extension === 'jpeg' ? 'jpg' : $extension);
     $destPath = $uploadDir . DIRECTORY_SEPARATOR . $filename;
-
+    
     if (!move_uploaded_file($tmp, $destPath)) {
         http_response_code(500);
-        echo json_encode(["success" => false, "error" => "No se pudo mover la imagen al servidor."]);
+        echo json_encode(["success" => false, "error" => "No se pudo guardar la imagen."]);
         exit;
     }
-
+    
     $img_url = $publicBase . $filename;
 }
 
