@@ -122,7 +122,7 @@
                         <br>
                         <div>
                             <label>Filtro</label>
-                            <select name="tipo" id="tipoEvento" required class="form-select">
+                            <select name="filtro" id="filtroEvento" required class="form-select">
                                 <option value="">- Seleccione el filtro correspondiente -</option>
                                 <option value="OBLIGATORIO">Obligatorio</option>
                                 <option value="CULTURAL">Cultural</option>
@@ -154,17 +154,55 @@
             <h3>Editar Asignatura</h3>
             <form id="formEditarEvento" action="../php/eventos/editar_evento.php" method="POST">
                 <input type="hidden" name="id" id="editId">
-                
-                <div>
-                    <label for="editNombre">Nombre</label>
-                    <input type="text" name="nombre" id="editNombre" required class="form-control">
-                </div>
-                <div>
-                    <label for="editDescripcion">Descripción</label>
-                    <input type="text" name="descripcion" id="editDescripcion" class="form-control">
-                </div>
 
+                <div>
+                    <label for="editnombreEvento" class="form-label mt-4">
+                        <font dir="auto" style="vertical-align: inherit;">
+                            <font dir="auto" style="vertical-align: inherit;">Nombre</font>
+                        </font>
+                    </label>
+                    <input type="text" name="nombre" class="form-control" id="editnombreEvento"
+                        placeholder="Introducir el título del evento." required>
+                </div>
                 <br>
+                <div>
+                    <label for="editdescripcion" class="form-label mt-4">Descripción</label>
+                    <textarea class="form-control" id="editdescripcion" name="descripcion" rows="2"
+                        placeholder="Descripción breve de que se trata el evento"></textarea>
+                </div>
+                <br>
+                <div>
+                    <label>Tipo de evento</label>
+                    <select name="tipo" id="editTipoEvento" required class="form-select">
+                        <option value="">- Seleccione el tipo de evento -</option>
+                        <option value="Evento">Evento</option>
+                        <option value="Salida">Salida didáctica</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Filtro</label>
+                    <select name="filtro" id="editfiltroEvento" required class="form-select">
+                        <option value="">- Seleccione el filtro correspondiente -</option>
+                        <option value="OBLIGATORIO">Obligatorio</option>
+                        <option value="CULTURAL">Cultural</option>
+                        <option value="ACADEMICO">Académico</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="editdetalles" class="form-label mt-4">Detalles</label>
+                    <textarea class="form-control" id="editdetalles" name="detalles" rows="3"
+                        placeholder="Amplié la información del evento, desde fechas, formularios, etc."></textarea>
+                </div>
+                <br>
+                <div>
+                    <label for="img" class="form-label mt-4">Subir imagen del evento</label>
+                    <input class="form-control" type="file" id="img" name="img">
+                </div>
+                <br>
+
+
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
                 <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
@@ -195,7 +233,7 @@
     <script src="../JS/perfil.js"></script>
     <script src="../JS/eventos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="../JS/gestion_eventos.js"></script>
+    <script src="../JS/gestion_eventos.js"></script>
     <script src="../JS/cssnavbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer>
     </script>
