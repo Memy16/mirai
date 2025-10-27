@@ -3,6 +3,7 @@ include("../conexion.php");
 $con = conectar_bd();
 
 $id = intval($_POST['id']);
+
 $stmt = $con->prepare("DELETE FROM eventos WHERE id_evento=?");
 $stmt->bind_param("i", $id);
 
