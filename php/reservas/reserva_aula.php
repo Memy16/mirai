@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('Content-Type: application/json; charset=utf-8');
 include("../conexion.php");
 $con = conectar_bd();
@@ -8,6 +9,7 @@ $id_aula = intval($data['id_aula']);
 $fecha   = $con->real_escape_string($data['fecha']);
 $turno   = $con->real_escape_string($data['turno']);
 $hora    = $con->real_escape_string($data['hora']);
+$ci      = $_SESSION['ci'];
 
 $stmt_h = $con->prepare("SELECT id_horario FROM horarios WHERE turno=? LIMIT 1");
 $stmt_h->bind_param("s", $turno);
@@ -26,8 +28,9 @@ $stmt_check = $con->prepare("
     WHERE id_aula = ?
     AND hora_turno = ?
     AND hora_reservada = ?
+    AND turno = ?
 ");
-$stmt_check->bind_param("iss", $id_aula, $hora, $fecha);
+$stmt_check->bind_param("isss", $id_aula, $hora, $fecha, $turno);
 $stmt_check->execute();
 $result = $stmt_check->get_result();
 
@@ -42,8 +45,8 @@ $sql_reserva = "INSERT INTO reserva (hora_entrada, hora_salida) VALUES ('00:00:0
 if($con->query($sql_reserva)){
     $id_reserva = $con->insert_id;
 
-    $stmt_insert = $con->prepare("INSERT INTO reserva_aulas (id_reserva, id_aula, id_horario, hora_turno, hora_reservada) VALUES (?, ?, ?, ?, ?)");
-    $stmt_insert->bind_param("iiiss", $id_reserva, $id_aula, $id_horario, $hora, $fecha);
+    $stmt_insert = $con->prepare("INSERT INTO reserva_aulas (id_reserva, id_aula, id_horario, hora_turno, hora_reservada, Prof_ci, turno) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt_insert->bind_param("iiissss", $id_reserva, $id_aula, $id_horario, $hora, $fecha, $ci, $turno);
     if($stmt_insert->execute()){
         echo json_encode(["success"=>true, "message"=>"Reserva realizada correctamente"]);
     } else {

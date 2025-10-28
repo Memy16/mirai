@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="../css/gestionGrupos.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Gestión de Reservas</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Administrar Mis Reservas</title>
 </head>
 
 <body class="mrg-top">
@@ -77,17 +78,12 @@
             </div>
         </nav>
     </header>
+
     <main>
-        <div class="edit-select">
-            <label for="grupo">Selecciona lo que quieras crear, editar, eliminar o actualizar (Recursos/Aulas):</label>
-            <select id="grupo"></select>
-        </div>
-
         <div id="aulas-container">
-            
         </div>
-
     </main>
+
     <footer>
         <div class="footer-container">
             <div class="footer-links">
@@ -106,12 +102,13 @@
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
     </footer>
+
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
-    <script src="../JS/editar_reserva.js"></script>
+    <script src="../JS/admin_reserva.js"></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 </body>
 
 </html>

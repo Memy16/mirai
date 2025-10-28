@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('Content-Type: application/json; charset=utf-8');
 include("../conexion.php");
 $con = conectar_bd();
@@ -8,6 +9,7 @@ $id_recurso = intval($data['id_recurso']);
 $fecha      = $con->real_escape_string($data['fecha']);
 $turno      = $con->real_escape_string($data['turno']);
 $hora       = $con->real_escape_string($data['hora']);
+$ci         = $_SESSION['ci'];
 
 $stmt_h = $con->prepare("SELECT id_horario FROM horarios WHERE turno=? LIMIT 1");
 $stmt_h->bind_param("s", $turno);
@@ -27,8 +29,9 @@ $stmt_check = $con->prepare("
     WHERE id_recurso = ?
     AND hora_turno = ?
     AND hora_reservada = ?
+    AND turno = ?
 ");
-$stmt_check->bind_param("iss", $id_recurso, $hora, $fecha);
+$stmt_check->bind_param("isss", $id_recurso, $hora, $fecha, $turno);
 $stmt_check->execute();
 $result = $stmt_check->get_result();
 
@@ -41,16 +44,16 @@ $stmt_check->close();
 $sql_reserva = "INSERT INTO reserva (hora_entrada, hora_salida) VALUES ('00:00:00', '00:00:00')";
 if($con->query($sql_reserva)){
     $id_reserva = $con->insert_id;
-    $stmt_insert = $con->prepare("INSERT INTO reserva_recursos (id_reserva, id_recurso, id_horario, hora_turno, hora_reservada) VALUES (?, ?, ?, ?, ?)");
-    $stmt_insert->bind_param("iiiss", $id_reserva, $id_recurso, $id_horario, $hora, $fecha);
-    if($stmt_insert->execute()){
-        echo json_encode(["success"=>true, "message"=>"Recurso reservado correctamente"]);
+    $stmt_insert = $con->prepare("INSERT INTO reserva_recursos (id_reserva, id_recurso, id_horario, hora_turno, hora_reservada, Prof_ci, turno) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt_insert->bind_param("iiissss", $id_reserva, $id_recurso, $id_horario, $hora, $fecha, $ci, $turno);
+    if ($stmt_insert->execute()) {
+        echo json_encode(["success" => true, "message" => "Recurso reservado correctamente"]);
     } else {
-        echo json_encode(["success"=>false, "message"=>"Error al guardar la reserva en reserva_recursos: ".$con->error]);
+        echo json_encode(["success" => false, "message" => "Error al guardar la reserva en reserva_recursos: " . $stmt_insert->error]);
     }
     $stmt_insert->close();
 } else {
-    echo json_encode(["success"=>false, "message"=>"Error al crear la reserva: ".$con->error]);
+    echo json_encode(["success" => false, "message" => "Error al crear la reserva: " . $con->error]);
 }
 
 $con->close();

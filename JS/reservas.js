@@ -2,12 +2,18 @@ const container = document.getElementById("aulas-container");
 const reservarbut = document.getElementById("reservar");
 const grupoSelect = document.getElementById("grupo");
 
-function get_aulas() {
+function get_horarios() {
+    return fetch("../php/get_horarios.php")
+        .then(res => res.json())
+}
+
+async function get_aulas() {
     if (grupoSelect.value!="Aulas") return;
     container.innerHTML = `<div id="loading" style="text-align:center; margin-top:50px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" style="width:50px;">
         <p>Cargando Aulas...</p>
     </div>`;
+    horarios = await get_horarios();
     fetch(`../php/reservas/reservas.php?valor=${encodeURIComponent(grupoSelect.value)}`)
     .then(res => res.json())
     .then(data => {
@@ -42,6 +48,10 @@ function get_aulas() {
                 const modal = document.createElement("div");
                 modal.id = "modalReserva";
                 modal.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:9999;";
+
+                const opcionesHora = horarios.map((h, index) => 
+                    `<option value="${index+1}°">${index+1}° - ${h.formatted}</option>`
+                ).join("");
                 modal.innerHTML = `
                     <div style="background:#fff; padding:20px; border-radius:8px; width:300px;">
                         <h2>Reservar ${nombre}</h2>
@@ -55,14 +65,7 @@ function get_aulas() {
                         </label><br><br>
                         <label>Hora:
                             <select id="res_hora">
-                                <option value="1°">1°</option>
-                                <option value="2°">2°</option>
-                                <option value="3°">3°</option>
-                                <option value="4°">4°</option>
-                                <option value="5°">5°</option>
-                                <option value="6°">6°</option>
-                                <option value="7°">7°</option>
-                                <option value="8°">8°</option>
+                                ${opcionesHora}
                             </select>
                         </label><br><br>
                         <div id="dispoText" style="font-weight:bold; margin-bottom:10px;"></div>
@@ -134,12 +137,13 @@ function get_aulas() {
     });
 }
 
-function get_recursos() {
+async function get_recursos() {
     if (grupoSelect.value != "Recursos") return;
     container.innerHTML = `<div id="loading" style="text-align:center; margin-top:50px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" style="width:50px;">
         <p>Cargando Recursos...</p>
     </div>`;
+    horarios = await get_horarios();
     fetch(`../php/reservas/reservas.php?valor=${encodeURIComponent(grupoSelect.value)}`)
     .then(res => res.json())
     .then(data => {
@@ -176,6 +180,9 @@ function get_recursos() {
                 const modal = document.createElement("div");
                 modal.id = "modalReserva";
                 modal.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:9999;";
+                const opcionesHora = horarios.map((h, index) => 
+                    `<option value="${index+1}°">${index+1}° - ${h.formatted}</option>`
+                ).join("");
                 modal.innerHTML = `
                     <div style="background:#fff; padding:20px; border-radius:8px; width:300px;">
                         <h2>Reservar ${nombre}</h2>
@@ -189,14 +196,7 @@ function get_recursos() {
                         </label><br><br>
                         <label>Hora:
                             <select id="res_hora">
-                                <option value="1°">1°</option>
-                                <option value="2°">2°</option>
-                                <option value="3°">3°</option>
-                                <option value="4°">4°</option>
-                                <option value="5°">5°</option>
-                                <option value="6°">6°</option>
-                                <option value="7°">7°</option>
-                                <option value="8°">8°</option>
+                                ${opcionesHora}
                             </select>
                         </label><br><br>
                         <p id="disponibilidad" style="font-weight:bold;">Selecciona fecha, turno y hora</p>
