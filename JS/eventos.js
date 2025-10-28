@@ -6,18 +6,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     async function cargarEventos() {
         const resp = await fetch("../php/eventos/cards_eventos.php");
         const eventos = await resp.json();
-
+        
         if (eventos.length === 0) {
             contenedor.innerHTML = "<p>No hay eventos disponibles.</p>";
             return;
         }
-
+        
         contenedor.innerHTML = "";
 
         eventos.forEach((ev, i) => {
             const detallesId = `extra${i}`;
             const filtroLower = ev.filtro ? ev.filtro.toLowerCase() : "";
-
+            
             const card = `
             <div class="text_box event-item" data-categories="${filtroLower}">
                 <div class="text_box_inner">
@@ -44,18 +44,18 @@ document.addEventListener("DOMContentLoaded", async () => {
             contenedor.insertAdjacentHTML("beforeend", card);
         });
     }
-
+    
     await cargarEventos();
     
     document.addEventListener("click", (e) => {
         const btn = e.target.closest(".evntosinfo-btn");
         if (!btn) return;
-
+        
         const target = document.getElementById(btn.dataset.target);
         if (!target) return;
         target.classList.toggle("d-none");
         const abierto = !target.classList.contains("d-none");
-
+        
         btn.textContent = abierto ? "menos info" : "más info";
     });
     
