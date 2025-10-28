@@ -8,6 +8,7 @@
     <title>Iniciar Sesión</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
 </head>
@@ -114,16 +115,16 @@
                         nadie más.</small>
                 </div>
                 <div>
-                    <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
-                    <input type="password" name="pass" class="form-control input-login" id="InputPassword1"
-                        placeholder="Contraseña" autocomplete="off" fdprocessedid="leq0no" required>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Mantener la sesión iniciada
-                    </label>
-                </div>
+    <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
+    <input type="password" name="pass" class="form-control input-login" id="InputPassword1" 
+        placeholder="Contraseña" autocomplete="off" fdprocessedid="leq0no" required>
+</div>
+
+<!-- Agregar este div para mostrar/ocultar contraseña -->
+<div id="viewPassword" class="mostrar-pass">
+    <img id="iconoVer" src="https://cdn-icons-png.flaticon.com/512/565/565655.png" alt="ver" width="18">
+    <span>Mostrar contraseña</span>
+</div>
                 <div id="captcha"></div>
                 <button type="submit" name="inicio_sesion" class="btn btn-primary btn-login"
                     fdprocessedid="3tgwfh">Iniciar Sesión</button>
@@ -153,6 +154,7 @@
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
     <script src="../JS/cssnavbar.js"></script>
+    <script src="../JS/login.js"></script>
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
     <script>
         window.onload = function () {
