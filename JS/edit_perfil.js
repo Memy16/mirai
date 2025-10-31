@@ -16,10 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(res => res.json())
         .then(data => {
-            if (data.error) {
-                Swal.fire("Error", data.error, "error");
+        if (data.error === "no_logged_in") {
+                Swal.fire({
+                    title: 'No estás logeado',
+                    text: 'Debes iniciar sesión para ver tus reservas.',
+                    icon: 'warning',
+                    confirmButtonText: 'Ir al login'
+                }).then(() => {
+                    window.location.href = "../pages/login.html";
+                });
                 return;
-            }
+        }
+
             
             rolUsuario = data.rol;
             idUsuario = data.id_alumno || data.id_docente || data.id_adscripta;

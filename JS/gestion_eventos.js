@@ -93,6 +93,20 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const data = new URLSearchParams();
             data.append("id", id);
+            
+            .then(data => {
+        if (data.error === "no_logged_in") {
+                Swal.fire({
+                    title: 'No estás logeado',
+                    text: 'Debes iniciar sesión para ver tus reservas.',
+                    icon: 'warning',
+                    confirmButtonText: 'Ir al login'
+                }).then(() => {
+                    window.location.href = "../pages/login.html";
+                });
+                return;
+        }
+
 
             const resp = await fetch("../php/eventos/obtener_evento.php", {
                 method: "POST",
