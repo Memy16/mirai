@@ -41,7 +41,7 @@ h2 {
     z-index: 1030 !important;
     margin: 0 !important;
     padding: 0 1rem !important;
-
+    
     /* Estado inicial - SEMI-transparente */
     background: rgba(0, 1, 3, 0.404) !important;
     backdrop-filter: blur(8px);
@@ -139,12 +139,6 @@ h2 {
     text-shadow: none !important;
 }
 
-
-
-
-
-
-
 /*Modo claro y oscuro*/
 .light_mode {
     position: relative !important;
@@ -217,7 +211,7 @@ h2 {
     border-radius: 10px;
 }
 
-/*Carrusel del inicio*/
+/*Carruseles del index y home´s*/
 .carrusel1-contenido {
     position: relative;
     margin: 0 auto;
@@ -264,13 +258,6 @@ h2 {
     color: var(--azuloscuro);
 }
 
-.texto-superpuesto img {
-    width: 300px;
-    height: auto;
-    max-width: 100%;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-}
-
 .carrusel1-caja {
     animation: automatizacion 20s infinite linear;
     -webkit-animation: automatizacion 20s infinite linear;
@@ -291,18 +278,9 @@ h2 {
     width: 16.6667%;
 }
 
-.img-carrusel1 {
-    width: 100%;
-    height: 600px !important;
-    object-fit: cover;
-}
-
-
 .main-login {
     overflow-x: auto;
-    /* activa scroll horizontal */
 }
-
 
 /* Animaciones para las imágenes del index*/
 @keyframes automatizacion {
@@ -545,52 +523,6 @@ h2 {
     justify-content: flex-start;
 }
 
-/* ===== CARRUSEL ===== */
-.carrusel-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 75rem;
-    margin: 20px auto;
-}
-
-.carrusel {
-    overflow: hidden;
-}
-
-.carrusel-track {
-    display: flex;
-    align-items: stretch;
-    gap: 16px;
-    transition: transform 0.4s ease-in-out;
-}
-
-.carrusel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-    padding: 0;
-}
-
-.carrusel-btn img {
-    width: 44px;
-    height: 44px;
-    display: block;
-    filter: none;
-}
-
-.carrusel-btn.prev {
-    left: -60px;
-}
-
-.carrusel-btn.next {
-    right: -60px;
-}
-
-
 /*footer*/
 footer {
     background: var(--amarilloclaro);
@@ -657,11 +589,11 @@ footer {
         padding: 1rem 15px !important;
         flex-wrap: wrap !important;
     }
-
+    
     .navbar .container-fluid {
         justify-content: space-between !important;
     }
-
+    
     /* Menú hamburguesa */
     .navbar-toggler {
         display: block !important;
@@ -690,13 +622,13 @@ footer {
         display: flex !important;
         justify-content: flex-start !important;
     }
-
+    
     .profile {
         width: 60px !important;
         height: 60px !important;
         margin: 0 !important;
     }
-
+    
     .profile img {
         border-radius: 50% !important;
         border: 2px solid var(--blanco) !important;
@@ -717,7 +649,7 @@ footer {
         padding: 0 !important;
         margin-bottom: 1.2rem !important;
     }
-
+    
     .navbar-nav .nav-link {
         padding: 0 !important;
         border-radius: 0 !important;
@@ -734,7 +666,7 @@ footer {
         color: var(--amarillo) !important;
         transform: none !important;
     }
-
+    
     .navbar-nav .nav-link.active {
         color: var(--amarillo) !important;
         font-weight: 600 !important;

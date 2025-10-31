@@ -1,3 +1,61 @@
+.texto-superpuesto img {
+    width: 300px;
+    height: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.img-carrusel1 {
+    width: 100%;
+    height: 600px !important;
+    object-fit: cover;
+}
+
+.carrusel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 75rem;
+    margin: 20px auto;
+}
+
+.carrusel {
+    overflow: hidden;
+}
+
+.carrusel-track {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Carrusel eventos y salidas*/
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+}
+
+.carrusel-btn img {
+    width: 44px;
+    height: 44px;
+    display: block;
+    filter: none;
+}
+
+.carrusel-btn.prev {
+    left: -60px;
+}
+
+.carrusel-btn.next {
+    right: -60px;
+}
+
 .div-tar {
     margin-top: 0rem;
     border-radius: 16px;
@@ -5,55 +63,49 @@
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto 1fr auto;
- 
-    grid-template-areas: 
+    
+    grid-template-areas:
         "h3 h2"
         "p h2"
         "button .";
     transition: transform 0.3s, box-shadow 0.3s;
-    /* Centrar horizontalmente */
     margin-left: auto;
     margin-right: auto;
-    max-width: 900px; /* Ajusta según necesites */
+    max-width: 900px;
     width: 90%;
 }
 
-.seccion-tar{
- margin-top: -5rem;
-    
+.seccion-tar {
+    margin-top: -5rem;
     border-radius: 16px;
-    padding: 0px 0; /* Solo padding arriba y abajo */
+    padding: 0px 0;
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
         "h3 h2"
         "p h2"
         "button .";
     transition: transform 0.3s, box-shadow 0.3s;
-    /* Ocupar todo el ancho */
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-} 
+}
 
 .div-tar h2 {
     grid-area: h2;
     font-size: 10rem;
-    color: transparent; /* Hace el texto transparente */
+    color: transparent;
     text-align: right;
     margin: 0;
     align-self: center;
     font-weight: 800;
-    
-    /* Imagen dentro del texto */
     background-image: url('https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/inicio/img-itsp-1.png');
     background-size: cover;
     background-position: center;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    
     padding-right: 20px;
 }
 
@@ -79,14 +131,13 @@
     color: white;
     border: none;
     padding: 14px 32px;
-    
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     width: fit-content;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-    margin-left: 40px; /* Para alinearlo con el texto */
+    margin-left: 40px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -107,7 +158,8 @@
     display: flex;
     align-items: center;
     gap: 40px;
-    margin: 60px 80px; /* margen arriba/abajo e izquierda/derecha */
+    margin: 60px 80px;
+    /* margen arriba/abajo e izquierda/derecha */
 }
 
 .imagen-contenido-tarj {
@@ -142,90 +194,566 @@
     margin-bottom: 15px;
 }
 
-.contenedor-tarj2{
+.contenedor-tarj2 {
     color: var(--blanco);
     background-color: var(--azul);
     padding: 60px;
 }
 
-.reverso-tarj{
+.reverso-tarj {
     color: var(--blanco);
     background-color: #27152b;
     padding: 60px;
 }
+
 .titulo-tarj2 {
     color: var(--blanco2);
     margin-bottom: 20px;
     font-size: 32px;
 }
-.contenedor-util {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .titulo-util {
-            color: var(--azul);
-            margin-bottom: 40px;
-            font-size: 32px;
-            text-align: center;
-            border-bottom: 3px solid var(--amarilloclaro);
-            padding-bottom: 15px;
-        }
-        
-        .linea-util {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .cuadrado-util {
-            width: 400px;
-            height: 200px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .cuadrado-util:hover {
-            transform: translateY(-5px);
-        }
-        
-        .img-util {
-            width:  150px;
-            height: 80px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            object-fit: contain;
-        }
-        
-        .subtitulo-util {
-            font-weight: bold;
-            color: #1C4C96;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        
-        .desc-util {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .categoria-util {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 30px;
-            color: var(--azul);
-            font-weight: bold;
-        }
 
+.contenedor-util {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.titulo-util {
+    color: var(--azul);
+    margin-bottom: 40px;
+    font-size: 32px;
+    text-align: center;
+    border-bottom: 3px solid var(--amarilloclaro);
+    padding-bottom: 15px;
+}
+
+.linea-util {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.cuadrado-util {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.cuadrado-util:hover {
+    transform: translateY(-5px);
+}
+
+.img-util {
+    width: 150px;
+    height: 80px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.subtitulo-util {
+    font-weight: bold;
+    color: #1C4C96;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.desc-util {
+    font-size: 12px;
+    color: #666;
+}
+
+.categoria-util {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: var(--azul);
+    font-weight: bold;
+}
+
+/* ===== RESPONSIVE 1440px ===== */
+@media (max-width: 1440px) {
+    /* AJUSTE DEL LOGO EN CARRUSEL - Centrado vertical */
+    .contenedor-principal {
+        position: relative;
+        min-height: 600px;
+    }
+    
+    .texto-superpuesto {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .texto-superpuesto img {
+        width: 280px;
+        height: auto;
+        max-width: 100%;
+    }
+    
+    /* REDUCIR ESPACIO ENTRE CARRUSEL Y PRIMER TÍTULO */
+    .seccion-tar {
+        margin-top: -3rem !important;
+        padding: 40px 20px;
+    }
+    
+    .div-tar {
+        margin-top: 2rem;
+        padding: 35px;
+    }
+    
+    .div-tar h2 {
+        font-size: 9rem;
+    }
+    
+    .div-tar h3 {
+        font-size: 1.8rem;
+    }
+    
+    .div-tar p {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== RESPONSIVE 1024px ===== */
+@media (max-width: 1024px) {
+    /* CARRUSEL PRINCIPAL */
+    .img-carrusel1 {
+        height: 500px !important;
+    }
+    
+    .texto-superpuesto img {
+        width: 220px;
+    }
+    
+    /* ESPACIADO ARREGLADO */
+    .seccion-tar {
+        margin-top: -2rem !important;
+        padding: 30px 15px;
+    }
+    
+    .div-tar {
+        margin-top: 1.5rem;
+        padding: 30px;
+        max-width: 100%;
+        width: 95%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "h2"
+            "h3"
+            "p"
+            "button";
+    }
+    
+    .div-tar h2 {
+        font-size: 6rem;
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .div-tar h3 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    
+    .div-tar p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .div-tar button {
+        margin: 20px auto 0;
+        padding: 12px 28px;
+        font-size: 1rem;
+    }
+    
+    /* CARRUSEL DE EVENTOS - FLECHA IZQUIERDA VISIBLE */
+    .carrusel-wrapper {
+        margin: 20px auto;
+        padding: 0 70px; /* Espacio para las flechas */
+        max-width: 100%;
+    }
+    
+    .carrusel-btn.prev {
+        left: 10px; /* Mover hacia adentro */
+    }
+    
+    .carrusel-btn.next {
+        right: 10px; /* Mover hacia adentro */
+    }
+    
+    .carrusel-btn img {
+        width: 36px;
+        height: 36px;
+    }
+    
+    /* AJUSTE DE CARDS EN CARRUSEL */
+    .card {
+        min-width: 280px !important;
+        max-width: 280px !important;
+    }
+    
+    /* SECCIONES KLASSO Y MIRAI */
+    .seccion-tarj {
+        flex-direction: column;
+        margin: 40px 30px;
+        gap: 30px;
+    }
+    
+    .seccion-tarj.reverso-tarj {
+        flex-direction: column;
+    }
+    
+    .img-tarj {
+        width: 15rem;
+        margin: 0 auto;
+    }
+    
+    .titulo-tarj,
+    .titulo-tarj2 {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .parrafo-tarj {
+        font-size: 16px;
+    }
+    
+    .contenedor-tarj2,
+    .reverso-tarj {
+        padding: 40px 30px;
+    }
+    
+    /* HERRAMIENTAS UTILIZADAS */
+    .linea-util {
+        gap: 20px;
+    }
+    
+    .cuadrado-util {
+        width: 300px;
+        height: 180px;
+        padding: 15px;
+    }
+    
+    .categoria-util {
+        font-size: 26px;
+    }
+    
+    /* TÍTULOS DE SECCIONES */
+    section > h2 {
+        font-size: 28px;
+        margin: 30px 0 20px;
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+
+/* ===== RESPONSIVE 768px ===== */
+@media (max-width: 768px) {
+    /* CARRUSEL PRINCIPAL */
+    .img-carrusel1 {
+        height: 400px !important;
+    }
+    
+    .texto-superpuesto img {
+        width: 180px;
+    }
+    
+    /* ESPACIADO */
+    .seccion-tar {
+        margin-top: -1.5rem !important;
+        padding: 20px 10px;
+    }
+    
+    .div-tar {
+        padding: 25px 20px;
+        width: 100%;
+    }
+    
+    .div-tar h2 {
+        font-size: 4.5rem;
+    }
+    
+    .div-tar h3 {
+        font-size: 1.4rem;
+    }
+    
+    .div-tar p {
+        font-size: 0.95rem;
+    }
+    
+    .div-tar button {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+    }
+    
+    /* CARRUSEL - FLECHAS MÁS PEQUEÑAS */
+    .carrusel-wrapper {
+        padding: 0 50px;
+    }
+    
+    .carrusel-btn.prev {
+        left: 5px;
+    }
+    
+    .carrusel-btn.next {
+        right: 5px;
+    }
+    
+    .carrusel-btn img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .card {
+        min-width: 250px !important;
+        max-width: 250px !important;
+    }
+    
+    /* SECCIONES */
+    .seccion-tarj {
+        margin: 30px 20px;
+        gap: 25px;
+    }
+    
+    .img-tarj {
+        width: 12rem;
+    }
+    
+    .titulo-tarj,
+    .titulo-tarj2 {
+        font-size: 24px;
+    }
+    
+    .parrafo-tarj {
+        font-size: 15px;
+    }
+    
+    .contenedor-tarj2,
+    .reverso-tarj {
+        padding: 30px 20px;
+    }
+    
+    /* HERRAMIENTAS */
+    .cuadrado-util {
+        width: 100%;
+        max-width: 350px;
+        height: 160px;
+    }
+    
+    .categoria-util {
+        font-size: 24px;
+    }
+    
+    .titulo-util {
+        font-size: 28px;
+    }
+}
+
+/* ===== RESPONSIVE 480px ===== */
+@media (max-width: 480px) {
+    /* CARRUSEL PRINCIPAL */
+    .img-carrusel1 {
+        height: 300px !important;
+    }
+    
+    .texto-superpuesto img {
+        width: 140px;
+    }
+    
+    /* ESPACIADO */
+    .seccion-tar {
+        margin-top: -1rem !important;
+        padding: 15px 5px;
+    }
+    
+    .div-tar {
+        padding: 20px 15px;
+        margin-top: 1rem;
+    }
+    
+    .div-tar h2 {
+        font-size: 3.5rem;
+    }
+    
+    .div-tar h3 {
+        font-size: 1.2rem;
+    }
+    
+    .div-tar p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .div-tar button {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+    
+    /* CARRUSEL - FLECHAS SOBRE LAS CARDS */
+    .carrusel-wrapper {
+        padding: 0 10px;
+        position: relative;
+    }
+    
+    .carrusel-btn {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        padding: 8px;
+    }
+    
+    .carrusel-btn.prev {
+        left: 0;
+    }
+    
+    .carrusel-btn.next {
+        right: 0;
+    }
+    
+    .carrusel-btn img {
+        width: 28px;
+        height: 28px;
+        filter: invert(1);
+    }
+    
+    .card {
+        min-width: 220px !important;
+        max-width: 220px !important;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+    
+    .card-title {
+        font-size: 16px;
+    }
+    
+    .card-body p {
+        font-size: 13px;
+    }
+    
+    /* SECCIONES */
+    .seccion-tarj {
+        margin: 20px 10px;
+        gap: 20px;
+    }
+    
+    .img-tarj {
+        width: 10rem;
+    }
+    
+    .titulo-tarj,
+    .titulo-tarj2 {
+        font-size: 20px;
+    }
+    
+    .parrafo-tarj {
+        font-size: 14px;
+        text-align: left;
+    }
+    
+    .contenedor-tarj2,
+    .reverso-tarj {
+        padding: 25px 15px;
+    }
+    
+    /* HERRAMIENTAS */
+    .contenedor-util {
+        padding: 30px 10px;
+    }
+    
+    .cuadrado-util {
+        width: 100%;
+        height: 150px;
+        padding: 15px 10px;
+    }
+    
+    .img-util {
+        width: 100px;
+        height: 60px;
+    }
+    
+    .subtitulo-util {
+        font-size: 14px;
+    }
+    
+    .desc-util {
+        font-size: 11px;
+    }
+    
+    .categoria-util {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .titulo-util {
+        font-size: 24px;
+    }
+    
+    section > h2 {
+        font-size: 24px;
+        margin: 20px 0 15px;
+    }
+}
+
+/* ===== FIX GENERAL PARA EVITAR DESBORDAMIENTO ===== */
+body {
+    overflow-x: hidden;
+}
+
+.container-fluid,
+section,
+main {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* AJUSTE DEL CARRUSEL PARA EVITAR SCROLL HORIZONTAL */
+.carrusel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carrusel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    will-change: transform;
+}
+
+/* MEJORA EN LA VISIBILIDAD DE LAS FLECHAS */
+@media (max-width: 1024px) {
+    .carrusel-btn {
+        background: rgba(0, 0, 0, 0.6) !important;
+        border-radius: 50%;
+        padding: 10px;
+        backdrop-filter: blur(4px);
+    }
+    
+    .carrusel-btn:hover {
+        background: rgba(0, 0, 0, 0.8) !important;
+        transform: translateY(-50%) scale(1.1);
+    }
+    
+    .carrusel-btn img {
+        filter: brightness(0) invert(1);
+    }
+}
