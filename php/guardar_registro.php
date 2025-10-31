@@ -74,10 +74,12 @@ function verificarHCaptcha($token) {
     $rol = $_POST['rol'];
     $contrasenia = ($_POST['contrasenia']);
     $codigo = $_POST['codigo'];
+    $tel = $_POST(['telefono']);
     $hcaptcha_token = $_POST['h-captcha-response'] ?? '';
     
     $cod_docente = "prof123KLASSO";
     $cod_ads = "ads321KLASSO";
+
     if (!verificarHCaptcha($hcaptcha_token)) {
         include(__DIR__ . '/../templates/error_captcha.html');
         exit;
@@ -106,8 +108,8 @@ function verificarHCaptcha($token) {
         exit;
         } else {
             $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
-            $stmt = $con->prepare("INSERT INTO adscripta (nombre, apellido, mail_adscripta, ci_adscripta, contrasena_adscripta) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $nombre, $apellido, $email, $ci, $contrasenia);
+            $stmt = $con->prepare("INSERT INTO adscripta (nombre, apellido, mail_adscripta, ci_adscripta, contrasena_adscripta, tel_adscripta) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $nombre, $apellido, $email, $ci, $contrasenia, $tel);
         }
         break;
     case "profesor":
@@ -116,8 +118,8 @@ function verificarHCaptcha($token) {
             exit;
         }else{
             $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
-            $stmt = $con->prepare("INSERT INTO docente (nombre, apellido, mail_docente, ci_docente, contrasena_docente) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $nombre, $apellido, $email, $ci, $contrasenia);
+            $stmt = $con->prepare("INSERT INTO docente (nombre, apellido, mail_docente, ci_docente, contrasena_docente, tel_docente) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $nombre, $apellido, $email, $ci, $contrasenia, $tel);
         }
         break;
         

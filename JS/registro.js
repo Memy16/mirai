@@ -1,15 +1,10 @@
-// En lugar de esto:
-// document.getElementById("formulario").addEventListener("submit", function(event) {
-
-// Usa esto:
 document.querySelector("form").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const pass = document.getElementById("contrasena").value;
     const repetir = document.getElementById("repetir").value;
     const mensaje = document.getElementById("mensaje");
-
-    // Limpiar mensaje anterior
+    
     mensaje.textContent = "";
 
     // 1. primero comparar contraseñas

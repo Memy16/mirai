@@ -139,28 +139,35 @@
                     </select>
                 </div>
 
-                <div>
+                <!-- NÚMERO DE TELÉFONO (oculto por defecto) -->
+                <div id="telefonoDiv" style="display: none;">
+                    <label for="telefono" class="form-label mt-4">Número de Teléfono</label>
+                    <input type="tel" name="telefono" class="form-control input-login" id="telefono"
+                        placeholder="Ingrese su número de teléfono">
+                </div>
+                
+                <div id="codigoDiv" style="display: none;">
                     <label for="codigo" class="form-label mt-4">Código de verificación</label>
                     <input type="text" name="codigo" class="form-control input-login" id="codigo"
-                        placeholder="Ingrese el código si corresponde">
+                        placeholder="Ingrese el código correspondiente a su rol">
                 </div>
                 <!-- Contraseña -->
                 <div>
-                <label for="contrasena" class="form-label mt-4">Contraseña</label>
-                <input type="password" name="contrasenia" class="form-control input-login" id="contrasena"
-                    placeholder="Ingrese una nueva contraseña" required>
+                    <label for="contrasena" class="form-label mt-4">Contraseña</label>
+                    <input type="password" name="contrasenia" class="form-control input-login" id="contrasena"
+                        placeholder="Ingrese una nueva contraseña" required>
                 </div>
 
                 <!-- Repetir Contraseña -->
                 <div>
-                <label for="repetir" class="form-label mt-4">Repetir Contraseña</label>
-                <input type="password" class="form-control input-login" id="repetir"
-                    placeholder="Repita la contraseña" required>
+                    <label for="repetir" class="form-label mt-4">Repetir Contraseña</label>
+                    <input type="password" class="form-control input-login" id="repetir"
+                        placeholder="Repita la contraseña" required>
                 </div>
 
                 <div id="viewPassword" class="mostrar-pass">
-                <img id="iconoVer" src="https://cdn-icons-png.flaticon.com/512/565/565655.png" alt="ver" width="18">
-                <span>Mostrar contraseña</span>
+                    <img id="iconoVer" src="https://cdn-icons-png.flaticon.com/512/565/565655.png" alt="ver" width="18">
+                    <span>Mostrar contraseña</span>
                 </div>
 
                 <!-- Elemento para mostrar mensajes -->
@@ -196,6 +203,7 @@
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
     <script src="../JS/cssnavbar.js"></script>
+    <script src="../JS/datos_rol.js"></script>
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
     <script>
         window.onload = function () {
@@ -216,10 +224,11 @@
                 .catch(err => console.error(err));
         };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer> </script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer>
+    </script>
 
 
-    
+
 </body>
 
 </html>
