@@ -278,17 +278,6 @@ fetch("../php/asistencias_data/get_asignaturas.php")
         const select = document.getElementById("materiaSelect");
         select.innerHTML = '<option value="">Seleccione la asignatura</option>';
         data.forEach(asig => {
-             if (data.error === "no_logged_in") {
-                Swal.fire({
-                    title: 'No estás logeado',
-                    text: 'Debes iniciar sesión para ver tus reservas.',
-                    icon: 'warning',
-                    confirmButtonText: 'Ir al login'
-                }).then(() => {
-                    window.location.href = "../pages/login.html";
-                });
-                return;
-        }
             const option = document.createElement("option");
             option.value = asig.id_asignatura;
             option.textContent = asig.nombre;
@@ -348,6 +337,17 @@ function cargarGrupos() {
     fetch("../php/asistencias_data/grupos_get.php")
         .then(res => res.json())
         .then(grupos => {
+            if (grupos.error === "no_logged_in") {
+                Swal.fire({
+                    title: 'No estás logeado',
+                    text: 'Debes iniciar sesión para ver tus reservas.',
+                    icon: 'warning',
+                    confirmButtonText: 'Ir al login'
+                }).then(() => {
+                    window.location.href = "../pages/login.html";
+                });
+                return;
+            }
             grupoSelect.innerHTML = "";
             grupos.forEach(grupo => {
                 const option = document.createElement("option");

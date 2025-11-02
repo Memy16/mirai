@@ -4,38 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Editar Asistencia</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/asistencia.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">
+                <a class="navbar-brand" href="adscripcion.html">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
                         alt="Logo Klasso" class="logo">
                 </a>
-
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarColor03">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="horarios.html">Horarios
-                                <span class="visually-hidden">(current)</span>
-                            </a>
+                            <a class="nav-link active" href="../index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="eventos.html">Eventos</a>
+                            <a class="nav-link" href="horarios.html">Horarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="manual.html">Manual de Usuario</a>
@@ -84,88 +81,44 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="contenedor-principal">
-            <div class="texto-superpuesto">
-                <h1>SISTEMA DE GESTIÓN Y RESERVA PARA DOCENTES</h1>
-                <h2>ITSP</h2>
-            </div>
 
-            <div class="carrusel1-contenido">
-                <div class="carrusel1-caja">
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-1.png"
-                            alt="Docente 1" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-2.png"
-                            alt="Docente 2" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-3.png"
-                            alt="Docente 3" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-4.png"
-                            alt="Docente 4" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-5.png"
-                            alt="Docente 5" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-6.png"
-                            alt="Docente 6" class="img-carrusel1" />
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container container-gestiones">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/aula.png"
-                                    alt="Aula">
-                            </div>
-                            <h3 class="card-title h5">Reserva de aulas</h3>
-                            <p class="card-text">Reservar aulas para un día y horario específico</p>
-                            <a href="reservas.html" class="btn btn-warning">Reservar aula</a>
-                        </div>
-                    </div>
-                </div>
+    <main class="main-container asistencia main-login mrg-top">
+        <h1>Editar Asistencia de Profesores</h1>
 
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/recursos-matematica.png"
-                                    alt="Recursos Matemática">
-                            </div>
-                            <h3 class="card-title h5">Reserva de recursos</h3>
-                            <p class="card-text">Reservar recursos de matemáticas</p>
-                            <a href="reservas.html?data=recursos" class="btn btn-warning">Reservar recurso</a>
-                        </div>
-                    </div>
-                </div>
+        <!-- Selección de grupo -->
+        <div class="grupo-select">
+            <label for="grupo">Selecciona un grupo:</label>
+            <select id="grupo"></select>
+        </div>
 
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/graficas-recursos.png"
-                                    alt="Gráficas Recursos">
-                            </div>
-                            <h3 class="card-title h5">Utilización de recursos</h3>
-                            <p class="card-text">Gráficas del uso de aulas y recursos</p>
-                            <a href="#" class="btn btn-warning">Ver uso de recursos</a>
-                        </div>
-                    </div>
+        <!-- Tabla de asistencia editable -->
+        <div class="table-responsive">
+            <table class="tabla-asistencia">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <div id="loading" style="text-align:center; margin-top:50px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" style="width:50px;">
+                    <p>Cargando Asitencias...</p>
                 </div>
+                <tbody>
+                    <!-- Filas cargadas desde JS -->
+                </tbody>
+            </table>
+        </div>
 
-            </div>
-        </section>
+        <!-- Botón añadir nueva fila -->
+        <div class="add-row-container" style="text-align:center; margin-top:15px;">
+            <button id="addRow" class="btn-add btn btn-primary btn-login">Añadir Nueva Hora</button>
+        </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -187,10 +140,10 @@
     </footer>
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
+    <script src="../JS/edit_asistencia.js"></script>
     <script src="../JS/perfil.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

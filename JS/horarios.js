@@ -61,17 +61,28 @@ async function cargarGrupos() {
     try {
         const res = await fetch("../php/asistencias_data/grupos_get.php");
         const grupos = await res.json();
+        if (grupos.error === "no_logged_in") {
+            Swal.fire({
+                title: 'No estás logeado',
+                text: 'Debes iniciar sesión para ver tus reservas.',
+                icon: 'warning',
+                confirmButtonText: 'Ir al login'
+            }).then(() => {
+                window.location.href = "../pages/login.html";
+            });
+            return;
+        }
 
         grupoSelect.innerHTML = "";
         grupos.forEach(grupo => {
             const option = document.createElement("option");
             option.textContent = `${grupo.grado} ${grupo.nombre} ${grupo.especificacion} ${grupo.turno}`;
-            option.value = `${grupo.grado} ${grupo.nombre} ${grupo.especificacion} ${grupo.turno}`;
+            option.value = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
             grupoSelect.appendChild(option);
         });
 
         if (grupos.length > 0) {
-            grupoSelect.value = `${grupos[0].grado} ${grupos[0].nombre} ${grupos[0].especificacion} ${grupos[0].turno}`;
+            grupoSelect.value = `${grupos[0].grado}${grupos[0].nombre} ${grupos[0].turno}`;
             await actualizarAsistencia();
         }
     } catch (err) {

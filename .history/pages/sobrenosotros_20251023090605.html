@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docente</title>
-    <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Sobre Nosotros</title>
+    <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
 </head>
 
-<body>
+<body class="mrg-top">
     <header>
         <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
             <div class="container-fluid">
@@ -40,6 +40,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="manual.html">Manual de Usuario</a>
                         </li>
+
+                        <li class="nav-item nav-inicio">
+                            <a class="nav-link" href="registro.html">Registrarse</a>
+                        </li>
+                        <li class="nav-item nav-inicio">
+                            <a class="nav-link" href="login.html">Iniciar sesión</a>
+                        </li>
+
                         <li>
                             <div class="light_mode">
                                 <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
@@ -84,86 +92,78 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="contenedor-principal">
-            <div class="texto-superpuesto">
-                <h1>SISTEMA DE GESTIÓN Y RESERVA PARA DOCENTES</h1>
-                <h2>ITSP</h2>
+    <main class="main-login">
+        <section id="sobre-nosotros">
+            <h1>Sobre nosotros</h1>
+            <div class="intro">
+                <img src="logo-klasso.png" alt="Logo KLASSO" class="logo">
+                <p>
+                    KLASSO es una solución de gestión de recursos desarrollada por estudiantes del Instituto Técnico
+                    Superior de Paysandú (ITSP)
+                    como parte de nuestro proyecto de egreso. Esta plataforma nace del compromiso académico y creativo
+                    de nuestro equipo por construir un entorno confiable y moderno.
+                    Nuestra plataforma nace como respuesta al compromiso de crear un entorno confiable y moderno,
+                    pensado para facilitar la organización de aulas, recursos y horarios.
+                </p>
             </div>
+        </section>
 
-            <div class="carrusel1-contenido">
-                <div class="carrusel1-caja">
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-1.png"
-                            alt="Docente 1" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-2.png"
-                            alt="Docente 2" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-3.png"
-                            alt="Docente 3" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-4.png"
-                            alt="Docente 4" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-5.png"
-                            alt="Docente 5" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-6.png"
-                            alt="Docente 6" class="img-carrusel1" />
-                    </div>
+        <section>
+            <h2>Equipo</h2>
+            <div class="equipo-grid">
+                <div>
+                    <h3>Coordinadora</h3>
+                    <p>Emmy Machado de Oliveira</p>
+                </div>
+                <div>
+                    <h3>Subcoordinador</h3>
+                    <p>Benjamin Torrecilla</p>
+                </div>
+                <div>
+                    <h3>Integrantes Multitarea</h3>
+                    <ul>
+                        <li>Valentín Amatto</li>
+                        <li>Kevin Correa</li>
+                    </ul>
                 </div>
             </div>
         </section>
-        <section class="container container-gestiones">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/aula.png"
-                                    alt="Aula">
-                            </div>
-                            <h3 class="card-title h5">Reserva de aulas</h3>
-                            <p class="card-text">Reservar aulas para un día y horario específico</p>
-                            <a href="reservas.html" class="btn btn-warning">Reservar aula</a>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/recursos-matematica.png"
-                                    alt="Recursos Matemática">
-                            </div>
-                            <h3 class="card-title h5">Reserva de recursos</h3>
-                            <p class="card-text">Reservar recursos de matemáticas</p>
-                            <a href="reservas.html?data=recursos" class="btn btn-warning">Reservar recurso</a>
-                        </div>
-                    </div>
-                </div>
+        <section>
+            <h2>Nuestra identidad</h2>
+            <div class="logo-descripcion">
+                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
+                    alt="Logo KLASSO" class="logo-nosotros">
+                <p>
+                    El logo de KLASSO representa nuestro compromiso con la excelencia. La letra "K" central comunica
+                    estabilidad y profesionalismo, mientras que el gato, tomado como símbolo de Mirai & Co, aporta
+                    curiosidad, inteligencia y proyección. Los colores refuerzan estos valores: azul oscuro para la
+                    confianza y seriedad; dorado para el éxito y la calidad; negro para la sobriedad y la modernidad
+                    digital.
+                </p>
+            </div>
+        </section>
 
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/graficas-recursos.png"
-                                    alt="Gráficas Recursos">
-                            </div>
-                            <h3 class="card-title h5">Utilización de recursos</h3>
-                            <p class="card-text">Gráficas del uso de aulas y recursos</p>
-                            <a href="#" class="btn btn-warning">Ver uso de recursos</a>
-                        </div>
-                    </div>
-                </div>
-
+        <section>
+            <h2>Mirai & Co</h2>
+            <div class="logo-descripcion">
+                <img src="logo-mirai.png" alt="Logo Mirai & Co" class="logo">
+                <p>
+                    Mirai & Co es el motor creativo detrás de KLASSO. Su nombre refleja visión y colaboración:
+                    <em>Mirai</em> significa futuro en japonés, mientras que <em>&amp; Co</em> destaca la
+                    importancia del trabajo en equipo. El logotipo, un gato estilizado en variantes de cuerpo
+                    completo y rostro, integra diversidad, intuición y aprendizaje continuo.
+                </p>
+                <p>
+                    La paleta vibrante y el estilo ilustrativo transmiten energía y modernidad. La figura felina
+                    simboliza la adaptabilidad y creatividad de nuestros integrantes, fortaleciendo la sinergia y el
+                    espíritu de innovación que nos caracteriza.
+                </p>
+                <p>
+                    Mirai & Co no es solo una StartUp; es un equipo donde convergen tecnología y talento humano
+                    para crear soluciones de impacto en el ámbito educativo con el objetivo de completar el proyecto de
+                    egreso del ITSP.
+                </p>
             </div>
         </section>
     </main>
@@ -188,9 +188,26 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+    <div id="number" class="text-danger" style="font-size: 0px;"></div><script>
+    var n = 30 * 60; // 30 minutos en segundos
+    var l = document.getElementById("number");
+    setInterval(function() {
+        // Convierte segundos a minutos y segundos
+        var min = Math.floor(n / 60);
+        var sec = n % 60;
+        // Actualiza el div
+        l.innerText = min + ":" + (sec < 10 ? "0" : "") + sec;
+        // Disminuye el contador
+        n--;
+        // Si llega a 0, redirige
+        if (n < 0) {
+            location.href = "../php/logout.php";
+        }
+    }, 1000); // Actualiza cada segundo</script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
 </body>
 
 </html>

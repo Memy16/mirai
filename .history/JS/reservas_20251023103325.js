@@ -17,17 +17,6 @@ async function get_aulas() {
     fetch(`../php/reservas/reservas.php?valor=${encodeURIComponent(grupoSelect.value)}`)
     .then(res => res.json())
     .then(data => {
-        if (data.error === "no_logged_in") {
-                Swal.fire({
-                    title: 'No estás logeado',
-                    text: 'Debes iniciar sesión para ver tus reservas.',
-                    icon: 'warning',
-                    confirmButtonText: 'Ir al login'
-                }).then(() => {
-                    window.location.href = "../pages/login.html";
-                });
-                return;
-        }
         const loading = document.getElementById("loading");
         if(loading) loading.remove();
         container.innerHTML = "";

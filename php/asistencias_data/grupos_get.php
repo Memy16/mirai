@@ -1,4 +1,10 @@
 <?php
+session_start();
+header('Content-Type: application/json'); // <-- siempre primero
+if (!isset($_SESSION['ci'])) {
+    echo json_encode(["error" => "no_logged_in"]);
+    exit();
+}
 include("../conexion.php");
 $conexion = conectar_bd();
 

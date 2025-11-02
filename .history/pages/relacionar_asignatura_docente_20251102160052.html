@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/gestionAsignaturas.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Relacionar Asignatura - Docente</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">
+                <a class="navbar-brand" href="adscripcion.html">
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
                         alt="Logo Klasso" class="logo">
                 </a>
@@ -30,12 +31,10 @@
                 <div class="collapse navbar-collapse" id="navbarColor03">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="horarios.html">Horarios
-                                <span class="visually-hidden">(current)</span>
-                            </a>
+                            <a class="nav-link active" href="../index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="eventos.html">Eventos</a>
+                            <a class="nav-link" href="horarios.html">Horarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="manual.html">Manual de Usuario</a>
@@ -84,88 +83,33 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="contenedor-principal">
-            <div class="texto-superpuesto">
-                <h1>SISTEMA DE GESTIÓN Y RESERVA PARA DOCENTES</h1>
-                <h2>ITSP</h2>
-            </div>
-
-            <div class="carrusel1-contenido">
-                <div class="carrusel1-caja">
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-1.png"
-                            alt="Docente 1" class="img-carrusel1" />
+    <main class="main-login mrg-top">
+        <h1>Relacionar Asignatura - Docente</h1>
+        <div class="container-principal">
+            <section id="relacionarForm" class="section-formulario">
+                <form action="../php/relacionar-docente-asignatura/relacionar.php" method="POST">
+                    <div class="mb-3">
+                        <label for="asignatura" class="form-label">Asignatura</label>
+                        <select class="form-select" id="asignatura" name="asignatura" required>
+                            <option value="" disabled selected>Seleccione una asignatura</option>
+                        </select>
                     </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-2.png"
-                            alt="Docente 2" class="img-carrusel1" />
+                    <div class="mb-3">
+                        <label for="docente" class="form-label">Docente</label>
+                        <select class="form-select" id="docente" name="docente" required>
+                            <option value="" disabled selected>Seleccione un docente</option>
+                        </select>
                     </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-3.png"
-                            alt="Docente 3" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-4.png"
-                            alt="Docente 4" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-5.png"
-                            alt="Docente 5" class="img-carrusel1" />
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/vista-docentes/docente-6.png"
-                            alt="Docente 6" class="img-carrusel1" />
-                    </div>
+                    <button type="submit" class="btn btn-primary">Relacionar</button>
+                </form>
+            </section>
+            <aside class="me-4 aside-materias">
+                <h2>Docentes y asignaturas</h2>
+                <div class="lista-asign-container">
+                    <ul id="listaAsignaturasDocentes" name="listarAsignDocente" class="list-group"></ul>
                 </div>
-            </div>
-        </section>
-        <section class="container container-gestiones">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/aula.png"
-                                    alt="Aula">
-                            </div>
-                            <h3 class="card-title h5">Reserva de aulas</h3>
-                            <p class="card-text">Reservar aulas para un día y horario específico</p>
-                            <a href="reservas.html" class="btn btn-warning">Reservar aula</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/recursos-matematica.png"
-                                    alt="Recursos Matemática">
-                            </div>
-                            <h3 class="card-title h5">Reserva de recursos</h3>
-                            <p class="card-text">Reservar recursos de matemáticas</p>
-                            <a href="reservas.html?data=recursos" class="btn btn-warning">Reservar recurso</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/graficas-recursos.png"
-                                    alt="Gráficas Recursos">
-                            </div>
-                            <h3 class="card-title h5">Utilización de recursos</h3>
-                            <p class="card-text">Gráficas del uso de aulas y recursos</p>
-                            <a href="#" class="btn btn-warning">Ver uso de recursos</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+            </aside>
+        </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -188,9 +132,9 @@
     <script src="../JS/app.js"></script>
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/docente_asignatura.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
 </body>
 
 </html>
