@@ -9,9 +9,9 @@ function limpiar($data) {
 
 function validarCedulaUruguaya($cedula) {
     $cedula = preg_replace('/[^\d]/', '', $cedula);
-
+    
     if (strlen($cedula) != 8) return false;
-
+    
     $numeros = str_split($cedula);
     $verificador = array_pop($numeros);
     $pesos = [2, 9, 8, 7, 6, 3, 4];
@@ -23,7 +23,7 @@ function validarCedulaUruguaya($cedula) {
 
     $dv = 10 - ($suma % 10);
     if ($dv == 10) $dv = 0;
-
+    
     return intval($verificador) === $dv;
 }
 
@@ -116,12 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         include(__DIR__ . '/../templates/error_captcha.html');
         exit;
     }
-
+    
     if (strpos($cedula, '@') !== false) {
         include(__DIR__ . '/../templates/error_cedula.html');
         exit;
     }
-
+    
     if (!validarCedulaUruguaya($cedula)) {
         header("Location: /../templates/error_cedula_invalida.php?cedula=" . urlencode($cedula));
         exit;
