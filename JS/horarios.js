@@ -59,20 +59,8 @@ async function cargarGrupos() {
     loading.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" style="width:50px;">
             <p>Cargando Horarios...</p>`;
     try {
-        const res = await fetch("../php/asistencias_data/grupos_get.php");
+        const res = await fetch("../php/asistencias_data/get_grupos.php");
         const grupos = await res.json();
-        if (grupos.error === "no_logged_in") {
-            Swal.fire({
-                title: 'No estás logeado',
-                text: 'Debes iniciar sesión para ver tus reservas.',
-                icon: 'warning',
-                confirmButtonText: 'Ir al login'
-            }).then(() => {
-                window.location.href = "../pages/login.html";
-            });
-            return;
-        }
-
         grupoSelect.innerHTML = "";
         grupos.forEach(grupo => {
             const option = document.createElement("option");

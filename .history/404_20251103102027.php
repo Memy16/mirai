@@ -7,19 +7,18 @@ http_response_code(404);
   <meta charset="UTF-8">
   <title>Error 404</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      height: 100%;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fff;
+      background-color: #fff;
     }
-    a img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
+    img {
       cursor: pointer;
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adscripción</title>
+    <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
+                        alt="Logo Klasso" class="logo">
+                </a>
+
+                <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="horarios.html">Horarios
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eventos.html">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="manual.html">Manual de Usuario</a>
+                        </li>
+                        <li>
+                            <div class="light_mode">
+                                <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="gtranslate_wrapper"></div>
+                            <script>
+                                window.gtranslateSettings = {
+                                    "default_language": "es",
+                                    "languages": ["es", "en"],
+                                    "globe_color": "#66aaff",
+                                    "wrapper_selector": ".gtranslate_wrapper",
+                                    "globe_size": 40
+                                }
+                            </script>
+                            <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
+                                <img src="../assets/img/profile.png" alt="Profile" class="profile">
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
+                                        <p class="mb-0 text-muted" id="userRol"></p>
+                                    </div>
+                                </div>
+                                <a href="editar_perfil.html" class="dropdown-item">
+                                    <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                                </a>
+                                <a href="../php/logout.php" class="dropdown-item text-danger">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="contenedor-principal">
+            <div class="texto-superpuesto">
+                <h1>SISTEMA DE GESTIÓN PARA ADSCRIPCIÓN</h1>
+                <h2>ITSP</h2>
+            </div>
+
+            <div class="carrusel1-contenido">
+                <div class="carrusel1-caja">
+                    <div class="carrusel1-elemento">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscipcion-1.png"
+                            alt="Adscripción 1" class="img-carrusel1">
+                    </div>
+                    <div class="carrusel1-elemento">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-2.png"
+                            alt="Adscripción 2" class="img-carrusel1">
+                    </div>
+                    <div class="carrusel1-elemento">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-3.png"
+                            alt="Adscripción 3" class="img-carrusel1">
+                    </div>
+                    <div class="carrusel1-elemento">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-4.png"
+                            alt="Adscripción 4" class="img-carrusel1">
+                    </div>
+                    <div class="carrusel1-elemento">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-5.png"
+                            alt="Adscripción 5" class="img-carrusel1">
+                    </div>
+                    <div class="carrusel1-elemento">
+                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-6.png"
+                            alt="Adscripción 6" class="img-carrusel1">
+                    </div>
+                </div>
+        </section>
+
+        <section class="container container-gestiones">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/Group.png"
+                                    alt="Gestión de Grupos">
+                            </div>
+                            <h3 class="card-title h5">Gestión de Grupos</h3>
+                            <p class="card-text">Crear y administrar los grupos de clases</p>
+                            <a href="../pages/gestiongrupos.html" class="btn btn-warning">Administrar Grupos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/Group-1.png"
+                                    alt="Registro de Alumnos">
+                            </div>
+                            <h3 class="card-title h5">Gestión de Alumnos</h3>
+                            <p class="card-text">Administrar la información de los estudiantes</p>
+                            <a href="gestion_alumno.html" class="btn btn-warning">Gestionar alumno</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/graficas-recursos.png"
+                                    alt="Gráficas Recursos">
+                            </div>
+                            <h3 class="card-title h5">Utilización de recursos</h3>
+                            <p class="card-text">Gráficas del uso de aulas y recursos</p>
+                            <a href="#" class="btn btn-warning">Ver uso de recursos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/horarios.png"
+                                    alt="Horarios">
+                            </div>
+                            <h3 class="card-title h5">Horarios</h3>
+                            <p class="card-text">Gestionar y modificar los horarios de cada clase</p>
+                            <a href="asistencia.html" class="btn btn-warning">Gestionar horarios</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/notificar-inasistencia.png"
+                                    alt="Notificar Inasistencia">
+                            </div>
+                            <h3 class="card-title h5">Notificar inasistencias</h3>
+                            <p class="card-text">Notificar a los estudiantes la inasistencia de un docente</p>
+                            <a href="#" class="btn btn-warning">Notificar inasistencia</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/avisos.png"
+                                    alt="Avisos">
+                            </div>
+                            <h3 class="card-title h5">Avisos</h3>
+                            <p class="card-text">Gestionar nuevos avisos importantes para la institución</p>
+                            <a href="#" class="btn btn-warning">Crear nuevo aviso</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <i class="fa-solid fa-book fa-4x" style="color: #1C4C96;"></i>
+                            </div>
+                            <h3 class="card-title h5">Gestión de asignaturas</h3>
+                            <p class="card-text">Crear y administrar las diferentes asignaturas</p>
+                            <a href="gestion_asignatura.html" class="btn btn-warning">Gestionar asignaturas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <i class="fa-solid fa-chalkboard-user fa-4x" style="color: #1C4C96;"></i>
+                            </div>
+                            <h3 class="card-title h5">Relacionar Asignatura - Docente</h3>
+                            <p class="card-text">Asignar asignatura correspondiente a los docentes</p>
+                            <a href="relacionar_asignatura_docente.html" class="btn btn-warning">Gestionar asignaturas y docentes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <i class="fa-solid fa-plug fa-4x" style="color: #1C4C96;"></i>
+                            </div>
+                            <h3 class="card-title h5">Gestionar los recursos de la institución</h3>
+                            <p class="card-text">Administrar la información de los recursos</p>
+                            <a href="gestion_recursos.html" class="btn btn-warning">Gestionar recursos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-gestion">
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon fas">
+                                <i class="fa-solid fa-plug fa-4x" style="color: #1C4C96;"></i>
+                            </div>
+                            <h3 class="card-title h5">Gestionar los eventos de la institución</h3>
+                            <p class="card-text">Administrar eventos y salidas didacticas</p>
+                            <a href="gestion_recursos.html" class="btn btn-warning">Gestionar eventos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="preguntasfrecuentes.html">Preguntas Frecuentes</a>
+                <a href="sobrenosotros.html">Sobre Nosotros</a>
+                <a href="contacto.html">Contactanos</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
+                        alt="Instagram"></a>
+                <a href="#"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png"
+                        alt="Twitter"></a>
+            </div>
+            <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="../JS/app.js"></script>
+    <script src="../JS/navbar.js"></script>
+    <script src="../JS/cssnavbar.js"></script>
+    <script src="../JS/perfil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+</body>
+
+</html>
