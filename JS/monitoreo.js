@@ -1,5 +1,5 @@
     async function cargarInforme() {
-        const res = await fetch("../php/monitor.php");
+        const res = await fetch("../php/monitoreo.php");
         const html = await res.text();
         document.getElementById("reporte").innerHTML = html;
     }

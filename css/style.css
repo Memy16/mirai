@@ -583,12 +583,19 @@ footer {
 }
 
 pre {
-    color: #FFFFFF;
-    background: var(--negro);
+    background: var(--blanco);
     padding: 1rem;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.2);
     white-space: pre-wrap;
+}
+
+#reporte {
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    overflow-x: auto;
+    font-family: monospace;
 }
 
 /*Responsive*/
