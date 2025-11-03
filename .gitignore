@@ -1,0 +1,18 @@
+# Ignorar la carpeta .history
+.history/
+
+# Ignorar archivos de sistema comunes
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos temporales de editores
+*.swp
+*.tmp
+
+# Ignorar logs y backups
+*.log
+*.bak
+*.sql
+
+# Ignorar node_modules si usas Node.js
+node_modules/
