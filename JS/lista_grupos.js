@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function cargarGrupos() {
         try {
-            const resp = await fetch("../php/listar_grupos.php");
+            const resp = await fetch("../php/grupos/listar_grupos.php");
             const grupos = await resp.json();
             
             lista.innerHTML = "";
