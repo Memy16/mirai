@@ -11,7 +11,7 @@ if (!empty($_POST['ciAlumno'])) $ci = trim($_POST['ciAlumno']);
 elseif (!empty($_POST['ci'])) $ci = trim($_POST['ci']);
 elseif (!empty($_POST['ci_alumno'])) $ci = trim($_POST['ci_alumno']);
 elseif (!empty($_GET['ci'])) $ci = trim($_GET['ci']);
-
+//echo json_encode(['error' => true, 'message' => $ci]);
 // Si no llegó la CI -> devolver error claro
 if ($ci === '') {
     echo json_encode(['error' => true, 'message' => 'CI no recibida']);
