@@ -13,6 +13,7 @@ if (!isset($_SESSION['ci'])) {
     echo json_encode(["error" => "no_logged_in"]);
     exit();
 }
+$ci = $_SESSION['ci'];
 
 $stmt_h = $con->prepare("SELECT id_horario FROM horarios WHERE turno=? LIMIT 1");
 $stmt_h->bind_param("s", $turno);
