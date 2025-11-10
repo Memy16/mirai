@@ -1,0 +1,57 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 40px 15px;
+}
+
+h3 {
+    color: var(--azuloscuro);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+select {
+    max-width: 420px;
+    border: 2px solid var(--indigo);
+    color: var(--azuloscuro);
+    font-weight: 500;
+}
+
+.card-grupo {
+    background-color: var(--blanco);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    max-width: 600px;
+    width: 100%;
+    padding: 35px 25px;
+    text-align: center;
+    border-top: 6px solid var(--amarillo);
+    transition: all 0.2s ease-in-out;
+}
+
+.card-grupo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.nombre-grupo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--azuloscuro);
+}
+
+.aula {
+    color: var(--indigo);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.materia {
+    color: var(--amarillooscuro);
+    font-weight: 500;
+    font-size: 1.1rem;
+}

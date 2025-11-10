@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Vista alumno</title>
     <link rel="shortcut icon" href="../assets/img/klasso-logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/ver_aula.css">
+    <title>Ver aula</title>
 </head>
 
 <body>
@@ -17,9 +17,10 @@
         <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png" alt="Logo Klasso" class="logo">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
+                        alt="Logo Klasso" class="logo">
                 </a>
-                
+
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -39,7 +40,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="manual.html">Manual de Usuario</a>
                         </li>
-                        
+
                         <li class="nav-item nav-inicio">
                             <a class="nav-link" href="registro.html">Registrarse</a>
                         </li>
@@ -70,7 +71,7 @@
                                 <img src="../assets/img/profile.png" alt="Profile" class="profile">
                                 <i class="fas fa-caret-down"></i>
                             </a>
-                            
+
                             <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
                                 <div class="d-flex align-items-center mb-3">
                                     <div>
@@ -82,8 +83,8 @@
                                     <i class="fas fa-user-edit me-2"></i> Editar Perfil
                                 </a>
                                 <a href="../php/logout.php" class="dropdown-item text-danger">
-                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
-                </a>
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -91,77 +92,19 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="contenedor-principal">
-            <div class="texto-superpuesto">
-                <h1>HOME DE ALUMNOS</h1>
-                <h2>ITSP</h2>
-            </div>
-
-            <div class="carrusel1-contenido">
-                <div class="carrusel1-caja">
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscipcion-1.png" alt="Adscripción 1" class="img-carrusel1">
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-2.png" alt="Adscripción 2" class="img-carrusel1">
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-3.png" alt="Adscripción 3" class="img-carrusel1">
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-4.png" alt="Adscripción 4" class="img-carrusel1">
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-5.png" alt="Adscripción 5" class="img-carrusel1">
-                    </div>
-                    <div class="carrusel1-elemento">
-                        <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/Vista-adscripcion/adscripcion-6.png" alt="Adscripción 6" class="img-carrusel1">
-                    </div>
-                </div>
-        </section>
-
-        <section class="container container-gestiones">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/Group.png" alt="Gestión de Grupos">
-                            </div>
-                            <h3 class="card-title h5">Horarios</h3>
-                            <p class="card-text">Horarios de tus clases</p>
-                            <a href="../pages/horarios.html" class="btn btn-warning">Horarios grupo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/aulas.png" alt="">
-                            </div>
-                            <h3 class="card-title h5">Aula</h3>
-                            <p class="card-text">Ve en que aula se encuentra tú clase</p>
-                            <a href="../pages/ver_aula.html" class="btn btn-warning">Ver aula</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="card card-gestion">
-                        <div class="card-body text-center p-4">
-                            <div class="card-icon fas">
-                                <i class="fa-solid fa-comments fa-4x" style="color: #1C4C96;"></i>
-                            </div>
-                            <h3 class="card-title h5">Foro</h3>
-                            <p class="card-text">Comenta en el foro</p>
-                            <a href="../pages/foro.html" class="btn btn-warning">Ingresar al foro</a>
-                        </div>
-                    </div>
-                </div>
-        </section>
+    <main class="mrg-top">
+        <h1>Ve en que aula se encuentra tú clase</h1>
+        <br>
+        <div class="mb-4 text-center">
+            <select id="grupo" class="form-select mx-auto">
+                <option value="">Selecciona tú grupo</option>
+            </select>
+        </div>
+        <div class="card-grupo" id="info-card">
+            <h3>El grupo <strong id="grupo-text">3º MA Tecnologías de la Información</strong> se encuentra en el aula <span class="aula"
+                    id="aula-text">Aula 1</span>.</h3>
+            <p>Asignatura actual: <span class="materia" id="materia-text">Programación Full Stack</span></p>
+        </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -171,8 +114,12 @@
                 <a href="contacto.html">Contactanos</a>
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/miraicompanyofficial/"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
+                        alt="Instagram"></a>
+                <a href="#"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png"
+                        alt="Twitter"></a>
             </div>
             <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
@@ -181,7 +128,9 @@
     <script src="../JS/navbar.js"></script>
     <script src="../JS/perfil.js"></script>
     <script src="../JS/cssnavbar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+    <script src="../JS/ver_aula.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer>
+    </script>
 </body>
 
 </html>

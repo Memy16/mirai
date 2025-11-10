@@ -13,10 +13,10 @@ async function actualizarAsistencia(mostrarLoading = false) {
         const res = await fetch(`../php/asistencias_data/asistencia_get.php?grupo=${encodeURIComponent(grupoSelect.value)}`);
         const data = await res.json();
         loading.innerHTML = "";
-
+        
         const tabla = document.querySelector("table");
         const filas = tabla.querySelectorAll("tr");
-
+        
         filas.forEach((fila, index) => {
             if (index === 0) return;
             const celdas = fila.querySelectorAll("td");
@@ -26,12 +26,12 @@ async function actualizarAsistencia(mostrarLoading = false) {
                 celdas[i].style.color = "";
             }
         });
-
+        
         data.forEach(item => {
             for (let h = item.hora; h <= item.hora_fin; h++) {
                 const fila = Array.from(filas).find(f => f.querySelector("td")?.textContent.includes(h + "°"));
                 if (!fila) continue;
-
+                
                 let diaIndex;
                 switch(item.dia) {
                     case "Lunes": diaIndex = 2; break;
@@ -40,7 +40,7 @@ async function actualizarAsistencia(mostrarLoading = false) {
                     case "Jueves": diaIndex = 5; break;
                     case "Viernes": diaIndex = 6; break;
                 }
-
+                
                 const celdas = fila.querySelectorAll("td");
                 const celda = celdas[diaIndex];
                 if(celda) {
@@ -68,7 +68,7 @@ async function cargarGrupos() {
             option.value = `${grupo.grado}${grupo.nombre} ${grupo.turno}`;
             grupoSelect.appendChild(option);
         });
-
+        
         if (grupos.length > 0) {
             grupoSelect.value = `${grupos[0].grado}${grupos[0].nombre} ${grupos[0].turno}`;
             await actualizarAsistencia();
