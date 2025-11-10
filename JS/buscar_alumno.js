@@ -14,21 +14,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const msgNoReg = document.getElementById('mensaje-no-registrado');
         const msgSinGrupo = document.getElementById('mensaje-registrado-sin-grupo');
 
-        
         [msgGrupo, msgNoReg, msgSinGrupo].forEach(div => {
             if (div) div.classList.add('d-none');
         });
 
+        // Función segura para decodificar JSON
+        async function safeJSON(res) {
+            const text = await res.text();
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                console.error("Respuesta no es JSON:", text);
+                return null;
+            }
+        }
+
         try {
-            
             const res = await fetch('../php/gestion_alumnos/buscar_alumno.php', {
                 method: 'POST',
                 body: formData
             });
-            const data = await res.json();
-            console.log(data.registrado);
 
-            if (!alertaDiv) throw new Error("No existe el div de alertas");
+            const data = await safeJSON(res);
+
+            if (!data) throw new Error("Error en buscar_alumno.php (JSON inválido)");
+
+            console.log(data.registrado);
 
             if (data.registrado === true) {
                 alertaDiv.innerHTML = `
@@ -38,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
 
-                
                 const infoRes = await fetch('../php/gestion_alumnos/obtener_info.php', {
                     method: 'POST',
                     body: formData
                 });
-                const info = await infoRes.json();
+                const info = await safeJSON(infoRes);
+                if (!info) throw new Error("Error en obtener_info.php");
 
                 if (info.existe && infoSection) {
                     document.getElementById('nombre').value = info.nombre || '';
@@ -60,29 +71,32 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                 }
 
-                
                 const estadoRes = await fetch('../php/gestion_alumnos/estado_alumno.php', {
                     method: 'POST',
                     body: formData
                 });
-                const dataEstado = await estadoRes.json();
 
-                if (dataEstado) {
-                    if (dataEstado.estado === 'no_registrado' && msgNoReg) {
-                        msgNoReg.classList.remove('d-none');
-                    } else if (dataEstado.estado === 'registrado_sin_grupo' && msgSinGrupo) {
-                        const textoSinGrupo = document.getElementById('texto-registrado-sin-grupo');
-                        if (textoSinGrupo) {
-                            textoSinGrupo.textContent = `El alumno ${dataEstado.nombre} ${dataEstado.apellido} no se encuentra asignado en ningún grupo.`;
-                        }
-                        msgSinGrupo.classList.remove('d-none');
-                    } else if (dataEstado.estado === 'registrado_con_grupo' && msgGrupo) {
-                        const textoGrupo = document.getElementById('texto-registrado-grupo');
-                        if (textoGrupo) {
-                            textoGrupo.textContent = `El alumno ${dataEstado.nombre} ${dataEstado.apellido} se encuentra en el grupo ${dataEstado.grupo}.`;
-                        }
-                        msgGrupo.classList.remove('d-none');
-                    }
+                if (!estadoRes.ok) {
+                    throw new Error(`Error servidor estado_alumno.php: ${estadoRes.status}`);
+                }
+
+                const dataEstado = await safeJSON(estadoRes);
+                console.log(dataEstado);
+
+                if (!dataEstado) {
+                    throw new Error("estado_alumno.php devolvió JSON inválido");
+                }
+
+                if (dataEstado.estado === 'no_registrado') msgNoReg.classList.remove('d-none');
+                else if (dataEstado.estado === 'registrado_sin_grupo') {
+                    document.getElementById('texto-registrado-sin-grupo').textContent =
+                        `El alumno ${dataEstado.nombre} ${dataEstado.apellido} no se encuentra asignado en ningún grupo.`;
+                    msgSinGrupo.classList.remove('d-none');
+                } 
+                else if (dataEstado.estado === 'registrado_con_grupo') {
+                    document.getElementById('texto-registrado-grupo').textContent = 
+                        `El alumno ${dataEstado.nombre} ${dataEstado.apellido} se encuentra en el grupo ${dataEstado.grupo}.`;
+                    msgGrupo.classList.remove('d-none');
                 }
 
             } else {
@@ -92,18 +106,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
                 if (infoSection) infoSection.style.display = "none";
-                if (msgNoReg) msgNoReg.classList.remove('d-none');
+                msgNoReg.classList.remove('d-none');
             }
 
         } catch (err) {
-            console.error('Error en la búsqueda del alumno:', err);
-            if (alertaDiv) {
-                alertaDiv.innerHTML = `
-                    <div class="alert alert-dismissible alert-danger">
-                        <strong>Error al procesar la solicitud</strong>
-                    </div>
-                `;
-            }
+            console.error('Error:', err);
+            alertaDiv.innerHTML = `
+                <div class="alert alert-dismissible alert-danger">
+                    <strong>Error al procesar la solicitud</strong>
+                </div>
+            `;
         }
     });
 });

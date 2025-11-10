@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </nav>
     </header>
 
-    <main class="main-login">
+    <main class="main-login mrg-top">
         <h1>Restablecer Contraseña</h1>
         <?php if (!$redirigir): ?>
         <form action="" method="POST">
