@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let grupoSeleccionado = null;
     btnConfirmar.disabled = true;
-
+    
     async function abrirSelector(cambiar = false) {
         listaSection.classList.remove('d-none');
 
@@ -64,8 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnAbrir?.addEventListener('click', () => abrirSelector(false));
     btnCambiar?.addEventListener('click', () => abrirSelector(true));
-
-    // ✅ Confirmación y envío AJAX
+    
     btnConfirmar.addEventListener('click', async (e) => {
         e.preventDefault();
 
@@ -81,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await Swal.fire({
             title: modo === "cambiar" ? '¿Cambiar grupo?' : '¿Asignar grupo?',
             html: `Alumno: <b>${alumno.nombre} ${alumno.apellido}</b><br>
-                   Grupo: <b>${grupo.grado} ${grupo.nombre} ${grupo.especificacion ?? ''}</b>`,
+                    Grupo: <b>${grupo.grado} ${grupo.nombre} ${grupo.especificacion ?? ''}</b>`,
             icon: 'question',
             showCancelButton: true,
             confirmButtonText: modo === "cambiar" ? 'Sí, cambiar' : 'Sí, asignar',
@@ -112,8 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Swal.fire("Error", data.message ?? "No se pudo asignar el grupo", "error");
             return;
         }
-
-        // ✅ Actualiza UI sin recargar
+        
         msgSinGrupo?.classList.add('d-none');
         textoGrupo.textContent = `El alumno ${alumno.nombre} ${alumno.apellido} está en el grupo ${grupo.grado} ${grupo.nombre} ${grupo.especificacion ?? ''}.`;
         msgGrupo?.classList.remove('d-none');

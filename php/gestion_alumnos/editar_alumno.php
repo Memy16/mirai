@@ -1,15 +1,15 @@
 <?php
-include("conexion.php");
+include("../conexion.php");
 $con = conectar_bd();
 
 header('Content-Type: application/json');
 
-if (!isset($_POST['id'], $_POST['cedula'])) {
+if (!isset($_POST['id_alumno'])) {
     echo json_encode(["success" => false, "error" => "Faltan datos"]);
     exit;
 }
 
-$id = intval($_POST['id']);
+$id = intval($_POST['id_alumno']);
 $nombre = ($_POST['nombre']);
 $apellido = ($_POST['apellido']);
 $tel = ($_POST['telefonoReferente']);
@@ -17,7 +17,7 @@ $tel = ($_POST['telefonoReferente']);
 $stmt = $con->prepare("UPDATE alumnos 
         SET nombre=?, apellido=?, telefonoReferente=? 
         WHERE id_alumno=?");
-$stmt->bind_param("siss", $nombre, $apellido, $tel, $id);
+$stmt->bind_param("sssi", $nombre, $apellido, $tel, $id);
 if ($stmt->execute()) {
     if ($stmt->affected_rows > 0) {
         echo json_encode(["success" => true]);

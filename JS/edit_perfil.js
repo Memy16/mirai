@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnCambiarPass = document.getElementById("btnCambiarPass");
     const passGroup = document.getElementById("passGroup");
     const btnEliminarUsuario = document.getElementById("btnEliminar");
-
+    
     let rolUsuario = null;
     let idUsuario = null;
     
@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 return;
         }
-
+        
             
             rolUsuario = data.rol;
             idUsuario = data.id_alumno || data.id_docente || data.id_adscripta;
-
+            
             document.getElementById("nombre").value = data.nombre || "";
             document.getElementById("apellido").value = data.apellido || "";
             document.getElementById("email").value = data.mail || data.mail_docente || data.mail_adscripta || "";
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const actual = document.getElementById("password_actual").value.trim();
             const nueva = document.getElementById("password_nueva").value.trim();
             const repetir = document.getElementById("password_repetir").value.trim();
-
+            
             if (!actual || !nueva || !repetir) {
                 Swal.fire("Error", "Debe completar todos los campos de contraseña", "error");
                 return;
@@ -63,11 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
         }
-
+        
         const formData = new FormData(formEditarUsuario);
         formData.append("id", idUsuario);
         formData.append("rol", rolUsuario);
-
+        
         fetch("../php/editar_usuario.php", {
                 method: "POST",
                 body: formData
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(() => {
                 Swal.fire("Error", "Error en la petición", "error");
                 
-             
+                
                 
             });
     });
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 if (btnEliminarUsuario) {
         btnEliminarUsuario.addEventListener("click", async () => {
             if (!idUsuario) return;
-
+            
             Swal.fire({
                 title: "¿Seguro que deseas eliminar tu cuenta?",
                 text: "¡Esta acción no se puede deshacer!",
@@ -112,7 +112,7 @@ if (btnEliminarUsuario) {
                     const data = new URLSearchParams();
                     data.append("id", idUsuario);
                     data.append("rol", rolUsuario);
-
+                    
                     try {
                         const resp = await fetch("../php/eliminar_usuario.php", {
                             method: "POST",
