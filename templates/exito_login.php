@@ -39,7 +39,7 @@
             <small>ID de usuario: <?= htmlspecialchars($usuario['user_id']) ?></small><br>
             Serás redirigido en 3 segundos...
         </div>
-
+        
         <script>
             setTimeout(function(){
             window.location.href = '<?= htmlspecialchars($usuario['home']) ?>';

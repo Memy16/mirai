@@ -20,7 +20,7 @@ function validarCedulaUruguaya($cedula) {
     foreach ($numeros as $i => $n) {
         $suma += $n * $pesos[$i];
     }
-
+    
     $dv = 10 - ($suma % 10);
     if ($dv == 10) $dv = 0;
     
@@ -126,12 +126,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: /../templates/error_cedula_invalida.php?cedula=" . urlencode($cedula));
         exit;
     }
-
+    
     $usuario = validarCredenciales($cedula, $pass, $rol);
     
     if ($usuario) {
         crearSesion($usuario);
+
+        ob_start();
         include(__DIR__ . '/../templates/exito_login.php');
+        $contenido = ob_get_clean();
+
+        $script = "
+        <script>
+            sessionStorage.setItem('php_rol', '" . htmlspecialchars($usuario['rol'], ENT_QUOTES, 'UTF-8') . "');
+        </script>
+        <script src='/../JS/duracion_sesion.js></script>
+        ";
+        $contenido = str_replace('</body>', $script . "\n</body>", $contenido);
+        echo $contenido;
         exit;
     } else {
         include(__DIR__ . '/../templates/error_login.html');

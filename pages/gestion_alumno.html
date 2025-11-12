@@ -15,194 +15,197 @@
 </head>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="adscripcion.html">
-                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
-                     alt="Logo Klasso" class="logo">
-            </a>
+    <header>
+        <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="adscripcion.html">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
+                        alt="Logo Klasso" class="logo">
+                </a>
 
-            <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
                     aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarColor03">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="horarios.html">Horarios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="manual.html">Manual de Usuario</a>
-                    </li>
-                    <li>
-                        <div class="light_mode">
-                            <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <div class="gtranslate_wrapper"></div>
-                        <script>
-                            window.gtranslateSettings = {
-                                "default_language": "es",
-                                "languages": ["es", "en"],
-                                "globe_color": "#66aaff",
-                                "wrapper_selector": ".gtranslate_wrapper",
-                                "globe_size": 40
-                            }
-                        </script>
-                        <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
-                            <img src="../assets/img/profile.png" alt="Profile" class="profile">
-                            <i class="fas fa-caret-down"></i>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
-                            <div class="d-flex align-items-center mb-3">
-                                <div>
-                                    <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
-                                    <p class="mb-0 text-muted" id="userRol"></p>
-                                </div>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="horarios.html">Horarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="manual.html">Manual de Usuario</a>
+                        </li>
+                        <li>
+                            <div class="light_mode">
+                                <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
                             </div>
-                            <a href="editar_perfil.html" class="dropdown-item">
-                                <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                        </li>
+                        <li class="nav-item">
+                            <div class="gtranslate_wrapper"></div>
+                            <script>
+                                window.gtranslateSettings = {
+                                    "default_language": "es",
+                                    "languages": ["es", "en"],
+                                    "globe_color": "#66aaff",
+                                    "wrapper_selector": ".gtranslate_wrapper",
+                                    "globe_size": 40
+                                }
+                            </script>
+                            <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
+                                <img src="../assets/img/profile.png" alt="Profile" class="profile">
+                                <i class="fas fa-caret-down"></i>
                             </a>
-                            <a href="../php/logout.php" class="dropdown-item text-danger">
-                                <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
-                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
+                                        <p class="mb-0 text-muted" id="userRol"></p>
+                                    </div>
+                                </div>
+                                <a href="editar_perfil.html" class="dropdown-item">
+                                    <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                                </a>
+                                <a href="../php/logout.php" class="dropdown-item text-danger">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-login mrg-top">
+        <h1>Gestión de alumnos</h1>
+
+        <div class="grid-gestionAlumnos">
+            <section>
+                <h3>Cédula alumno</h3>
+                <form id="buscarAlumnoForm" onsubmit="return false;" class="alumno-busqueda">
+                    <fieldset>
+                        <label for="ciAlumno" class="form-label mt-4">
+                            Ingrese la cédula de un estudiante para saber si está registrado en la plataforma
+                        </label>
+                        <input type="text" name="ciAlumno" class="form-control" id="ciAlumno"
+                            placeholder="Introducir la cédula del alumno" required>
+                    </fieldset>
+                    <button type="submit" class="btn btn-info">Buscar alumno</button>
+                </form>
+                <div id="alertas"></div>
+            </section>
+
+            <section id="infoEstudianteSection" class="alumno-info" style="display: none;">
+                <h4>Información del estudiante</h4>
+                <form id="alumnoForm" action="../php/gestion_alumnos/editar_alumno.php" method="POST">
+                    <input type="hidden" name="id_alumno" id="id_alumno">
+                    <fieldset>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
                         </div>
-                    </li>
-                </ul>
-            </div>
+
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cedula" class="form-label">Cédula:</label>
+                            <input type="text" class="form-control" id="cedula" name="cedula" required readonly>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefonoReferente" class="form-label">Teléfono del referente:</label>
+                            <input type="tel" class="form-control" id="telefonoReferente" name="telefonoReferente"
+                                required>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
+                    <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+                </form>
+            </section>
+
+            <section id="estado-alumno" class="mt-4 alertas">
+                <div id="mensaje-registrado-grupo" class="alert alert-success d-none">
+                    <p id="texto-registrado-grupo"></p>
+                    <button id="btn-cambiar-grupo" class="btn btn-primary">Cambiar de grupo</button>
+                </div>
+
+                <div id="mensaje-no-registrado" class="alert alert-danger d-none">
+                    <p>Este alumno no se encuentra registrado en la plataforma.</p>
+                </div>
+
+                <div id="mensaje-registrado-sin-grupo" class="alert alert-info d-none">
+                    <p id="texto-registrado-sin-grupo"></p>
+                    <button id="btn-asignar-grupo" class="btn btn-primary">Asignar grupo</button>
+                </div>
+            </section>
+
+            <aside class="me-4 aside-grupos grupos-existentes">
+                <h2>Grupos</h2>
+                <div class="lista-grupos-container">
+                    <ul id="listaGrupos" class="list-group"></ul>
+                </div>
+            </aside>
         </div>
-    </nav>
-</header>
 
-<main class="main-login mrg-top">
-    <h1>Gestión de alumnos</h1>
+        <section id="asignar-grupo" class="mt-4 d-none">
+            <h5 id="titulo-asignar"></h5>
+            <p>Seleccione el grupo al que quiere asignar a este alumno</p>
 
-    <div class="grid-gestionAlumnos">
-        <section>
-            <h3>Cédula alumno</h3>
-            <form id="buscarAlumnoForm" onsubmit="return false;" class="alumno-busqueda">
-                <fieldset>
-                    <label for="ciAlumno" class="form-label mt-4">
-                        Ingrese la cédula de un estudiante para saber si está registrado en la plataforma
-                    </label>
-                    <input type="text" name="ciAlumno" class="form-control" id="ciAlumno"
-                           placeholder="Introducir la cédula del alumno" required>
-                </fieldset>
-                <button type="submit" class="btn btn-info">Buscar alumno</button>
+            <form id="form-asignar-grupo" onsubmit="return false;">
+                <input type="hidden" name="id_alumno" id="input-id-alumno">
+                <input type="hidden" name="id_grupo" id="input-id-grupo">
+
+                <div id="grupos-container" class="d-flex flex-wrap gap-3"></div>
+
+                <button id="btn-confirmar-asignacion" class="btn btn-primary mt-3">Asignar grupo</button>
             </form>
-            <div id="alertas"></div>
         </section>
-        
-        <section id="infoEstudianteSection" class="alumno-info" style="display: none;">
-            <h4>Información del estudiante</h4>
-            <form id="alumnoForm" action="../php/gestion_alumnos/editar_alumno.php" method="POST">
-                <input type="hidden" name="id_alumno" id="id_alumno">
-                <fieldset>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="apellido" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" required>
-                    </div>
+    </main>
 
-                    <div class="mb-3">
-                        <label for="cedula" class="form-label">Cédula:</label>
-                        <input type="text" class="form-control" id="cedula" name="cedula" required readonly>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="telefonoReferente" class="form-label">Teléfono del referente:</label>
-                        <input type="tel" class="form-control" id="telefonoReferente" name="telefonoReferente" required>
-                    </div>
-                </fieldset>
-                <button type="submit" class="btn btn-success">Guardar</button>
-                <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
-                <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
-            </form>
-        </section>
-
-        <section id="estado-alumno" class="mt-4 alertas">
-            <div id="mensaje-registrado-grupo" class="alert alert-success d-none">
-                <p id="texto-registrado-grupo"></p>
-                <button id="btn-cambiar-grupo" class="btn btn-primary">Cambiar de grupo</button>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="preguntasfrecuentes.html">Preguntas Frecuentes</a>
+                <a href="sobrenosotros.html">Sobre Nosotros</a>
+                <a href="contacto.html">Contactanos</a>
             </div>
-
-            <div id="mensaje-no-registrado" class="alert alert-danger d-none">
-                <p>Este alumno no se encuentra registrado en la plataforma.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/miraicompanyofficial/"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
+                        alt="Instagram"></a>
+                <a href="#"><img
+                        src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png"
+                        alt="Twitter"></a>
             </div>
-
-            <div id="mensaje-registrado-sin-grupo" class="alert alert-info d-none">
-                <p id="texto-registrado-sin-grupo"></p>
-                <button id="btn-asignar-grupo" class="btn btn-primary">Asignar grupo</button>
-            </div>
-        </section>
-
-        <aside class="me-4 aside-grupos grupos-existentes">
-            <h2>Grupos</h2>
-            <div class="lista-grupos-container">
-                <ul id="listaGrupos" class="list-group"></ul>
-            </div>
-        </aside>
-    </div>
-
-    <section id="asignar-grupo" class="mt-4 d-none">
-        <h5 id="titulo-asignar"></h5>
-        <p>Seleccione el grupo al que quiere asignar a este alumno</p>
-
-        <form id="form-asignar-grupo" onsubmit="return false;">
-            <input type="hidden" name="id_alumno" id="input-id-alumno">
-            <input type="hidden" name="id_grupo" id="input-id-grupo">
-
-            <div id="grupos-container" class="d-flex flex-wrap gap-3"></div>
-
-            <button id="btn-confirmar-asignacion" class="btn btn-primary mt-3">Asignar grupo</button>
-        </form>
-    </section>
-</main>
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-links">
-            <a href="preguntasfrecuentes.html">Preguntas Frecuentes</a>
-            <a href="sobrenosotros.html">Sobre Nosotros</a>
-            <a href="contacto.html">Contactanos</a>
+            <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
         </div>
-        <div class="footer-social">
-            <a href="https://www.instagram.com/miraicompanyofficial/"><img
-                    src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/formkit-instagram.png"
-                    alt="Instagram"></a>
-            <a href="#"><img
-                    src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/prime-twitter.png"
-                    alt="Twitter"></a>
-        </div>
-        <p class="copyright">&copy; 2025 Mirai. Todos los derechos reservados.</p>
-    </div>
-</footer>
+    </footer>
 
-<script src="../JS/app.js"></script>
-<script src="../JS/navbar.js"></script>
-<script src="../JS/perfil.js"></script>
-<script src="../JS/lista_grupos.js"></script>
-<script src="../JS/buscar_alumno.js"></script>
-<script src="../JS/asignar_grupo_ui.js"></script>
-<script src="../JS/cssnavbar.js"></script>
-<script src="../JS/edit_alumno.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+    <script src="../JS/app.js"></script>
+    <script src="../JS/navbar.js"></script>
+    <script src="../JS/perfil.js"></script>
+    <script src="../JS/lista_grupos.js"></script>
+    <script src="../JS/buscar_alumno.js"></script>
+    <script src="../JS/asignar_grupo_ui.js"></script>
+    <script src="../JS/cssnavbar.js"></script>
+    <script src="../JS/edit_alumno.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+    <script src="../JS/exp_sesion.js"></script>
 </body>
+
 </html>

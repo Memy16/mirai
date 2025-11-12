@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Hilo - Klasso</title>
@@ -14,181 +15,198 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        .badge-estudiante { background-color: #28a745; }
-        .badge-docente { background-color: #007bff; }
-        .badge-adscripta { background-color: #6f42c1; }
-        .main-content { margin-top: 80px; }
+        .badge-estudiante {
+            background-color: #28a745;
+        }
+
+        .badge-docente {
+            background-color: #007bff;
+        }
+
+        .badge-adscripta {
+            background-color: #6f42c1;
+        }
+
+        .main-content {
+            margin-top: 80px;
+        }
     </style>
 </head>
+
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">
-                <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
-                    alt="Logo Klasso" class="logo">
-            </a>
+    <header>
+        <nav class="navbar navbar-expand-lg semi-transparent" data-bs-theme="light" id="mainNavbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
+                        alt="Logo Klasso" class="logo">
+                </a>
 
-            <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarColor03">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="horarios.html">Horarios
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="eventos.html">Eventos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="manual.html">Manual de Usuario</a>
-                    </li>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="horarios.html">Horarios
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eventos.html">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="manual.html">Manual de Usuario</a>
+                        </li>
 
-                    <li class="nav-item nav-inicio">
-                        <a class="nav-link" href="registro.html">Registrarse</a>
-                    </li>
-                    <li class="nav-item nav-inicio">
-                        <a class="nav-link" href="login.html">Iniciar sesión</a>
-                    </li>
+                        <li class="nav-item nav-inicio">
+                            <a class="nav-link" href="registro.html">Registrarse</a>
+                        </li>
+                        <li class="nav-item nav-inicio">
+                            <a class="nav-link" href="login.html">Iniciar sesión</a>
+                        </li>
 
-                    <li>
-                        <div class="light_mode">
-                            <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <div class="gtranslate_wrapper"></div>
-                        <script>
-                            window.gtranslateSettings = {
-                                "default_language": "es",
-                                "languages": ["es", "en"],
-                                "globe_color": "#66aaff",
-                                "wrapper_selector": ".gtranslate_wrapper",
-                                "globe_size": 40
-                            }
-                        </script>
-                        <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
-                            <img src="../assets/img/profile.png" alt="Profile" class="profile">
-                            <i class="fas fa-caret-down"></i>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
-                            <div class="d-flex align-items-center mb-3">
-                                <div>
-                                    <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
-                                    <p class="mb-0 text-muted" id="userRol"></p>
-                                </div>
+                        <li>
+                            <div class="light_mode">
+                                <img src="../assets/img/modo-oscuro.png" alt="Cambiar a modo oscuro">
                             </div>
-                            <a href="editar_perfil.html" class="dropdown-item">
-                                <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                        </li>
+                        <li class="nav-item">
+                            <div class="gtranslate_wrapper"></div>
+                            <script>
+                                window.gtranslateSettings = {
+                                    "default_language": "es",
+                                    "languages": ["es", "en"],
+                                    "globe_color": "#66aaff",
+                                    "wrapper_selector": ".gtranslate_wrapper",
+                                    "globe_size": 40
+                                }
+                            </script>
+                            <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-flex align-items-center" href="#" id="profileBtn" role="button">
+                                <img src="../assets/img/profile.png" alt="Profile" class="profile">
+                                <i class="fas fa-caret-down"></i>
                             </a>
-                            <a href="../php/logout.php" class="dropdown-item text-danger">
-                                <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
 
-<div class="main-content bg-light p-4">
-    <div class="container">
-        <a href="foro.html" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left"></i> Volver al Foro</a>
-        
-        <!-- Notificaciones -->
-        <div id="notificaciones"></div>
-        
-        <form id="formMensaje" class="mb-4">
-            <div class="mb-2">
-                <textarea name="mensaje" class="form-control" placeholder="Escribe tu mensaje..." required rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" id="btnEnviar">
-                <span id="btnText">Enviar Mensaje</span>
-                <div id="btnLoading" class="spinner-border spinner-border-sm d-none" role="status">
-                    <span class="visually-hidden">Cargando...</span>
+                            <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <p class="mb-0 fw-bold">Hola, <span id="userName"></span></p>
+                                        <p class="mb-0 text-muted" id="userRol"></p>
+                                    </div>
+                                </div>
+                                <a href="editar_perfil.html" class="dropdown-item">
+                                    <i class="fas fa-user-edit me-2"></i> Editar Perfil
+                                </a>
+                                <a href="../php/logout.php" class="dropdown-item text-danger">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </button>
-        </form>
-        
-        <div id="mensajes">
-            <div class="text-center">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Cargando mensajes...</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content bg-light p-4">
+        <div class="container">
+            <a href="foro.html" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left"></i> Volver al Foro</a>
+
+            <!-- Notificaciones -->
+            <div id="notificaciones"></div>
+
+            <form id="formMensaje" class="mb-4">
+                <div class="mb-2">
+                    <textarea name="mensaje" class="form-control" placeholder="Escribe tu mensaje..." required
+                        rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="btnEnviar">
+                    <span id="btnText">Enviar Mensaje</span>
+                    <div id="btnLoading" class="spinner-border spinner-border-sm d-none" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                </button>
+            </form>
+
+            <div id="mensajes">
+                <div class="text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando mensajes...</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const idTema = urlParams.get('id');
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const idTema = urlParams.get('id');
 
-    // Función para mostrar notificaciones
-    function mostrarNotificacion(mensaje, tipo = 'success') {
-        const notificaciones = document.getElementById('notificaciones');
-        const alerta = document.createElement('div');
-        alerta.className = `alert alert-${tipo === 'success' ? 'success' : 'danger'} alert-dismissible fade show`;
-        alerta.innerHTML = `
+        // Función para mostrar notificaciones
+        function mostrarNotificacion(mensaje, tipo = 'success') {
+            const notificaciones = document.getElementById('notificaciones');
+            const alerta = document.createElement('div');
+            alerta.className = `alert alert-${tipo === 'success' ? 'success' : 'danger'} alert-dismissible fade show`;
+            alerta.innerHTML = `
             ${mensaje}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
-        notificaciones.appendChild(alerta);
-        
-        // Auto-eliminar después de 5 segundos
-        setTimeout(() => {
-            if (alerta.parentNode) {
-                alerta.remove();
-            }
-        }, 5000);
-    }
+            notificaciones.appendChild(alerta);
 
-    function getBadgeClass(rol) {
-        switch(rol.toLowerCase()) {
-            case 'docente': return 'badge-docente';
-            case 'estudiante': return 'badge-estudiante';
-            case 'adscripta': return 'badge-adscripta';
-            default: return 'badge-secondary';
+            // Auto-eliminar después de 5 segundos
+            setTimeout(() => {
+                if (alerta.parentNode) {
+                    alerta.remove();
+                }
+            }, 5000);
         }
-    }
 
-    async function cargarMensajes() {
-        try {
-            const cont = document.getElementById("mensajes");
-            
-            const res = await fetch(`../php/foro/get_posts.php?id_tema=${idTema}`);
-            
-            if (!res.ok) {
-                throw new Error(`Error HTTP: ${res.status}`);
+        function getBadgeClass(rol) {
+            switch (rol.toLowerCase()) {
+                case 'docente':
+                    return 'badge-docente';
+                case 'estudiante':
+                    return 'badge-estudiante';
+                case 'adscripta':
+                    return 'badge-adscripta';
+                default:
+                    return 'badge-secondary';
             }
-            
-            const mensajes = await res.json();
-            cont.innerHTML = "";
-            
-            if (mensajes.length === 0) {
-                cont.innerHTML = `
+        }
+
+        async function cargarMensajes() {
+            try {
+                const cont = document.getElementById("mensajes");
+
+                const res = await fetch(`../php/foro/get_posts.php?id_tema=${idTema}`);
+
+                if (!res.ok) {
+                    throw new Error(`Error HTTP: ${res.status}`);
+                }
+
+                const mensajes = await res.json();
+                cont.innerHTML = "";
+
+                if (mensajes.length === 0) {
+                    cont.innerHTML = `
                     <div class="alert alert-info text-center">
                         <i class="bi bi-chat-square-text"></i> No hay mensajes en este hilo todavía.
                         <br><small>Sé el primero en comentar.</small>
                     </div>`;
-                return;
-            }
-            
-            mensajes.forEach(m => {
-                const badgeClass = getBadgeClass(m.rol);
-                const mensajeDiv = document.createElement('div');
-                mensajeDiv.className = 'card mb-3 shadow-sm';
-                mensajeDiv.innerHTML = `
+                    return;
+                }
+
+                mensajes.forEach(m => {
+                    const badgeClass = getBadgeClass(m.rol);
+                    const mensajeDiv = document.createElement('div');
+                    mensajeDiv.className = 'card mb-3 shadow-sm';
+                    mensajeDiv.innerHTML = `
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <strong>${m.nombre}</strong>
@@ -202,129 +220,133 @@
                             </button>
                         </div>
                     </div>`;
-                cont.appendChild(mensajeDiv);
-            });
-
-            // Agregar event listeners a los botones de like
-            document.querySelectorAll('.like-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const postId = this.getAttribute('data-id');
-                    like(postId);
+                    cont.appendChild(mensajeDiv);
                 });
-            });
 
-        } catch (error) {
-            console.error('Error cargando mensajes:', error);
-            const cont = document.getElementById("mensajes");
-            cont.innerHTML = `
+                // Agregar event listeners a los botones de like
+                document.querySelectorAll('.like-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const postId = this.getAttribute('data-id');
+                        like(postId);
+                    });
+                });
+
+            } catch (error) {
+                console.error('Error cargando mensajes:', error);
+                const cont = document.getElementById("mensajes");
+                cont.innerHTML = `
                 <div class="alert alert-danger text-center">
                     <i class="bi bi-exclamation-triangle"></i> Error al cargar los mensajes.
                     <br><small>${error.message}</small>
                 </div>`;
-        }
-    }
-
-    async function like(id) {
-        try {
-            const formData = new FormData();
-            formData.append("id", id);
-            
-            const res = await fetch("../php/foro/like_post.php", {
-                method: "POST",
-                body: formData
-            });
-            
-            const result = await res.json();
-            if (result.success) {
-                // Actualizar el contador visualmente
-                const likeBtn = document.querySelector(`.like-btn[data-id="${id}"]`);
-                const likeCount = likeBtn.querySelector('.like-count');
-                likeCount.textContent = parseInt(likeCount.textContent) + 1;
-                
-                // Feedback visual
-                likeBtn.classList.add('btn-danger');
-                likeBtn.classList.remove('btn-outline-danger');
-                setTimeout(() => {
-                    likeBtn.classList.remove('btn-danger');
-                    likeBtn.classList.add('btn-outline-danger');
-                }, 500);
-                
-            } else {
-                mostrarNotificacion('Error al dar like', 'error');
             }
-        } catch (error) {
-            console.error('Error dando like:', error);
-            mostrarNotificacion('Error de conexión al dar like', 'error');
-        }
-    }
-
-    document.getElementById("formMensaje").addEventListener("submit", async e => {
-        e.preventDefault();
-        
-        const mensajeInput = e.target.mensaje;
-        const mensaje = mensajeInput.value.trim();
-        const btnEnviar = document.getElementById('btnEnviar');
-        const btnText = document.getElementById('btnText');
-        const btnLoading = document.getElementById('btnLoading');
-        
-        if (!mensaje) {
-            mostrarNotificacion('Por favor escribe un mensaje', 'error');
-            mensajeInput.focus();
-            return;
         }
 
-        try {
-            // Mostrar loading
-            btnText.classList.add('d-none');
-            btnLoading.classList.remove('d-none');
-            btnEnviar.disabled = true;
+        async function like(id) {
+            try {
+                const formData = new FormData();
+                formData.append("id", id);
 
-            const datos = new FormData(e.target);
-            datos.append("id_tema", idTema);
-            
-            const res = await fetch("../php/foro/add_post.php", {
-                method: "POST",
-                body: datos
-            });
-            
-            const result = await res.json();
-            
-            if (result.success) {
-                mensajeInput.value = '';
-                mostrarNotificacion('Mensaje enviado correctamente');
-                await cargarMensajes(); // Recargar mensajes
-            } else {
-                console.error('Error del servidor:', result);
-                mostrarNotificacion('Error: ' + (result.error || 'No se pudo enviar el mensaje'), 'error');
+                const res = await fetch("../php/foro/like_post.php", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const result = await res.json();
+                if (result.success) {
+                    // Actualizar el contador visualmente
+                    const likeBtn = document.querySelector(`.like-btn[data-id="${id}"]`);
+                    const likeCount = likeBtn.querySelector('.like-count');
+                    likeCount.textContent = parseInt(likeCount.textContent) + 1;
+
+                    // Feedback visual
+                    likeBtn.classList.add('btn-danger');
+                    likeBtn.classList.remove('btn-outline-danger');
+                    setTimeout(() => {
+                        likeBtn.classList.remove('btn-danger');
+                        likeBtn.classList.add('btn-outline-danger');
+                    }, 500);
+
+                } else {
+                    mostrarNotificacion('Error al dar like', 'error');
+                }
+            } catch (error) {
+                console.error('Error dando like:', error);
+                mostrarNotificacion('Error de conexión al dar like', 'error');
             }
-        } catch (error) {
-            console.error('Error enviando mensaje:', error);
-            mostrarNotificacion('Error de conexión. Intenta nuevamente.', 'error');
-        } finally {
-            // Ocultar loading
-            btnText.classList.remove('d-none');
-            btnLoading.classList.add('d-none');
-            btnEnviar.disabled = false;
         }
-    });
 
-    // Cargar mensajes al iniciar
-    document.addEventListener('DOMContentLoaded', function() {
-        cargarMensajes();
-        
-        // Verificar si hay un parámetro de éxito en la URL
-        const successParam = urlParams.get('success');
-        if (successParam === 'true') {
-            mostrarNotificacion('Tema creado correctamente');
-        }
-    });
-</script>
+        document.getElementById("formMensaje").addEventListener("submit", async e => {
+            e.preventDefault();
 
-<script src="../JS/app.js"></script>
-<script src="../JS/navbar.js"></script>
-<script src="../JS/perfil.js"></script>
-<script src="../JS/admin_reserva.js"></script>
-<script src="../JS/cssnavbar.js"></script>
-<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+            const mensajeInput = e.target.mensaje;
+            const mensaje = mensajeInput.value.trim();
+            const btnEnviar = document.getElementById('btnEnviar');
+            const btnText = document.getElementById('btnText');
+            const btnLoading = document.getElementById('btnLoading');
+
+            if (!mensaje) {
+                mostrarNotificacion('Por favor escribe un mensaje', 'error');
+                mensajeInput.focus();
+                return;
+            }
+
+            try {
+                // Mostrar loading
+                btnText.classList.add('d-none');
+                btnLoading.classList.remove('d-none');
+                btnEnviar.disabled = true;
+
+                const datos = new FormData(e.target);
+                datos.append("id_tema", idTema);
+
+                const res = await fetch("../php/foro/add_post.php", {
+                    method: "POST",
+                    body: datos
+                });
+
+                const result = await res.json();
+
+                if (result.success) {
+                    mensajeInput.value = '';
+                    mostrarNotificacion('Mensaje enviado correctamente');
+                    await cargarMensajes(); // Recargar mensajes
+                } else {
+                    console.error('Error del servidor:', result);
+                    mostrarNotificacion('Error: ' + (result.error || 'No se pudo enviar el mensaje'),
+                        'error');
+                }
+            } catch (error) {
+                console.error('Error enviando mensaje:', error);
+                mostrarNotificacion('Error de conexión. Intenta nuevamente.', 'error');
+            } finally {
+                // Ocultar loading
+                btnText.classList.remove('d-none');
+                btnLoading.classList.add('d-none');
+                btnEnviar.disabled = false;
+            }
+        });
+
+        // Cargar mensajes al iniciar
+        document.addEventListener('DOMContentLoaded', function () {
+            cargarMensajes();
+
+            // Verificar si hay un parámetro de éxito en la URL
+            const successParam = urlParams.get('success');
+            if (successParam === 'true') {
+                mostrarNotificacion('Tema creado correctamente');
+            }
+        });
+    </script>
+
+    <script src="../JS/app.js"></script>
+    <script src="../JS/navbar.js"></script>
+    <script src="../JS/perfil.js"></script>
+    <script src="../JS/admin_reserva.js"></script>
+    <script src="../JS/cssnavbar.js"></script>
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/exp_sesion.js"></script>
 </body>
+
 </html>
