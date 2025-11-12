@@ -31,7 +31,7 @@ function checkSession() {
     }
 }
 
-setInterval(checkSession, 60000); // revisa cada minuto
+setInterval(checkSession, 60000); 
 document.addEventListener("mousemove", () => {
     const rol = localStorage.getItem("session_rol");
     if (!rol) return;
