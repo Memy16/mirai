@@ -282,7 +282,7 @@ h2 {
     overflow-x: auto;
 }
 
-/* Animaciones para las imágenes del index*/
+/* Animaciones para las imágenes del carrusel*/
 @keyframes automatizacion {
     0% {
         margin-left: 0%;
@@ -605,7 +605,7 @@ pre {
         padding: 1rem 15px !important;
         flex-wrap: wrap !important;
     }
-
+    
     .navbar .container-fluid {
         justify-content: space-between !important;
     }
@@ -615,11 +615,11 @@ pre {
         display: block !important;
         order: 2 !important;
     }
-
+    
     .navbar-brand {
         order: 1 !important;
     }
-
+    
     .navbar-collapse {
         order: 3 !important;
         width: 100% !important;
@@ -629,7 +629,7 @@ pre {
         box-shadow: none !important;
         border: none !important;
     }
-
+    
     .navbar-nav li:has(.profile) {
         order: -1 !important;
         margin-bottom: 1.5rem !important;
@@ -644,7 +644,7 @@ pre {
         height: 60px !important;
         margin: 0 !important;
     }
-
+    
     .profile img {
         border-radius: 50% !important;
         border: 2px solid var(--blanco) !important;
@@ -676,13 +676,13 @@ pre {
         text-transform: uppercase !important;
         letter-spacing: 0.5px !important;
     }
-
+    
     .navbar-nav .nav-link:hover {
         background-color: transparent !important;
         color: var(--amarillo) !important;
         transform: none !important;
     }
-
+    
     .navbar-nav .nav-link.active {
         color: var(--amarillo) !important;
         font-weight: 600 !important;
@@ -706,7 +706,7 @@ pre {
         background-color: var(--indigo) !important;
         color: var(--blanco) !important;
     }
-
+    
     .nav-inicio:last-of-type .nav-link {
         background-color: var(--indigoclaro) !important;
         color: var(--blanco) !important;
@@ -741,7 +741,7 @@ pre {
         margin-bottom: 0.5rem !important;
         width: auto !important;
     }
-
+    
     .navbar-nav li:has(.gtranslate_wrapper) {
         order: 11 !important;
         display: flex !important;
@@ -752,7 +752,7 @@ pre {
         margin-bottom: 0.5rem !important;
         width: auto !important;
     }
-
+    
     .light_mode {
         width: 40px !important;
         height: 40px !important;
@@ -768,41 +768,58 @@ pre {
         width: 40px;
     }
 
-    .carrusel1-caja {
-        height: 350px;
-    }
-
-    .img-carrusel1 {
-        height: 350px;
-    }
-
-    .texto-superpuesto img {
-        width: 140px;
-    }
-
     .footer-container {
         gap: 10px;
     }
-
+    
     .footer-links {
         gap: 16px;
         flex-direction: column;
     }
-
+    
     .footer-social {
         gap: 12px;
     }
-
+    
     table {
         width: 100%;
         font-size: 14px;
-        /* texto un poco más pequeño */
     }
-
+    
     th,
     td {
         padding: 8px;
-        /* celdas un poco más compactas */
+    }
+    
+    .contenedor-principal {
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .carrusel1-caja {
+        height: 400px;
+    }
+
+    .img-carrusel1 {
+        height: 400px;
+    }
+    
+    .texto-superpuesto {
+        padding: 30px 20px;
+    }
+    
+    .texto-superpuesto h1 {
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .texto-superpuesto h2 {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+    }
+    
+    .texto-superpuesto img {
+        width: 140px;
     }
 }
 
@@ -844,19 +861,39 @@ pre {
     }
 
     .carrusel1-caja {
-        height: 250px;
+        height: 300px;
+    }
+
+    .img-carrusel1 {
+        height: 300px;
+    }
+    
+    .texto-superpuesto {
+        padding: 20px 15px;
+    }
+    
+    .texto-superpuesto h1 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .contenedor-principal {
+        min-height: 300px;
+        padding-top: 60px;
+        padding-bottom: 10px;
+    }
+
+    .texto-superpuesto h2 {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
     }
 
     .texto-superpuesto img {
         width: 100px;
     }
-
-    .img-carrusel1 {
-        height: 250px;
-    }
 }
 
-/* Asegurar orden correcto de elementos */
 .navbar-nav li:has(.light_mode) {
     order: 10;
 }
@@ -867,6 +904,63 @@ pre {
 
 .navbar-nav li:has(.profile) {
     order: 12;
+}
+
+@media (max-width: 360px) {
+    .contenedor-principal {
+        min-height: 250px;
+    }
+    
+    .carrusel1-caja {
+        height: 250px;
+    }
+
+    .img-carrusel1 {
+        height: 250px;
+    }
+    
+    .texto-superpuesto h1 {
+        font-size: 1.2rem;
+    }
+    
+    .texto-superpuesto h2 {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 320px) {
+    .contenedor-principal {
+        min-height: 240px;
+    }
+    
+    .carrusel1-caja {
+        height: 240px;
+    }
+
+    .img-carrusel1 {
+        height: 240px;
+    }
+    
+    .texto-superpuesto {
+        padding: 15px 10px;
+        padding-top: 60px;
+    }
+    
+    .texto-superpuesto h1 {
+        font-size: 1.5rem;
+        margin-bottom: 3px;
+        line-height: 1.15;
+    }
+    
+    .texto-superpuesto h2 {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .texto-superpuesto img {
+        width: 80px;
+    }
 }
 
 /* Ocultar collapse en desktop y mantener elementos en línea */
