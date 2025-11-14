@@ -4,7 +4,7 @@ $con = conectar_bd();
 
 $id = intval($_POST['id']);
 
-$stmt = $con->prepare("SELECT id_recurso, nombre, cantidad FROM recursos WHERE id_recurso=? LIMIT 1");
+$stmt = $con->prepare("SELECT id_recurso, nombre FROM recursos WHERE id_recurso=? LIMIT 1");
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();

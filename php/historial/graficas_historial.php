@@ -22,31 +22,31 @@ while ($row = $res2->fetch_assoc()) {
 }
 
 // Recursos más usados (requiere JOIN con reserva_recursos)
-$sql3 = "SELECT r.nombre_recurso AS recurso, COUNT(h.id_historial) AS total
+$sql3 = "SELECT r.nombre AS recursos, COUNT(h.id_historial) AS total
             FROM historial h
             JOIN reserva_recursos rr ON rr.id_reserva = h.id_reserva
-            JOIN recurso r ON r.id_recurso = rr.id_recurso
-            GROUP BY r.nombre_recurso
+            JOIN recursos r ON r.id_recurso = rr.id_recurso
+            GROUP BY r.nombre
             ORDER BY total DESC
             LIMIT 5";
 $res3 = $con->query($sql3);
 $data_mas = [];
 while ($row = $res3->fetch_assoc()) {
-    $data_mas[] = ["recurso" => $row['recurso'], "total" => intval($row['total'])];
+    $data_mas[] = ["recursos" => $row['recursos'], "total" => intval($row['total'])];
 }
 
 // Recursos menos usados (mismo JOIN, orden inverso)
-$sql4 = "SELECT r.nombre_recurso AS recurso, COUNT(h.id_historial) AS total
+$sql4 = "SELECT r.nombre AS recursos, COUNT(h.id_historial) AS total
             FROM historial h
             JOIN reserva_recursos rr ON rr.id_reserva = h.id_reserva
-            JOIN recurso r ON r.id_recurso = rr.id_recurso
-            GROUP BY r.nombre_recurso
+            JOIN recursos r ON r.id_recurso = rr.id_recurso
+            GROUP BY r.nombre
             ORDER BY total ASC
             LIMIT 5";
 $res4 = $con->query($sql4);
 $data_menos = [];
 while ($row = $res4->fetch_assoc()) {
-    $data_menos[] = ["recurso" => $row['recurso'], "total" => intval($row['total'])];
+    $data_menos[] = ["recursos" => $row['recursos'], "total" => intval($row['total'])];
 }
 
 // Tendencia mensual de reservas

@@ -7,7 +7,7 @@ include("../conexion.php");
 $con = conectar_bd();
 
 $recursos = [];
-$sql = "SELECT id_recurso, nombre, cantidad FROM recursos ORDER BY nombre, cantidad";
+$sql = "SELECT id_recurso, nombre FROM recursos ORDER BY nombre";
 $result = $con->query($sql);
 
 if ($result) {
