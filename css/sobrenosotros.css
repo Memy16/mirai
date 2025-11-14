@@ -1,0 +1,114 @@
+/*
+ * Archivo CSS específico para la página 'sobrenosotros.html'
+ * Estilos base para la página Sobre Nosotros
+ */
+
+/* Estilos para la sección principal del contenido */
+.sobre-nosotros-section {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+/* Estilo para el título principal */
+.sobre-nosotros-section h1 {
+    color: #062863; /* Turquí - Color principal de KLASSO */
+    font-weight: 800;
+    margin-bottom: 5px;
+    font-size: 2.5rem; /* Ajuste para pantallas grandes */
+}
+
+/* Estilo para el subtítulo principal (lead) */
+.sobre-nosotros-section .lead {
+    font-size: 1.25rem;
+}
+
+/* Estilo para los subtítulos de sección */
+.sobre-nosotros-section h2 {
+    color: #1C4C96; /* Azul Cobalto */
+    font-weight: 700;
+    border-left: 5px solid #EEB810; /* Amarillo Hansa - Acento */
+    padding-left: 15px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+/* Estilo para los títulos internos */
+.sobre-nosotros-section h3 {
+    color: #343a40;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Estilo para los párrafos */
+.sobre-nosotros-section p {
+    line-height: 1.7;
+    color: #495057;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* Lista de Objetivos o Funcionalidades */
+.objectives-list {
+    margin-top: 20px;
+}
+
+.objectives-list .list-group-item {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    font-size: 1rem;
+    color: #1e1e1e;
+    padding: 15px 20px;
+}
+
+.objectives-list i {
+    color: #1C4C96;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+/* Lista del equipo */
+.team-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.team-list li {
+    background-color: #f8f9fa;
+    margin-bottom: 8px;
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    border-left: 5px solid #062863;
+}
+
+.team-list i {
+    color: #EEB810; /* Icono de acento */
+    margin-right: 10px;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .sobre-nosotros-section h1 {
+        font-size: 2rem;
+    }
+    
+    .sobre-nosotros-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .sobre-nosotros-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .sobre-nosotros-section .lead {
+        font-size: 1rem;
+    }
+    
+    .team-list li {
+        font-size: 0.95rem;
+    }
+}
