@@ -93,9 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <li class="nav-item">
                             <a class="nav-link" href="eventos.html">Eventos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="manual.html">Manual de Usuario</a>
-                        </li>
 
                         <li class="nav-item nav-inicio">
                             <a class="nav-link" href="registro.html">Registrarse</a>
