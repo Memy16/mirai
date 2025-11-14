@@ -21,13 +21,13 @@
                     <img src="https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/images/iconos/klasso-logo.png"
                         alt="Logo Klasso" class="logo">
                 </a>
-
+                
                 <button class="navbar-toggler" id="navbarToggle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                
                 <div class="collapse navbar-collapse" id="navbarColor03">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
@@ -62,7 +62,7 @@
                                 <img src="../assets/img/profile.png" alt="Profile" class="profile">
                                 <i class="fas fa-caret-down"></i>
                             </a>
-
+                            
                             <div class="dropdown-menu dropdown-menu-end p-3 shadow" id="profileDropdown">
                                 <div class="d-flex align-items-center mb-3">
                                     <div>
@@ -110,6 +110,26 @@
                 </div>
             </aside>
         </div>
+        <section id="editorAsign" style="display: none; border-top: 1px solid #062863">
+            <h3>Editar Relacion Asignatura - docente</h3>
+            <form id="formEditarAsign" action="../php/asignaturas/editar_asignatura.php" method="POST">
+                <input type="hidden" name="id" id="editId">
+                
+                <div>
+                    <label for="editNombre">Nombre</label>
+                    <input type="text" name="nombre" id="editNombre" required class="form-control">
+                </div>
+                <div>
+                    <label for="editDescripcion">Descripción</label>
+                    <input type="text" name="descripcion" id="editDescripcion" class="form-control">
+                </div>
+                
+                <br>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
+                <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+            </form>
+        </section>
     </main>
     <footer>
         <div class="footer-container">
