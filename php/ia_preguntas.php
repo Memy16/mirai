@@ -86,12 +86,10 @@ if (isset($json['candidates']) && count($json['candidates']) > 0) {
     foreach ($json['candidates'] as $candidate) {
         if (isset($candidate['content']['parts'][0]['text'])) {
             $bot_response .= $candidate['content']['parts'][0]['text'];
+            echo json_encode(["respuesta" => $bot_response]);
         }
     }
 }
 
-if (empty($bot_response)) {
-    $bot_response = "No se recibió respuesta del modelo.";
-}
 
-echo json_encode(["respuesta" => $bot_response]);
+

@@ -3,7 +3,7 @@
         
         $servidor = "localhost";
         $usuario = "root";
-        $clave = "";
+        $clave = "root";
         $base_datos = "mirai_klasso";
         
         $conexion = mysqli_connect($servidor, $usuario, $clave, $base_datos);

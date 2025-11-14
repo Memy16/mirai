@@ -4,7 +4,7 @@
 
 .container-principal {
     display: flex;
-    min-height: 100vh;
+    min-height: 14vh;
     gap: 2rem;
     padding: 1rem;
 }

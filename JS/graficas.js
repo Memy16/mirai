@@ -12,6 +12,8 @@ fetch("../php/historial/graficas_historial.php")
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         position: "bottom"
@@ -32,6 +34,8 @@ fetch("../php/historial/graficas_historial.php")
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -52,6 +56,8 @@ fetch("../php/historial/graficas_historial.php")
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 indexAxis: "y",
                 scales: {
                     x: {
@@ -73,6 +79,8 @@ fetch("../php/historial/graficas_historial.php")
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 indexAxis: "y",
                 scales: {
                     x: {
@@ -96,6 +104,8 @@ fetch("../php/historial/graficas_historial.php")
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -115,6 +125,8 @@ fetch("../php/historial/graficas_historial.php")
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         position: "bottom"
