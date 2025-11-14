@@ -110,6 +110,26 @@
                 </div>
             </aside>
         </div>
+        <section id="editorAsign" style="display: none; border-top: 1px solid #062863">
+            <h3>Editar Relacion Asignatura - docente</h3>
+            <form id="formEditarAsign" action="../php/asignaturas/editar_asignatura.php" method="POST">
+                <input type="hidden" name="id" id="editId">
+                
+                <div>
+                    <label for="editNombre">Nombre</label>
+                    <input type="text" name="nombre" id="editNombre" required class="form-control">
+                </div>
+                <div>
+                    <label for="editDescripcion">Descripción</label>
+                    <input type="text" name="descripcion" id="editDescripcion" class="form-control">
+                </div>
+                
+                <br>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
+                <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+            </form>
+        </section>
     </main>
     <footer>
         <div class="footer-container">

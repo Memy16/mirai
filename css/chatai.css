@@ -127,3 +127,113 @@
     width: 100px;
     height: auto;
 }
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  #chat-wrapper {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  #chat-img {
+    width: 180px; 
+    max-width: 25%; 
+    align-self: flex-start;
+    margin-right: 0;
+  }
+  #chat-container {
+    flex: 1;
+    max-width: none;
+  }
+  
+  #chat-box {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 600px) {
+  #chat-wrapper {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    gap: 12px;
+  }
+  
+  #chat-img {
+    width: 150px;
+    max-width: 22%;
+  }
+  
+  #chat-box {
+    height: 380px;
+  }
+  
+  .user-msg,
+  .bot-msg {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 600px) {
+  #chat-wrapper {
+    flex-direction: column;
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    gap: 15px;
+    position: relative;
+    min-height: 500px;
+  }
+  
+  #chat-img {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    z-index: 10;
+    max-width: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 2px solid #fff;
+    content: url('https://cdn.jsdelivr.net/gh/Memy16/img-klasso@main/miraicel-removebg-preview.png');
+  }
+  
+  #chat-container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  #chat-box {
+    height: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .user-msg,
+  .bot-msg {
+    max-width: 85%;
+  }
+  
+  #user-input {
+    width: 75%;
+  }
+  
+  #send-btn {
+    width: 23%;
+  }
+}
+
+@media (max-width: 400px) {
+  #chat-wrapper {
+    width: calc(100% - 10px);
+    margin: 0 5px;
+    min-height: 450px;
+  }
+  
+  #chat-img {
+    width: 80px;
+    bottom: 50px;
+    right: 5px;
+  }
+}
