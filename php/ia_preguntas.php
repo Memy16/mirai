@@ -1,7 +1,8 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-$api_key = "AIzaSyDsjnzf4-dbP3sSdelN6qzWRYP4EI3Dpxw";
+$gemini_api_key = "AIzaSyDsjnzf4-dbP3sSdelN6qzWRYP4EI3Dpxw";
+$openrouter_api_key = "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"; 
 $user_input = $_POST['mensaje'] ?? "";
 
 $system_instruction = "
@@ -14,7 +15,7 @@ El equipo técnico del proyecto 'Mirai&Klasso' está compuesto por:
 **Emmy MachadoDeOliveira**: Coordinadora General
 **Benjamin Torecilla**: Subcoordinador
 **Kevin Correa**: Desarrollador
-**Valentin Amatto**: MultiTarea
+**Valentín Amatto**: MultiTarea
 
 Reglas:
 - Si preguntan quién es Mirai, responde:
@@ -23,73 +24,97 @@ Reglas:
 - Si preguntan cosas fuera del contexto del proyecto, responde:
   Mmm... *mueve la cola* Lo siento, pero solo puedo hablar sobre el proyecto 'Mirai&Klasso'. Si querés, puedo contarte sobre el equipo, las funciones o cómo usar las secciones del sitio. 😺
 
-- Si preguntan cómo realizar alguna acción dentro del proyecto (por ejemplo, hacer una reserva o registrarse), explica únicamente los pasos, la metodología o el flujo, usando la información visible en las rutas, permisos o formularios del HTML/PHP.
+- Si preguntan cómo realizar alguna acción dentro del proyecto, explica únicamente los pasos, la metodología o el flujo, usando la información visible en las rutas, permisos o formularios del HTML/PHP.
   Nunca compartas fragmentos de código ni valores internos de JS, PHP o CSS.
-  Ejemplo de respuesta adecuada:
-  > Para hacer una reserva, necesitas los permisos de adscripta o docente y dirigirte al sitio designado como 'Reservas'. Allí podrás elegir la fecha y hora, y completar la información requerida según tu rol. ¡Fácil como ronronear! 😸
 
 4. **Registro de usuarios:**
    - Si te preguntan cómo registrarse, responde que deben dirigirse a:
      https://localhost:3000/pages/registro.html  
-   - Explica los pasos para registrarse sin compartir códigos, contraseñas ni datos sensibles:
-     * Completar Nombre y Apellido.
-     * Ingresar un correo electrónico válido.
-     * Ingresar su número de cédula.
-     * Seleccionar el rol correspondiente (por ejemplo: adscripta, docente).
-     * Ingresar el código de verificación solo si corresponde (**nunca revelar códigos reales**).
-     * Crear y confirmar una contraseña segura.
-     * Completar el captcha para verificar que no sos otro gato curioso 😼.
-- Nunca compartas fragmentos de PHP, HTML, CSS o JS del proyecto.
-- Nunca compartas contraseñas, códigos internos o datos de otros usuarios.
-- El bot puede explicar el flujo o los pasos, pero **nunca debe mostrar código ni credenciales**.
-
-- Siempre responde con un toque felino y positivo, como si fueras Mirai acompañando al usuario en su experiencia con el proyecto.
+   - Explica los pasos para registrarse sin compartir códigos, contraseñas ni datos internos.
+- Nunca compartas contraseñas, fragmentos de código ni datos de usuarios.
+- Siempre responde con un toque felino.
 ";
 
-
-$data = [
-    "contents" => [
-        [
-            "parts" => [
-                ["text" => $system_instruction],
-                ["text" => $user_input]
+function callGemini($user_input, $system_instruction, $api_key) {
+    $data = [
+        "contents" => [
+            [
+                "parts" => [
+                    ["text" => $system_instruction],
+                    ["text" => $user_input]
+                ]
             ]
         ]
-    ]
-];
+    ];
 
-$ch = curl_init("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent");
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "x-goog-api-key: $api_key",
-    "Content-Type: application/json"
-]);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $ch = curl_init("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "x-goog-api-key: $api_key",
+        "Content-Type: application/json"
+    ]);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-$response = curl_exec($ch);
-$err = curl_error($ch);
-curl_close($ch);
+    $response = curl_exec($ch);
+    $err = curl_error($ch);
+    curl_close($ch);
 
-if ($err) {
-    echo json_encode(["error" => $err]);
-    exit;
-}
+    if ($err) return ["error" => $err];
 
-$json = json_decode($response, true);
+    $json = json_decode($response, true);
 
-// Extraemos correctamente el texto dentro de content['parts'][0]['text']
-$bot_response = "";
-if (isset($json['candidates']) && count($json['candidates']) > 0) {
-    foreach ($json['candidates'] as $candidate) {
-        if (isset($candidate['content']['parts'][0]['text'])) {
-            $bot_response .= $candidate['content']['parts'][0]['text'];
-            echo json_encode(["respuesta" => $bot_response]);
-        }
-    }
+    if (!isset($json['candidates'][0]['content']['parts'][0]['text']))
+        return ["respuesta" => null];
+
+    return ["respuesta" => $json['candidates'][0]['content']['parts'][0]['text']];
 }
 
 
+// =========================
+// FUNCIÓN LLAMA 3.1 GRATIS (OPENROUTER)
+// =========================
+function callLlama($user_input, $system_instruction, $api_key) {
+    $data = [
+        "model" => "meta-llama/llama-4-scout:free",
+        "messages" => [
+            ["role" => "system", "content" => $system_instruction],
+            ["role" => "user", "content" => $user_input]
+        ]
+    ];
 
+    $ch = curl_init("https://openrouter.ai/api/v1/chat/completions");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Authorization: Bearer $api_key",
+        "Content-Type: application/json",
+        "HTTP-Referer: https://tu-sitio.com",
+        "X-Title: MiraiKlasso Bot"
+    ]);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch);
+    $err = curl_error($ch);
+    curl_close($ch);
+
+    if ($err) return ["error" => $err];
+
+    $json = json_decode($response, true);
+
+    $text = $json['choices'][0]['message']['content'] ?? null;
+    return ["respuesta" => $text];
+}
+
+$result = callGemini($user_input, $system_instruction, $gemini_api_key);
+
+if (empty($result['respuesta'])) {
+    $result = callLlama($user_input, $system_instruction, $openrouter_api_key);
+}
+
+if (empty($result['respuesta'])) {
+    $result['respuesta'] = "No se recibió respuesta de ninguna IA 😿";
+}
+
+echo json_encode(["respuesta" => $result['respuesta']]);
+?>
